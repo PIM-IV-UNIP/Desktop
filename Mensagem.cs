@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Desktop
 {
-    class CTR_Hospede
+    class Mensagem
     {
-
+        public string TMensagem { get; set; }
     }
 }

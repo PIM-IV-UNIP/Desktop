@@ -17,7 +17,7 @@ namespace Desktop
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaInicial());
+            Application.Run(new Frm_Hospede());
         }
     }
 }
