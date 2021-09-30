@@ -18,6 +18,10 @@ namespace Desktop
             Hospede = new Hospede();
             Ctr_Hospede = new Ctr_Hospede();
         }
+        private void Frm_Hospede_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -33,6 +37,17 @@ namespace Desktop
 
             Mensagem = Ctr_Hospede.AdicionarHospede(Hospede);
             MessageBox.Show(Mensagem.TMensagem);
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            txbNome.Text = Hospede.nomePessoa;
+            txbEmail.Text = Hospede.emailPessoa;
+            txbEndereco.Text = Hospede.enderecoPessoa;
+            txbTelefone.Text = Convert.ToString(Hospede.telfonePessoa);
+            txbRG.Text = Convert.ToString(Hospede.rgPessoa);
+            maskTxbNasc.Text = Convert.ToString(Hospede.nascimentoPessoa);
+            txbNacionalidade.Text = Hospede.nacionalidade;
         }
     }
 }

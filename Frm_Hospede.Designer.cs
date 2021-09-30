@@ -208,6 +208,7 @@ namespace Desktop
             this.btnConsultar.TabIndex = 15;
             this.btnConsultar.Text = "Consultar Hóspede";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnAtualizar
             // 
@@ -262,6 +263,7 @@ namespace Desktop
             this.Controls.Add(this.lblNome);
             this.Name = "Frm_Hospede";
             this.Text = "Tela Hóspede";
+            this.Load += new System.EventHandler(this.Frm_Hospede_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
