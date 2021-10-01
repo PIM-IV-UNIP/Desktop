@@ -44,7 +44,7 @@ namespace Desktop
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             Mensagem = Ctr_Hospede.ConsultarHospede(Hospede);
-            
+
                 txbNome.Text = Hospede.nomePessoa;
                 txbEmail.Text = Hospede.emailPessoa;
                 txbEndereco.Text = Hospede.enderecoPessoa;
@@ -52,6 +52,7 @@ namespace Desktop
                 txbRG.Text = Convert.ToString(Hospede.rgPessoa);
                 maskTxbNasc.Text = Convert.ToString(Hospede.nascimentoPessoa);
                 txbNacionalidade.Text = Hospede.nacionalidade;
+
             MessageBox.Show(Mensagem.TMensagem);
 
         }
@@ -65,6 +66,14 @@ namespace Desktop
             txbRG.Text = " " ;
             maskTxbNasc.Text = " ";
             txbNacionalidade.Text = " ";
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            Hospede.rgPessoa = Convert.ToDouble(txbRG.Text);
+            Mensagem = Ctr_Hospede.ExcluirHospede(Hospede);
+
+            MessageBox.Show(Mensagem.TMensagem);
         }
     }
 }

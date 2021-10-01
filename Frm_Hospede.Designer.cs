@@ -221,6 +221,7 @@ namespace Desktop
             this.btnExcluir.TabIndex = 17;
             this.btnExcluir.Text = "Excluir Hóspede";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // maskTxbNasc
             // 
