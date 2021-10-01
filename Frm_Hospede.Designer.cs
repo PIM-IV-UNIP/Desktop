@@ -36,7 +36,6 @@ namespace Desktop
             this.lblEmail = new System.Windows.Forms.Label();
             this.txbEndereco = new System.Windows.Forms.TextBox();
             this.lblEndereco = new System.Windows.Forms.Label();
-            this.txbTelefone = new System.Windows.Forms.TextBox();
             this.lblTelefone = new System.Windows.Forms.Label();
             this.txbRG = new System.Windows.Forms.TextBox();
             this.lblRG = new System.Windows.Forms.Label();
@@ -49,6 +48,8 @@ namespace Desktop
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.maskTxbNasc = new System.Windows.Forms.MaskedTextBox();
+            this.txbTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNome
@@ -115,13 +116,6 @@ namespace Desktop
             this.lblEndereco.Text = "Endereco:";
             this.lblEndereco.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txbTelefone
-            // 
-            this.txbTelefone.Location = new System.Drawing.Point(197, 209);
-            this.txbTelefone.Name = "txbTelefone";
-            this.txbTelefone.Size = new System.Drawing.Size(202, 27);
-            this.txbTelefone.TabIndex = 6;
-            // 
             // lblTelefone
             // 
             this.lblTelefone.AutoSize = true;
@@ -167,7 +161,7 @@ namespace Desktop
             this.txbNacionalidade.Location = new System.Drawing.Point(197, 306);
             this.txbNacionalidade.Name = "txbNacionalidade";
             this.txbNacionalidade.Size = new System.Drawing.Size(202, 27);
-            this.txbNacionalidade.TabIndex = 12;
+            this.txbNacionalidade.TabIndex = 10;
             // 
             // lblNacionalidade
             // 
@@ -234,13 +228,34 @@ namespace Desktop
             this.maskTxbNasc.Mask = "00/00/0000";
             this.maskTxbNasc.Name = "maskTxbNasc";
             this.maskTxbNasc.Size = new System.Drawing.Size(202, 27);
-            this.maskTxbNasc.TabIndex = 18;
+            this.maskTxbNasc.TabIndex = 9;
+            // 
+            // txbTelefone
+            // 
+            this.txbTelefone.Location = new System.Drawing.Point(198, 209);
+            this.txbTelefone.Mask = "+000 (000) 00000-0000";
+            this.txbTelefone.Name = "txbTelefone";
+            this.txbTelefone.Size = new System.Drawing.Size(201, 27);
+            this.txbTelefone.TabIndex = 5;
+            this.txbTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(579, 445);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(81, 57);
+            this.btnLimpar.TabIndex = 18;
+            this.btnLimpar.Text = "Limpar Campos";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // Frm_Hospede
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 524);
+            this.Controls.Add(this.btnLimpar);
+            this.Controls.Add(this.txbTelefone);
             this.Controls.Add(this.maskTxbNasc);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAtualizar);
@@ -253,7 +268,6 @@ namespace Desktop
             this.Controls.Add(this.lblNascimento);
             this.Controls.Add(this.txbRG);
             this.Controls.Add(this.lblRG);
-            this.Controls.Add(this.txbTelefone);
             this.Controls.Add(this.lblTelefone);
             this.Controls.Add(this.txbEndereco);
             this.Controls.Add(this.lblEndereco);
@@ -278,7 +292,6 @@ namespace Desktop
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txbEndereco;
         private System.Windows.Forms.Label lblEndereco;
-        private System.Windows.Forms.TextBox txbTelefone;
         private System.Windows.Forms.Label lblTelefone;
         private System.Windows.Forms.TextBox txbRG;
         private System.Windows.Forms.Label lblRG;
@@ -291,5 +304,7 @@ namespace Desktop
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.MaskedTextBox maskTxbNasc;
+        private System.Windows.Forms.MaskedTextBox txbTelefone;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }
