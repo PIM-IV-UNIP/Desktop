@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data.SqlClient;
-using System.Data.Common;
 
 namespace Desktop
 {
-    class Ctr_Hospede 
+    class CTR_Hospede 
     {
         Mensagem Mensagem = new Mensagem();
         SqlConnection con = new SqlConnection(@"Data Source = utor_\SQLEXPRESS; Initial Catalog = BDCadastro; Integrated Security = True"); //connection string do BD

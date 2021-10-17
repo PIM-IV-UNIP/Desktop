@@ -9,16 +9,16 @@ using System.Windows.Forms;
 
 namespace Desktop
 {
-    public partial class Frm_Hospede : Form
+    public partial class FRM_Hospede : Form
     {
         Hospede Hospede;
-        Ctr_Hospede Ctr_Hospede;
+        CTR_Hospede CTR_Hospede;
         Mensagem Mensagem;
-        public Frm_Hospede()
+        public FRM_Hospede()
         {
             InitializeComponent();
             Hospede = new Hospede();
-            Ctr_Hospede = new Ctr_Hospede();
+            CTR_Hospede = new CTR_Hospede();
             Mensagem = new Mensagem();
         }
         private void Frm_Hospede_Load(object sender, EventArgs e)
@@ -36,14 +36,14 @@ namespace Desktop
             Hospede.nascimentoPessoa = Convert.ToDateTime(maskTxbNasc.Text);
             Hospede.nacionalidade = txbNacionalidade.Text;
 
-            Mensagem = Ctr_Hospede.AdicionarHospede(Hospede);
+            Mensagem = CTR_Hospede.AdicionarHospede(Hospede);
 
             MessageBox.Show(Mensagem.TMensagem);
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            Mensagem = Ctr_Hospede.ConsultarHospede(Hospede);
+            Mensagem = CTR_Hospede.ConsultarHospede(Hospede);
 
                 txbNome.Text = Hospede.nomePessoa;
                 txbEmail.Text = Hospede.emailPessoa;
@@ -71,9 +71,15 @@ namespace Desktop
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             Hospede.rgPessoa = Convert.ToDouble(txbRG.Text);
-            Mensagem = Ctr_Hospede.ExcluirHospede(Hospede);
+            Mensagem = CTR_Hospede.ExcluirHospede(Hospede);
 
             MessageBox.Show(Mensagem.TMensagem);
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
+
     }
 }

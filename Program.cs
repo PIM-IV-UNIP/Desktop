@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Desktop
+namespace Desktop.View
 {
     static class Program
     {
@@ -17,7 +17,7 @@ namespace Desktop
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Hospede());
+            Application.Run(new FRM_Login());
         }
     }
 }
