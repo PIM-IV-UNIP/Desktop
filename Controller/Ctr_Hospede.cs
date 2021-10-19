@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Data.SqlClient;
+using Desktop.Model;
 
-namespace Desktop
+namespace Desktop.Controller
 {
     class CTR_Hospede 
     {

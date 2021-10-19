@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Desktop
+namespace Desktop.Model
 {
     class Inicio
     {
