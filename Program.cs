@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Desktop.View;
 
-namespace Desktop.View
+namespace Desktop
 {
     static class Program
     {

@@ -6,8 +6,10 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Desktop.Model;
+using Desktop.Controller;
 
-namespace Desktop
+namespace Desktop.View
 {
     public partial class FRM_Hospede : Form
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace Desktop
+namespace Desktop.View
 {
     partial class FRM_Hospede
     {
