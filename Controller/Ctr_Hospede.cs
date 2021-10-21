@@ -7,7 +7,7 @@ namespace Desktop.Controller
     class CTR_Hospede 
     {
         Mensagem Mensagem = new Mensagem();
-        SqlConnection con = new SqlConnection(@"Data Source = utor_\SQLEXPRESS; Initial Catalog = BDCadastro; Integrated Security = True"); //connection string do BD
+        SqlConnection con = new SqlConnection("@Data Source = pim4semestre.database.windows.net; Initial Catalog = HOTEL; User ID = grupodopim; Password=********;Connect Timeout = 60; Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); //connection string do BD
         SqlCommand cmd;
 
         public Mensagem AdicionarHospede(Hospede Hospede)
