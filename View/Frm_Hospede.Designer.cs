@@ -348,7 +348,7 @@ namespace Desktop.View
             // maskTxbCpf
             // 
             this.maskTxbCpf.Location = new System.Drawing.Point(249, 264);
-            this.maskTxbCpf.Mask = "000.000.000-00";
+            this.maskTxbCpf.Mask = "000,000,000-00";
             this.maskTxbCpf.Name = "maskTxbCpf";
             this.maskTxbCpf.Size = new System.Drawing.Size(201, 27);
             this.maskTxbCpf.TabIndex = 6;
@@ -357,7 +357,7 @@ namespace Desktop.View
             // maskTxbRg
             // 
             this.maskTxbRg.Location = new System.Drawing.Point(249, 232);
-            this.maskTxbRg.Mask = "00.000.000-0";
+            this.maskTxbRg.Mask = "00,000,000-0";
             this.maskTxbRg.Name = "maskTxbRg";
             this.maskTxbRg.Size = new System.Drawing.Size(201, 27);
             this.maskTxbRg.TabIndex = 5;
