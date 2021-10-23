@@ -10,6 +10,6 @@ namespace Desktop.Model
 
         public string sql { get; set; }
 
-        public int teste { get; set; }
+        public int verifSQL { get; set; }
     }
 }
