@@ -79,7 +79,6 @@ namespace Desktop.View
             txbNacionalidade.Text = Hospede.nacionalidade;
             txbLocalNasc.Text = Hospede.localNascimento;
             maskTxbCpf.Text = Convert.ToString(Hospede.cpfPessoa);
-
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -99,7 +98,7 @@ namespace Desktop.View
             txbNacionalidade.Text = Hospede.nacionalidade;
             txbLocalNasc.Text = Hospede.localNascimento;
             maskTxbCpf.Text = Convert.ToString(Hospede.cpfPessoa);
-
+            
             MessageBox.Show(Mensagem.TMensagem);
         }
 
@@ -107,6 +106,7 @@ namespace Desktop.View
         {
             DialogResult = DialogResult.OK;
         }
+
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
