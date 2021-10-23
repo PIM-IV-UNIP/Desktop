@@ -37,7 +37,6 @@ namespace Desktop.View
             this.txbEndereco = new System.Windows.Forms.TextBox();
             this.lblEndereco = new System.Windows.Forms.Label();
             this.lblTelefone = new System.Windows.Forms.Label();
-            this.txbRG = new System.Windows.Forms.TextBox();
             this.lblRG = new System.Windows.Forms.Label();
             this.lblNascimento = new System.Windows.Forms.Label();
             this.txbNacionalidade = new System.Windows.Forms.TextBox();
@@ -51,10 +50,11 @@ namespace Desktop.View
             this.btnLimpar = new System.Windows.Forms.Button();
             this.txbLocalNasc = new System.Windows.Forms.TextBox();
             this.lblLocalNasc = new System.Windows.Forms.Label();
-            this.txbCPF = new System.Windows.Forms.TextBox();
             this.lblCPF = new System.Windows.Forms.Label();
             this.panelQuartos = new System.Windows.Forms.Panel();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.maskTxbCpf = new System.Windows.Forms.MaskedTextBox();
+            this.maskTxbRg = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // lblNome
@@ -125,7 +125,7 @@ namespace Desktop.View
             this.txbEndereco.Location = new System.Drawing.Point(248, 165);
             this.txbEndereco.Name = "txbEndereco";
             this.txbEndereco.Size = new System.Drawing.Size(202, 27);
-            this.txbEndereco.TabIndex = 4;
+            this.txbEndereco.TabIndex = 3;
             // 
             // lblEndereco
             // 
@@ -154,16 +154,6 @@ namespace Desktop.View
             this.lblTelefone.TabIndex = 5;
             this.lblTelefone.Text = "Telefone:";
             this.lblTelefone.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txbRG
-            // 
-            this.txbRG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbRG.Location = new System.Drawing.Point(248, 231);
-            this.txbRG.Name = "txbRG";
-            this.txbRG.Size = new System.Drawing.Size(202, 27);
-            this.txbRG.TabIndex = 8;
             // 
             // lblRG
             // 
@@ -201,7 +191,7 @@ namespace Desktop.View
             this.txbNacionalidade.Location = new System.Drawing.Point(248, 329);
             this.txbNacionalidade.Name = "txbNacionalidade";
             this.txbNacionalidade.Size = new System.Drawing.Size(202, 27);
-            this.txbNacionalidade.TabIndex = 10;
+            this.txbNacionalidade.TabIndex = 8;
             // 
             // lblNacionalidade
             // 
@@ -223,7 +213,7 @@ namespace Desktop.View
             this.btnAdicionar.Location = new System.Drawing.Point(927, 445);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(81, 57);
-            this.btnAdicionar.TabIndex = 14;
+            this.btnAdicionar.TabIndex = 10;
             this.btnAdicionar.Text = "Adicionar Hóspede";
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
@@ -234,7 +224,7 @@ namespace Desktop.View
             this.btnConsultar.Location = new System.Drawing.Point(840, 445);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(81, 57);
-            this.btnConsultar.TabIndex = 15;
+            this.btnConsultar.TabIndex = 11;
             this.btnConsultar.Text = "Consultar Hóspede";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
@@ -245,9 +235,10 @@ namespace Desktop.View
             this.btnAtualizar.Location = new System.Drawing.Point(753, 445);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(81, 57);
-            this.btnAtualizar.TabIndex = 16;
+            this.btnAtualizar.TabIndex = 12;
             this.btnAtualizar.Text = "Atualizar Hóspede";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnExcluir
             // 
@@ -255,7 +246,7 @@ namespace Desktop.View
             this.btnExcluir.Location = new System.Drawing.Point(666, 445);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(81, 57);
-            this.btnExcluir.TabIndex = 17;
+            this.btnExcluir.TabIndex = 13;
             this.btnExcluir.Text = "Excluir Hóspede";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -269,7 +260,8 @@ namespace Desktop.View
             this.maskTxbNasc.Mask = "00/00/0000";
             this.maskTxbNasc.Name = "maskTxbNasc";
             this.maskTxbNasc.Size = new System.Drawing.Size(202, 27);
-            this.maskTxbNasc.TabIndex = 9;
+            this.maskTxbNasc.TabIndex = 7;
+            this.maskTxbNasc.ValidatingType = typeof(System.DateTime);
             // 
             // txbTelefone
             // 
@@ -280,7 +272,7 @@ namespace Desktop.View
             this.txbTelefone.Mask = "+000 (000) 00000-0000";
             this.txbTelefone.Name = "txbTelefone";
             this.txbTelefone.Size = new System.Drawing.Size(201, 27);
-            this.txbTelefone.TabIndex = 5;
+            this.txbTelefone.TabIndex = 4;
             this.txbTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // btnLimpar
@@ -289,7 +281,7 @@ namespace Desktop.View
             this.btnLimpar.Location = new System.Drawing.Point(579, 445);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(81, 57);
-            this.btnLimpar.TabIndex = 18;
+            this.btnLimpar.TabIndex = 14;
             this.btnLimpar.Text = "Limpar Campos";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -302,7 +294,7 @@ namespace Desktop.View
             this.txbLocalNasc.Location = new System.Drawing.Point(248, 362);
             this.txbLocalNasc.Name = "txbLocalNasc";
             this.txbLocalNasc.Size = new System.Drawing.Size(202, 27);
-            this.txbLocalNasc.TabIndex = 19;
+            this.txbLocalNasc.TabIndex = 9;
             // 
             // lblLocalNasc
             // 
@@ -317,16 +309,6 @@ namespace Desktop.View
             this.lblLocalNasc.TabIndex = 20;
             this.lblLocalNasc.Text = "Local de Nascimento:";
             this.lblLocalNasc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txbCPF
-            // 
-            this.txbCPF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbCPF.Location = new System.Drawing.Point(248, 264);
-            this.txbCPF.Name = "txbCPF";
-            this.txbCPF.Size = new System.Drawing.Size(202, 27);
-            this.txbCPF.TabIndex = 21;
             // 
             // lblCPF
             // 
@@ -358,19 +340,38 @@ namespace Desktop.View
             this.btnVoltar.Location = new System.Drawing.Point(12, 466);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(96, 36);
-            this.btnVoltar.TabIndex = 24;
+            this.btnVoltar.TabIndex = 15;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // maskTxbCpf
+            // 
+            this.maskTxbCpf.Location = new System.Drawing.Point(249, 264);
+            this.maskTxbCpf.Mask = "000,000,000-00";
+            this.maskTxbCpf.Name = "maskTxbCpf";
+            this.maskTxbCpf.Size = new System.Drawing.Size(201, 27);
+            this.maskTxbCpf.TabIndex = 6;
+            this.maskTxbCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // maskTxbRg
+            // 
+            this.maskTxbRg.Location = new System.Drawing.Point(249, 232);
+            this.maskTxbRg.Mask = "00,000,000-0";
+            this.maskTxbRg.Name = "maskTxbRg";
+            this.maskTxbRg.Size = new System.Drawing.Size(201, 27);
+            this.maskTxbRg.TabIndex = 5;
+            this.maskTxbRg.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // FRM_Hospede
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 524);
+            this.Controls.Add(this.maskTxbRg);
+            this.Controls.Add(this.maskTxbCpf);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.panelQuartos);
-            this.Controls.Add(this.txbCPF);
             this.Controls.Add(this.lblCPF);
             this.Controls.Add(this.txbLocalNasc);
             this.Controls.Add(this.lblLocalNasc);
@@ -385,7 +386,6 @@ namespace Desktop.View
             this.Controls.Add(this.lblNacionalidade);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblNascimento);
-            this.Controls.Add(this.txbRG);
             this.Controls.Add(this.lblRG);
             this.Controls.Add(this.lblTelefone);
             this.Controls.Add(this.txbEndereco);
@@ -413,7 +413,6 @@ namespace Desktop.View
         private System.Windows.Forms.TextBox txbEndereco;
         private System.Windows.Forms.Label lblEndereco;
         private System.Windows.Forms.Label lblTelefone;
-        private System.Windows.Forms.TextBox txbRG;
         private System.Windows.Forms.Label lblRG;
         private System.Windows.Forms.Label lblNascimento;
         private System.Windows.Forms.TextBox txbNacionalidade;
@@ -427,9 +426,10 @@ namespace Desktop.View
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.TextBox txbLocalNasc;
         private System.Windows.Forms.Label lblLocalNasc;
-        private System.Windows.Forms.TextBox txbCPF;
         private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.Panel panelQuartos;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.MaskedTextBox maskTxbCpf;
+        private System.Windows.Forms.MaskedTextBox maskTxbRg;
     }
 }
