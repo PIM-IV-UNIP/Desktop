@@ -34,9 +34,9 @@ namespace Desktop.View
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
-            FRM_Hospede Frm_Hospede = new FRM_Hospede();
+            FRM_PreCheckIn FRM_PreCheckIn = new FRM_PreCheckIn();
             Hide();
-            Frm_Hospede.ShowDialog();
+            FRM_PreCheckIn.ShowDialog();
             Show();
         }
     }

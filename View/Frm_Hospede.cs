@@ -124,5 +124,11 @@ namespace Desktop.View
 
             MessageBox.Show(Mensagem.TMensagem);
         }
+
+        private void btnProsseguirCheckIn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FRM_CheckIn FRM_CheckIn = new FRM_CheckIn();
+        }
     }
 }

@@ -51,10 +51,10 @@ namespace Desktop.View
             this.txbLocalNasc = new System.Windows.Forms.TextBox();
             this.lblLocalNasc = new System.Windows.Forms.Label();
             this.lblCPF = new System.Windows.Forms.Label();
-            this.panelQuartos = new System.Windows.Forms.Panel();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.maskTxbCpf = new System.Windows.Forms.MaskedTextBox();
             this.maskTxbRg = new System.Windows.Forms.MaskedTextBox();
+            this.btnProsseguirCheckIn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNome
@@ -64,7 +64,7 @@ namespace Desktop.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNome.Location = new System.Drawing.Point(176, 99);
+            this.lblNome.Location = new System.Drawing.Point(150, 144);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(67, 25);
             this.lblNome.TabIndex = 0;
@@ -77,7 +77,7 @@ namespace Desktop.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTitulo.Location = new System.Drawing.Point(376, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(362, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(328, 35);
             this.lblTitulo.TabIndex = 1;
@@ -88,9 +88,9 @@ namespace Desktop.View
             this.txbNome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbNome.Location = new System.Drawing.Point(248, 97);
+            this.txbNome.Location = new System.Drawing.Point(222, 144);
             this.txbNome.Name = "txbNome";
-            this.txbNome.Size = new System.Drawing.Size(202, 27);
+            this.txbNome.Size = new System.Drawing.Size(200, 27);
             this.txbNome.TabIndex = 1;
             // 
             // txbEmail
@@ -98,9 +98,9 @@ namespace Desktop.View
             this.txbEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbEmail.Location = new System.Drawing.Point(248, 132);
+            this.txbEmail.Location = new System.Drawing.Point(222, 176);
             this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(202, 27);
+            this.txbEmail.Size = new System.Drawing.Size(200, 27);
             this.txbEmail.TabIndex = 2;
             // 
             // lblEmail
@@ -110,7 +110,7 @@ namespace Desktop.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEmail.Location = new System.Drawing.Point(172, 132);
+            this.lblEmail.Location = new System.Drawing.Point(142, 176);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(71, 25);
             this.lblEmail.TabIndex = 2;
@@ -122,9 +122,9 @@ namespace Desktop.View
             this.txbEndereco.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbEndereco.Location = new System.Drawing.Point(248, 165);
+            this.txbEndereco.Location = new System.Drawing.Point(222, 208);
             this.txbEndereco.Name = "txbEndereco";
-            this.txbEndereco.Size = new System.Drawing.Size(202, 27);
+            this.txbEndereco.Size = new System.Drawing.Size(200, 27);
             this.txbEndereco.TabIndex = 3;
             // 
             // lblEndereco
@@ -134,7 +134,7 @@ namespace Desktop.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEndereco.AutoSize = true;
             this.lblEndereco.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEndereco.Location = new System.Drawing.Point(148, 165);
+            this.lblEndereco.Location = new System.Drawing.Point(118, 208);
             this.lblEndereco.Name = "lblEndereco";
             this.lblEndereco.Size = new System.Drawing.Size(95, 25);
             this.lblEndereco.TabIndex = 3;
@@ -148,7 +148,7 @@ namespace Desktop.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTelefone.AutoSize = true;
             this.lblTelefone.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTelefone.Location = new System.Drawing.Point(156, 198);
+            this.lblTelefone.Location = new System.Drawing.Point(126, 240);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(87, 25);
             this.lblTelefone.TabIndex = 5;
@@ -162,7 +162,7 @@ namespace Desktop.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRG.AutoSize = true;
             this.lblRG.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRG.Location = new System.Drawing.Point(203, 231);
+            this.lblRG.Location = new System.Drawing.Point(620, 144);
             this.lblRG.Name = "lblRG";
             this.lblRG.Size = new System.Drawing.Size(40, 25);
             this.lblRG.TabIndex = 7;
@@ -176,7 +176,7 @@ namespace Desktop.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNascimento.AutoSize = true;
             this.lblNascimento.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNascimento.Location = new System.Drawing.Point(57, 298);
+            this.lblNascimento.Location = new System.Drawing.Point(468, 208);
             this.lblNascimento.Name = "lblNascimento";
             this.lblNascimento.Size = new System.Drawing.Size(186, 25);
             this.lblNascimento.TabIndex = 9;
@@ -188,9 +188,9 @@ namespace Desktop.View
             this.txbNacionalidade.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbNacionalidade.Location = new System.Drawing.Point(248, 329);
+            this.txbNacionalidade.Location = new System.Drawing.Point(660, 240);
             this.txbNacionalidade.Name = "txbNacionalidade";
-            this.txbNacionalidade.Size = new System.Drawing.Size(202, 27);
+            this.txbNacionalidade.Size = new System.Drawing.Size(200, 27);
             this.txbNacionalidade.TabIndex = 8;
             // 
             // lblNacionalidade
@@ -200,7 +200,7 @@ namespace Desktop.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNacionalidade.AutoSize = true;
             this.lblNacionalidade.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNacionalidade.Location = new System.Drawing.Point(105, 329);
+            this.lblNacionalidade.Location = new System.Drawing.Point(516, 240);
             this.lblNacionalidade.Name = "lblNacionalidade";
             this.lblNacionalidade.Size = new System.Drawing.Size(138, 25);
             this.lblNacionalidade.TabIndex = 11;
@@ -209,8 +209,10 @@ namespace Desktop.View
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdicionar.Location = new System.Drawing.Point(927, 445);
+            this.btnAdicionar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdicionar.Location = new System.Drawing.Point(665, 445);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(81, 57);
             this.btnAdicionar.TabIndex = 10;
@@ -220,8 +222,10 @@ namespace Desktop.View
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConsultar.Location = new System.Drawing.Point(840, 445);
+            this.btnConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConsultar.Location = new System.Drawing.Point(578, 445);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(81, 57);
             this.btnConsultar.TabIndex = 11;
@@ -231,8 +235,10 @@ namespace Desktop.View
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAtualizar.Location = new System.Drawing.Point(753, 445);
+            this.btnAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAtualizar.Location = new System.Drawing.Point(491, 445);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(81, 57);
             this.btnAtualizar.TabIndex = 12;
@@ -242,8 +248,10 @@ namespace Desktop.View
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExcluir.Location = new System.Drawing.Point(666, 445);
+            this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcluir.Location = new System.Drawing.Point(404, 445);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(81, 57);
             this.btnExcluir.TabIndex = 13;
@@ -256,10 +264,10 @@ namespace Desktop.View
             this.maskTxbNasc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskTxbNasc.Location = new System.Drawing.Point(248, 297);
+            this.maskTxbNasc.Location = new System.Drawing.Point(660, 208);
             this.maskTxbNasc.Mask = "00/00/0000";
             this.maskTxbNasc.Name = "maskTxbNasc";
-            this.maskTxbNasc.Size = new System.Drawing.Size(202, 27);
+            this.maskTxbNasc.Size = new System.Drawing.Size(200, 27);
             this.maskTxbNasc.TabIndex = 7;
             this.maskTxbNasc.ValidatingType = typeof(System.DateTime);
             // 
@@ -268,17 +276,19 @@ namespace Desktop.View
             this.txbTelefone.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbTelefone.Location = new System.Drawing.Point(249, 198);
+            this.txbTelefone.Location = new System.Drawing.Point(222, 240);
             this.txbTelefone.Mask = "+000 (000) 00000-0000";
             this.txbTelefone.Name = "txbTelefone";
-            this.txbTelefone.Size = new System.Drawing.Size(201, 27);
+            this.txbTelefone.Size = new System.Drawing.Size(200, 27);
             this.txbTelefone.TabIndex = 4;
             this.txbTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLimpar.Location = new System.Drawing.Point(579, 445);
+            this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpar.Location = new System.Drawing.Point(317, 445);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(81, 57);
             this.btnLimpar.TabIndex = 14;
@@ -291,9 +301,9 @@ namespace Desktop.View
             this.txbLocalNasc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbLocalNasc.Location = new System.Drawing.Point(248, 362);
+            this.txbLocalNasc.Location = new System.Drawing.Point(660, 272);
             this.txbLocalNasc.Name = "txbLocalNasc";
-            this.txbLocalNasc.Size = new System.Drawing.Size(202, 27);
+            this.txbLocalNasc.Size = new System.Drawing.Size(200, 27);
             this.txbLocalNasc.TabIndex = 9;
             // 
             // lblLocalNasc
@@ -303,7 +313,7 @@ namespace Desktop.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLocalNasc.AutoSize = true;
             this.lblLocalNasc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLocalNasc.Location = new System.Drawing.Point(52, 362);
+            this.lblLocalNasc.Location = new System.Drawing.Point(468, 272);
             this.lblLocalNasc.Name = "lblLocalNasc";
             this.lblLocalNasc.Size = new System.Drawing.Size(191, 25);
             this.lblLocalNasc.TabIndex = 20;
@@ -317,22 +327,12 @@ namespace Desktop.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCPF.AutoSize = true;
             this.lblCPF.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCPF.Location = new System.Drawing.Point(194, 266);
+            this.lblCPF.Location = new System.Drawing.Point(604, 176);
             this.lblCPF.Name = "lblCPF";
             this.lblCPF.Size = new System.Drawing.Size(48, 25);
             this.lblCPF.TabIndex = 22;
             this.lblCPF.Text = "CPF:";
             this.lblCPF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panelQuartos
-            // 
-            this.panelQuartos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelQuartos.Location = new System.Drawing.Point(531, 97);
-            this.panelQuartos.Name = "panelQuartos";
-            this.panelQuartos.Size = new System.Drawing.Size(477, 292);
-            this.panelQuartos.TabIndex = 23;
             // 
             // btnVoltar
             // 
@@ -347,44 +347,56 @@ namespace Desktop.View
             // 
             // maskTxbCpf
             // 
-            this.maskTxbCpf.Location = new System.Drawing.Point(249, 264);
+            this.maskTxbCpf.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskTxbCpf.Location = new System.Drawing.Point(660, 176);
             this.maskTxbCpf.Mask = "000,000,000-00";
             this.maskTxbCpf.Name = "maskTxbCpf";
-            this.maskTxbCpf.Size = new System.Drawing.Size(201, 27);
+            this.maskTxbCpf.Size = new System.Drawing.Size(200, 27);
             this.maskTxbCpf.TabIndex = 6;
             this.maskTxbCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // maskTxbRg
             // 
-            this.maskTxbRg.Location = new System.Drawing.Point(249, 232);
+            this.maskTxbRg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskTxbRg.Location = new System.Drawing.Point(660, 144);
             this.maskTxbRg.Mask = "00,000,000-0";
             this.maskTxbRg.Name = "maskTxbRg";
-            this.maskTxbRg.Size = new System.Drawing.Size(201, 27);
+            this.maskTxbRg.Size = new System.Drawing.Size(200, 27);
             this.maskTxbRg.TabIndex = 5;
             this.maskTxbRg.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // btnProsseguirCheckIn
+            // 
+            this.btnProsseguirCheckIn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProsseguirCheckIn.Location = new System.Drawing.Point(875, 445);
+            this.btnProsseguirCheckIn.Name = "btnProsseguirCheckIn";
+            this.btnProsseguirCheckIn.Size = new System.Drawing.Size(127, 57);
+            this.btnProsseguirCheckIn.TabIndex = 16;
+            this.btnProsseguirCheckIn.Text = "Prosseguir para o Check In";
+            this.btnProsseguirCheckIn.UseVisualStyleBackColor = true;
+            this.btnProsseguirCheckIn.Click += new System.EventHandler(this.btnProsseguirCheckIn_Click);
             // 
             // FRM_Hospede
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 524);
+            this.Controls.Add(this.btnProsseguirCheckIn);
             this.Controls.Add(this.maskTxbRg);
             this.Controls.Add(this.maskTxbCpf);
-            this.Controls.Add(this.btnVoltar);
-            this.Controls.Add(this.panelQuartos);
             this.Controls.Add(this.lblCPF);
             this.Controls.Add(this.txbLocalNasc);
             this.Controls.Add(this.lblLocalNasc);
-            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.txbTelefone);
             this.Controls.Add(this.maskTxbNasc);
-            this.Controls.Add(this.btnExcluir);
-            this.Controls.Add(this.btnAtualizar);
-            this.Controls.Add(this.btnConsultar);
-            this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.txbNacionalidade);
             this.Controls.Add(this.lblNacionalidade);
-            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblNascimento);
             this.Controls.Add(this.lblRG);
             this.Controls.Add(this.lblTelefone);
@@ -394,9 +406,16 @@ namespace Desktop.View
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.txbNome);
             this.Controls.Add(this.lblNome);
+            this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.btnLimpar);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnAtualizar);
+            this.Controls.Add(this.btnConsultar);
+            this.Controls.Add(this.btnAdicionar);
+            this.Controls.Add(this.lblTitulo);
             this.Name = "FRM_Hospede";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tela Hóspede";
+            this.Text = "Gerenciamento do Hóspede";
             this.Load += new System.EventHandler(this.Frm_Hospede_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -427,9 +446,9 @@ namespace Desktop.View
         private System.Windows.Forms.TextBox txbLocalNasc;
         private System.Windows.Forms.Label lblLocalNasc;
         private System.Windows.Forms.Label lblCPF;
-        private System.Windows.Forms.Panel panelQuartos;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.MaskedTextBox maskTxbCpf;
         private System.Windows.Forms.MaskedTextBox maskTxbRg;
+        private System.Windows.Forms.Button btnProsseguirCheckIn;
     }
 }
