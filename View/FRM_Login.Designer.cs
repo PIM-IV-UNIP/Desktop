@@ -39,6 +39,7 @@ namespace Desktop.View
             // 
             // btnEntrar
             // 
+            this.btnEntrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEntrar.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEntrar.Location = new System.Drawing.Point(353, 319);
             this.btnEntrar.Name = "btnEntrar";
@@ -50,15 +51,19 @@ namespace Desktop.View
             // 
             // txbSenha
             // 
+            this.txbSenha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbSenha.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txbSenha.Location = new System.Drawing.Point(310, 236);
             this.txbSenha.Name = "txbSenha";
+            this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(218, 45);
             this.txbSenha.TabIndex = 10;
+            this.txbSenha.UseSystemPasswordChar = true;
             this.txbSenha.TextChanged += new System.EventHandler(this.txbSenha_TextChanged);
             // 
             // txbUser
             // 
+            this.txbUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbUser.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txbUser.Location = new System.Drawing.Point(310, 157);
             this.txbUser.Name = "txbUser";
@@ -68,6 +73,7 @@ namespace Desktop.View
             // 
             // lblSenha
             // 
+            this.lblSenha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSenha.AutoSize = true;
             this.lblSenha.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSenha.Location = new System.Drawing.Point(211, 238);
@@ -79,6 +85,7 @@ namespace Desktop.View
             // 
             // lblUser
             // 
+            this.lblUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblUser.Location = new System.Drawing.Point(193, 160);
@@ -90,6 +97,7 @@ namespace Desktop.View
             // 
             // lblLogin
             // 
+            this.lblLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLogin.Location = new System.Drawing.Point(349, 60);
@@ -99,8 +107,9 @@ namespace Desktop.View
             this.lblLogin.Text = "Login";
             this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
             // 
-            // Login
+            // FRM_Login
             // 
+            this.AcceptButton = this.btnEntrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
@@ -110,7 +119,7 @@ namespace Desktop.View
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblLogin);
-            this.Name = "Login";
+            this.Name = "FRM_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);

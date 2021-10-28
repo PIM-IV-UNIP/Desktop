@@ -50,8 +50,7 @@ namespace Desktop.View
             // 
             // lblTitulo
             // 
-            this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitulo.Location = new System.Drawing.Point(355, 42);
@@ -63,8 +62,7 @@ namespace Desktop.View
             // 
             // btnCheckIn
             // 
-            this.btnCheckIn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCheckIn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCheckIn.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCheckIn.Location = new System.Drawing.Point(240, 301);
             this.btnCheckIn.Name = "btnCheckIn";
@@ -76,8 +74,7 @@ namespace Desktop.View
             // 
             // btnCheckOut
             // 
-            this.btnCheckOut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCheckOut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCheckOut.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCheckOut.Location = new System.Drawing.Point(444, 301);
             this.btnCheckOut.Name = "btnCheckOut";
@@ -88,8 +85,7 @@ namespace Desktop.View
             // 
             // btnListaHospede
             // 
-            this.btnListaHospede.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnListaHospede.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnListaHospede.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnListaHospede.Location = new System.Drawing.Point(648, 301);
             this.btnListaHospede.Name = "btnListaHospede";
@@ -101,6 +97,7 @@ namespace Desktop.View
             // 
             // pbLogo
             // 
+            this.pbLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
             this.pbLogo.Location = new System.Drawing.Point(478, 144);
             this.pbLogo.Name = "pbLogo";
@@ -111,6 +108,7 @@ namespace Desktop.View
             // 
             // btnSair
             // 
+            this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSair.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSair.Location = new System.Drawing.Point(28, 545);
             this.btnSair.Name = "btnSair";
