@@ -29,19 +29,19 @@ namespace Desktop.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
             "Suite dos Deuses",
             "2",
             "Vista dos Deuses"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quarto Deluxe",
             "8",
             "Praia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quarto Família",
             "5",
             "Praia"}, "(nenhum)", System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quarto Standard",
             "2",
             "Praia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
@@ -280,6 +280,7 @@ namespace Desktop.View
             // btnEscolherQuartos
             // 
             this.btnEscolherQuartos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEscolherQuartos.Enabled = false;
             this.btnEscolherQuartos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEscolherQuartos.Location = new System.Drawing.Point(361, 251);
             this.btnEscolherQuartos.Name = "btnEscolherQuartos";
@@ -287,6 +288,7 @@ namespace Desktop.View
             this.btnEscolherQuartos.TabIndex = 13;
             this.btnEscolherQuartos.Text = "Escolher quartos";
             this.btnEscolherQuartos.UseVisualStyleBackColor = true;
+            this.btnEscolherQuartos.Click += new System.EventHandler(this.btnEscolherQuartos_Click);
             // 
             // radBtnStand
             // 
@@ -299,6 +301,7 @@ namespace Desktop.View
             this.radBtnStand.TabStop = true;
             this.radBtnStand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radBtnStand.UseVisualStyleBackColor = true;
+            this.radBtnStand.CheckedChanged += new System.EventHandler(this.radBtnStand_CheckedChanged);
             // 
             // radBtnFam
             // 
@@ -311,6 +314,7 @@ namespace Desktop.View
             this.radBtnFam.TabStop = true;
             this.radBtnFam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radBtnFam.UseVisualStyleBackColor = true;
+            this.radBtnFam.CheckedChanged += new System.EventHandler(this.radBtnFam_CheckedChanged);
             // 
             // radBtnDelux
             // 
@@ -323,6 +327,7 @@ namespace Desktop.View
             this.radBtnDelux.TabStop = true;
             this.radBtnDelux.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radBtnDelux.UseVisualStyleBackColor = true;
+            this.radBtnDelux.CheckedChanged += new System.EventHandler(this.radBtnDelux_CheckedChanged);
             // 
             // radBtnDeuses
             // 
@@ -335,6 +340,7 @@ namespace Desktop.View
             this.radBtnDeuses.TabStop = true;
             this.radBtnDeuses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radBtnDeuses.UseVisualStyleBackColor = true;
+            this.radBtnDeuses.CheckedChanged += new System.EventHandler(this.radBtnDeuses_CheckedChanged);
             // 
             // lviewQuartos
             // 
@@ -347,15 +353,15 @@ namespace Desktop.View
             this.lviewQuartos.GridLines = true;
             this.lviewQuartos.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lviewQuartos.HideSelection = false;
-            listViewItem5.StateImageIndex = 0;
-            listViewItem6.StateImageIndex = 0;
-            listViewItem7.StateImageIndex = 0;
-            listViewItem8.StateImageIndex = 0;
+            listViewItem17.StateImageIndex = 0;
+            listViewItem18.StateImageIndex = 0;
+            listViewItem19.StateImageIndex = 0;
+            listViewItem20.StateImageIndex = 0;
             this.lviewQuartos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem17,
+            listViewItem18,
+            listViewItem19,
+            listViewItem20});
             this.lviewQuartos.LabelWrap = false;
             this.lviewQuartos.Location = new System.Drawing.Point(61, 3);
             this.lviewQuartos.MultiSelect = false;

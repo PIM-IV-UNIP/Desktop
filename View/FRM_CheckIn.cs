@@ -24,32 +24,8 @@ namespace Desktop.View
 
         private void btnTeste_Click(object sender, EventArgs e)
         {
-            if (radBtnDeuses.Checked)
-            {
-                CheckIn.IdQuarto = 1;
-            }
-            else if (radBtnDelux.Checked)
-            {
-                CheckIn.IdQuarto = 2;
-            }
-            else if (radBtnFam.Checked)
-            {
-                CheckIn.IdQuarto = 3;
-            }
-            else if (radBtnStand.Checked)
-            {
-                CheckIn.IdQuarto = 4;
-            }
-            else
-            {
-                CheckIn.IdQuarto = 5;
-            }
-
-
-            if (CheckIn.IdQuarto != 5)
+            
                 MessageBox.Show("Quarto selecionado: " + CheckIn.IdQuarto);
-            else
-                MessageBox.Show("Por favor selecione um tipo de quarto!");
         }
 
         private void lviewQuartos_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -79,7 +55,30 @@ namespace Desktop.View
             Hide();
             FRM_MapaQuartos.ShowDialog();
             Show();
+        }
 
+        private void radBtnDelux_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckIn.IdQuarto = 2;
+            btnEscolherQuartos.Enabled = true;
+        }
+
+        private void radBtnDeuses_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckIn.IdQuarto = 1;
+            btnEscolherQuartos.Enabled = true;
+        }
+
+        private void radBtnFam_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckIn.IdQuarto = 3;
+            btnEscolherQuartos.Enabled = true;
+        }
+
+        private void radBtnStand_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckIn.IdQuarto = 4;
+            btnEscolherQuartos.Enabled = true;
         }
     }
 }
