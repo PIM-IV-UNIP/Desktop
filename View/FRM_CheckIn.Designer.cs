@@ -29,19 +29,19 @@ namespace Desktop.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "Suite dos Deuses",
             "2",
             "Vista dos Deuses"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quarto Deluxe",
             "8",
             "Praia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
-            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quarto Família",
             "5",
             "Praia"}, "(nenhum)", System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
-            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quarto Standard",
             "2",
             "Praia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
@@ -56,12 +56,10 @@ namespace Desktop.View
             this.txbNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblMaisHospedes = new System.Windows.Forms.Label();
-            this.panelSubTotal = new System.Windows.Forms.Panel();
             this.lviewSubTotal = new System.Windows.Forms.ListView();
             this.colunaSubTotalQuartos = new System.Windows.Forms.ColumnHeader();
             this.colunaSubTotalHospedes = new System.Windows.Forms.ColumnHeader();
             this.btnTeste = new System.Windows.Forms.Button();
-            this.panelGeral = new System.Windows.Forms.Panel();
             this.panelQuartos = new System.Windows.Forms.Panel();
             this.btnEscolherQuartos = new System.Windows.Forms.Button();
             this.radBtnStand = new System.Windows.Forms.RadioButton();
@@ -72,8 +70,6 @@ namespace Desktop.View
             this.colunaQuartos = new System.Windows.Forms.ColumnHeader();
             this.colunaMaxPessoas = new System.Windows.Forms.ColumnHeader();
             this.panelMaisHospedes.SuspendLayout();
-            this.panelSubTotal.SuspendLayout();
-            this.panelGeral.SuspendLayout();
             this.panelQuartos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +87,8 @@ namespace Desktop.View
             // 
             // panelMaisHospedes
             // 
-            this.panelMaisHospedes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMaisHospedes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMaisHospedes.Controls.Add(this.btnPesquisar);
             this.panelMaisHospedes.Controls.Add(this.label1);
             this.panelMaisHospedes.Controls.Add(this.cBoxSelectQuarto);
@@ -101,9 +98,9 @@ namespace Desktop.View
             this.panelMaisHospedes.Controls.Add(this.txbNome);
             this.panelMaisHospedes.Controls.Add(this.lblNome);
             this.panelMaisHospedes.Controls.Add(this.lblMaisHospedes);
-            this.panelMaisHospedes.Location = new System.Drawing.Point(533, 0);
+            this.panelMaisHospedes.Location = new System.Drawing.Point(545, 12);
             this.panelMaisHospedes.Name = "panelMaisHospedes";
-            this.panelMaisHospedes.Size = new System.Drawing.Size(519, 290);
+            this.panelMaisHospedes.Size = new System.Drawing.Size(519, 297);
             this.panelMaisHospedes.TabIndex = 3;
             // 
             // btnPesquisar
@@ -135,7 +132,7 @@ namespace Desktop.View
             // 
             // btnAddMaisHosp
             // 
-            this.btnAddMaisHosp.Location = new System.Drawing.Point(422, 258);
+            this.btnAddMaisHosp.Location = new System.Drawing.Point(408, 259);
             this.btnAddMaisHosp.Name = "btnAddMaisHosp";
             this.btnAddMaisHosp.Size = new System.Drawing.Size(94, 29);
             this.btnAddMaisHosp.TabIndex = 20;
@@ -203,27 +200,17 @@ namespace Desktop.View
             this.lblMaisHospedes.TabIndex = 0;
             this.lblMaisHospedes.Text = "Cadastre mais hóspedes:";
             // 
-            // panelSubTotal
-            // 
-            this.panelSubTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelSubTotal.BackColor = System.Drawing.SystemColors.Control;
-            this.panelSubTotal.Controls.Add(this.lviewSubTotal);
-            this.panelSubTotal.Location = new System.Drawing.Point(8, 304);
-            this.panelSubTotal.Name = "panelSubTotal";
-            this.panelSubTotal.Size = new System.Drawing.Size(504, 157);
-            this.panelSubTotal.TabIndex = 2;
-            // 
             // lviewSubTotal
             // 
+            this.lviewSubTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lviewSubTotal.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colunaSubTotalQuartos,
             this.colunaSubTotalHospedes});
-            this.lviewSubTotal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lviewSubTotal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lviewSubTotal.GridLines = true;
             this.lviewSubTotal.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lviewSubTotal.HideSelection = false;
-            this.lviewSubTotal.Location = new System.Drawing.Point(0, 0);
+            this.lviewSubTotal.Location = new System.Drawing.Point(12, 326);
             this.lviewSubTotal.Name = "lviewSubTotal";
             this.lviewSubTotal.Size = new System.Drawing.Size(504, 157);
             this.lviewSubTotal.TabIndex = 4;
@@ -245,7 +232,7 @@ namespace Desktop.View
             // btnTeste
             // 
             this.btnTeste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTeste.Location = new System.Drawing.Point(955, 432);
+            this.btnTeste.Location = new System.Drawing.Point(953, 496);
             this.btnTeste.Name = "btnTeste";
             this.btnTeste.Size = new System.Drawing.Size(94, 29);
             this.btnTeste.TabIndex = 3;
@@ -253,26 +240,18 @@ namespace Desktop.View
             this.btnTeste.UseVisualStyleBackColor = true;
             this.btnTeste.Click += new System.EventHandler(this.btnTeste_Click);
             // 
-            // panelGeral
-            // 
-            this.panelGeral.Controls.Add(this.panelMaisHospedes);
-            this.panelGeral.Controls.Add(this.panelQuartos);
-            this.panelGeral.Controls.Add(this.btnTeste);
-            this.panelGeral.Controls.Add(this.panelSubTotal);
-            this.panelGeral.Location = new System.Drawing.Point(12, 19);
-            this.panelGeral.Name = "panelGeral";
-            this.panelGeral.Size = new System.Drawing.Size(1052, 464);
-            this.panelGeral.TabIndex = 18;
-            // 
             // panelQuartos
             // 
+            this.panelQuartos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelQuartos.Controls.Add(this.btnEscolherQuartos);
             this.panelQuartos.Controls.Add(this.radBtnStand);
             this.panelQuartos.Controls.Add(this.radBtnFam);
             this.panelQuartos.Controls.Add(this.radBtnDelux);
             this.panelQuartos.Controls.Add(this.radBtnDeuses);
             this.panelQuartos.Controls.Add(this.lviewQuartos);
-            this.panelQuartos.Location = new System.Drawing.Point(3, 3);
+            this.panelQuartos.Location = new System.Drawing.Point(12, 12);
             this.panelQuartos.Name = "panelQuartos";
             this.panelQuartos.Size = new System.Drawing.Size(524, 295);
             this.panelQuartos.TabIndex = 1;
@@ -353,15 +332,15 @@ namespace Desktop.View
             this.lviewQuartos.GridLines = true;
             this.lviewQuartos.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lviewQuartos.HideSelection = false;
-            listViewItem17.StateImageIndex = 0;
-            listViewItem18.StateImageIndex = 0;
-            listViewItem19.StateImageIndex = 0;
-            listViewItem20.StateImageIndex = 0;
+            listViewItem1.StateImageIndex = 0;
+            listViewItem2.StateImageIndex = 0;
+            listViewItem3.StateImageIndex = 0;
+            listViewItem4.StateImageIndex = 0;
             this.lviewQuartos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem17,
-            listViewItem18,
-            listViewItem19,
-            listViewItem20});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
             this.lviewQuartos.LabelWrap = false;
             this.lviewQuartos.Location = new System.Drawing.Point(61, 3);
             this.lviewQuartos.MultiSelect = false;
@@ -389,16 +368,17 @@ namespace Desktop.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 537);
+            this.Controls.Add(this.panelMaisHospedes);
+            this.Controls.Add(this.panelQuartos);
+            this.Controls.Add(this.lviewSubTotal);
             this.Controls.Add(this.btnVoltar);
-            this.Controls.Add(this.panelGeral);
+            this.Controls.Add(this.btnTeste);
             this.Name = "FRM_CheckIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Check In";
             this.Load += new System.EventHandler(this.FRM_CheckIn_Load);
             this.panelMaisHospedes.ResumeLayout(false);
             this.panelMaisHospedes.PerformLayout();
-            this.panelSubTotal.ResumeLayout(false);
-            this.panelGeral.ResumeLayout(false);
             this.panelQuartos.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -416,9 +396,7 @@ namespace Desktop.View
         private System.Windows.Forms.Button btnAddMaisHosp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cBoxSelectQuarto;
-        private System.Windows.Forms.Panel panelSubTotal;
         private System.Windows.Forms.Button btnTeste;
-        private System.Windows.Forms.Panel panelGeral;
         private System.Windows.Forms.Panel panelQuartos;
         private System.Windows.Forms.RadioButton radBtnFam;
         private System.Windows.Forms.RadioButton radBtnDelux;

@@ -103,7 +103,6 @@ namespace Desktop.View
             // 
             // btnCarregarLista
             // 
-            this.btnCarregarLista.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCarregarLista.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCarregarLista.Location = new System.Drawing.Point(12, 16);
             this.btnCarregarLista.Name = "btnCarregarLista";
