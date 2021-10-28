@@ -39,5 +39,13 @@ namespace Desktop.View
             FRM_PreCheckIn.ShowDialog();
             Show();
         }
+
+        private void btnListaHospede_Click(object sender, EventArgs e)
+        {
+            FRM_ListaHospedes FRM_ListaHospedes = new FRM_ListaHospedes();
+            Hide();
+            FRM_ListaHospedes.ShowDialog();
+            Show();
+        }
     }
 }

@@ -97,6 +97,7 @@ namespace Desktop.View
             this.btnListaHospede.TabIndex = 5;
             this.btnListaHospede.Text = "Lista de Hóspedes";
             this.btnListaHospede.UseVisualStyleBackColor = true;
+            this.btnListaHospede.Click += new System.EventHandler(this.btnListaHospede_Click);
             // 
             // pbLogo
             // 
@@ -119,7 +120,7 @@ namespace Desktop.View
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // Inicio
+            // FRM_Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -131,7 +132,7 @@ namespace Desktop.View
             this.Controls.Add(this.btnCheckOut);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.label1);
-            this.Name = "Inicio";
+            this.Name = "FRM_Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Inicial";
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
