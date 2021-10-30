@@ -37,34 +37,41 @@ namespace Desktop.View
 
         private void btnPesquise_Click(object sender, EventArgs e)
         {
-            ListaHospede.DocumentoID = Convert.ToDouble(txbPesquise.Text);
-            try
+            if (txbPesquise.Text.Equals(""))
             {
-
-                con.Open();
-                Mensagem.sql = "SELECT * FROM HOSPEDES WHERE RG = @DocumentoID";
-                cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@DocumentoID", ListaHospede.DocumentoID);
-
-                cmd.CommandType = CommandType.Text;
-
-                DA = new SqlDataAdapter(cmd);
-                lista = new DataTable();
-
-                DA.Fill(lista);
+                MessageBox.Show("Por favor digite um Documento de ID para procurar!", "Erro: Sem ID");
             }
-
-            catch (Exception ex)
+            else
             {
-                Mensagem.TMensagem = "Erro: " + ex.ToString();
-                MessageBox.Show(Mensagem.TMensagem);
+                ListaHospede.DocumentoID = Convert.ToDouble(txbPesquise.Text);
+                try
+                {
+
+                    con.Open();
+                    Mensagem.sql = "SELECT * FROM HOSPEDES WHERE RG = @DocumentoID";
+                    cmd = new SqlCommand(Mensagem.sql, con);
+                    cmd.Parameters.AddWithValue("@DocumentoID", ListaHospede.DocumentoID);
+
+                    cmd.CommandType = CommandType.Text;
+
+                    DA = new SqlDataAdapter(cmd);
+                    lista = new DataTable();
+
+                    DA.Fill(lista);
+                }
+
+                catch (Exception ex)
+                {
+                    Mensagem.TMensagem = "Erro: " + ex.ToString();
+                    MessageBox.Show(Mensagem.TMensagem);
+                }
+                finally
+                {
+                    con.Close();
+                }
+                dgvListaHospedes.DataSource = lista;
+                dgvListaHospedes.Refresh();
             }
-            finally
-            {
-                con.Close();
-            }
-            dgvListaHospedes.DataSource = lista;
-            dgvListaHospedes.Refresh();
         }
 
         private void btnCarregarLista_Click(object sender, EventArgs e)

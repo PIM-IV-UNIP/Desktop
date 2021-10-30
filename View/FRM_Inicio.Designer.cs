@@ -37,6 +37,7 @@ namespace Desktop.View
             this.btnListaHospede = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnSair = new System.Windows.Forms.Button();
+            this.btnGerenciarQuartos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,11 +119,24 @@ namespace Desktop.View
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
+            // btnGerenciarQuartos
+            // 
+            this.btnGerenciarQuartos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGerenciarQuartos.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGerenciarQuartos.Location = new System.Drawing.Point(444, 433);
+            this.btnGerenciarQuartos.Name = "btnGerenciarQuartos";
+            this.btnGerenciarQuartos.Size = new System.Drawing.Size(181, 93);
+            this.btnGerenciarQuartos.TabIndex = 9;
+            this.btnGerenciarQuartos.Text = "Gerenciar Quartos";
+            this.btnGerenciarQuartos.UseVisualStyleBackColor = true;
+            this.btnGerenciarQuartos.Click += new System.EventHandler(this.btnGerenciarQuartos_Click);
+            // 
             // FRM_Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 606);
+            this.Controls.Add(this.btnGerenciarQuartos);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnCheckIn);
             this.Controls.Add(this.pbLogo);
@@ -148,5 +162,6 @@ namespace Desktop.View
         private System.Windows.Forms.Button btnListaHospede;
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnGerenciarQuartos;
     }
 }
