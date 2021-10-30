@@ -47,5 +47,13 @@ namespace Desktop.View
             FRM_ListaHospedes.ShowDialog();
             Show();
         }
+
+        private void btnGerenciarQuartos_Click(object sender, EventArgs e)
+        {
+            FRM_GerenciarQuartos FRM_GerenciarQuartos = new FRM_GerenciarQuartos();
+            Hide();
+            FRM_GerenciarQuartos.ShowDialog();
+            Show();
+        }
     }
 }
