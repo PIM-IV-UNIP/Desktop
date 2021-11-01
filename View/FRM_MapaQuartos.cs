@@ -14,5 +14,10 @@ namespace Desktop.View
         {
             InitializeComponent();
         }
+
+        private void FRM_MapaQuartos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,5 +28,10 @@ namespace Desktop.View
             FRM_Hospede FRM_Hospede = new FRM_Hospede();
             FRM_Hospede.ShowDialog();
         }
+
+        private void lblPergunta_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

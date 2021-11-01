@@ -36,6 +36,7 @@ namespace Desktop.View
             // 
             // lblPergunta
             // 
+            this.lblPergunta.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPergunta.AutoSize = true;
             this.lblPergunta.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPergunta.Location = new System.Drawing.Point(124, 9);
@@ -43,9 +44,11 @@ namespace Desktop.View
             this.lblPergunta.Size = new System.Drawing.Size(188, 41);
             this.lblPergunta.TabIndex = 0;
             this.lblPergunta.Text = "Tem reserva?";
+            this.lblPergunta.Click += new System.EventHandler(this.lblPergunta_Click);
             // 
             // btnSim
             // 
+            this.btnSim.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSim.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSim.Location = new System.Drawing.Point(64, 117);
             this.btnSim.Name = "btnSim";
@@ -57,6 +60,7 @@ namespace Desktop.View
             // 
             // btnNao
             // 
+            this.btnNao.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNao.Location = new System.Drawing.Point(251, 117);
             this.btnNao.Name = "btnNao";
