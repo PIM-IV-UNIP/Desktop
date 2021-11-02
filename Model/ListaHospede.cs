@@ -6,6 +6,6 @@ namespace Desktop.Model
 {
     class ListaHospede
     {
-        public double DocumentoID {get;set;}
+        public string DocumentoID {get;set;}
     }
 }

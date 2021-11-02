@@ -11,7 +11,7 @@ namespace Desktop.Model
         public string emailPessoa { get;  set; }
         public string enderecoPessoa { get; set; }
         public string telefonePessoa { get; set; }
-        public double rgPessoa { get; set; }
+        public string idPessoa { get; set; }
         public DateTime nascimentoPessoa { get; set; }
         public string nacionalidade { get; set; }
         public string localNascimento { get; set; }
@@ -27,7 +27,7 @@ namespace Desktop.Model
             telefonePessoa = " ";
             enderecoPessoa = " ";
             telefonePessoa = " ";
-            rgPessoa = 0;
+            idPessoa = " ";
             nascimentoPessoa = DateTime.ParseExact("01/01/0001","dd/MM/yyyy",ci);
             nacionalidade = " ";
             localNascimento = " ";
