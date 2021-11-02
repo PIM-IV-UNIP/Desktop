@@ -12,7 +12,7 @@ namespace Desktop.Controller
         GerenciarQuartos GerenciarQuartos = new GerenciarQuartos();
         Mensagem Mensagem = new Mensagem();
         SqlCommand cmd;
-        SqlConnection con = new SqlConnection(@"Server=.\SQLEXPRESS;Database=BDHOTEL;Trusted_Connection=True;"); //connection string do BD
+        SqlConnection con = new SqlConnection(@"Data Source=35.198.4.184;Initial Catalog=BDHOTEL;User ID=sqlserver;Password=pim4semestre;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); //connection string do BD
 
 
         public Mensagem AdicionarDeluxe(GerenciarQuartos GerenciarQuartos)

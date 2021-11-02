@@ -19,5 +19,10 @@ namespace Desktop.View
         {
 
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
     }
 }

@@ -55,16 +55,16 @@ namespace Desktop.View
             this.maskTxbCpf = new System.Windows.Forms.MaskedTextBox();
             this.maskTxbRg = new System.Windows.Forms.MaskedTextBox();
             this.btnProsseguirCheckIn = new System.Windows.Forms.Button();
+            this.masktxbPesquisaID = new System.Windows.Forms.MaskedTextBox();
+            this.lblPesquisaID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNome
             // 
-            this.lblNome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNome.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNome.Location = new System.Drawing.Point(150, 144);
+            this.lblNome.Location = new System.Drawing.Point(84, 111);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(67, 25);
             this.lblNome.TabIndex = 0;
@@ -73,11 +73,10 @@ namespace Desktop.View
             // 
             // lblTitulo
             // 
-            this.lblTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTitulo.Location = new System.Drawing.Point(362, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(308, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(328, 35);
             this.lblTitulo.TabIndex = 1;
@@ -85,32 +84,26 @@ namespace Desktop.View
             // 
             // txbNome
             // 
-            this.txbNome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbNome.Location = new System.Drawing.Point(222, 144);
+            this.txbNome.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txbNome.Location = new System.Drawing.Point(156, 111);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(200, 27);
             this.txbNome.TabIndex = 1;
             // 
             // txbEmail
             // 
-            this.txbEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbEmail.Location = new System.Drawing.Point(222, 176);
+            this.txbEmail.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txbEmail.Location = new System.Drawing.Point(156, 143);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(200, 27);
             this.txbEmail.TabIndex = 2;
             // 
             // lblEmail
             // 
-            this.lblEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEmail.Location = new System.Drawing.Point(142, 176);
+            this.lblEmail.Location = new System.Drawing.Point(76, 143);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(71, 25);
             this.lblEmail.TabIndex = 2;
@@ -119,22 +112,18 @@ namespace Desktop.View
             // 
             // txbEndereco
             // 
-            this.txbEndereco.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbEndereco.Location = new System.Drawing.Point(222, 208);
+            this.txbEndereco.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txbEndereco.Location = new System.Drawing.Point(156, 175);
             this.txbEndereco.Name = "txbEndereco";
             this.txbEndereco.Size = new System.Drawing.Size(200, 27);
             this.txbEndereco.TabIndex = 3;
             // 
             // lblEndereco
             // 
-            this.lblEndereco.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblEndereco.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblEndereco.AutoSize = true;
             this.lblEndereco.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEndereco.Location = new System.Drawing.Point(118, 208);
+            this.lblEndereco.Location = new System.Drawing.Point(52, 175);
             this.lblEndereco.Name = "lblEndereco";
             this.lblEndereco.Size = new System.Drawing.Size(95, 25);
             this.lblEndereco.TabIndex = 3;
@@ -143,12 +132,10 @@ namespace Desktop.View
             // 
             // lblTelefone
             // 
-            this.lblTelefone.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTelefone.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblTelefone.AutoSize = true;
             this.lblTelefone.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTelefone.Location = new System.Drawing.Point(126, 240);
+            this.lblTelefone.Location = new System.Drawing.Point(60, 207);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(87, 25);
             this.lblTelefone.TabIndex = 5;
@@ -157,26 +144,22 @@ namespace Desktop.View
             // 
             // lblRG
             // 
-            this.lblRG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRG.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblRG.AutoSize = true;
             this.lblRG.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRG.Location = new System.Drawing.Point(620, 144);
+            this.lblRG.Location = new System.Drawing.Point(425, 111);
             this.lblRG.Name = "lblRG";
-            this.lblRG.Size = new System.Drawing.Size(40, 25);
+            this.lblRG.Size = new System.Drawing.Size(163, 25);
             this.lblRG.TabIndex = 7;
-            this.lblRG.Text = "RG:";
+            this.lblRG.Text = "Documento de ID:";
             this.lblRG.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblNascimento
             // 
-            this.lblNascimento.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNascimento.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblNascimento.AutoSize = true;
             this.lblNascimento.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNascimento.Location = new System.Drawing.Point(468, 208);
+            this.lblNascimento.Location = new System.Drawing.Point(402, 175);
             this.lblNascimento.Name = "lblNascimento";
             this.lblNascimento.Size = new System.Drawing.Size(186, 25);
             this.lblNascimento.TabIndex = 9;
@@ -185,22 +168,18 @@ namespace Desktop.View
             // 
             // txbNacionalidade
             // 
-            this.txbNacionalidade.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbNacionalidade.Location = new System.Drawing.Point(660, 240);
+            this.txbNacionalidade.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txbNacionalidade.Location = new System.Drawing.Point(594, 207);
             this.txbNacionalidade.Name = "txbNacionalidade";
             this.txbNacionalidade.Size = new System.Drawing.Size(200, 27);
             this.txbNacionalidade.TabIndex = 8;
             // 
             // lblNacionalidade
             // 
-            this.lblNacionalidade.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNacionalidade.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblNacionalidade.AutoSize = true;
             this.lblNacionalidade.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNacionalidade.Location = new System.Drawing.Point(516, 240);
+            this.lblNacionalidade.Location = new System.Drawing.Point(450, 207);
             this.lblNacionalidade.Name = "lblNacionalidade";
             this.lblNacionalidade.Size = new System.Drawing.Size(138, 25);
             this.lblNacionalidade.TabIndex = 11;
@@ -209,10 +188,8 @@ namespace Desktop.View
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdicionar.Location = new System.Drawing.Point(665, 445);
+            this.btnAdicionar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAdicionar.Location = new System.Drawing.Point(568, 424);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(81, 57);
             this.btnAdicionar.TabIndex = 10;
@@ -222,12 +199,10 @@ namespace Desktop.View
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConsultar.Location = new System.Drawing.Point(578, 445);
+            this.btnConsultar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnConsultar.Location = new System.Drawing.Point(656, 335);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(81, 57);
+            this.btnConsultar.Size = new System.Drawing.Size(154, 39);
             this.btnConsultar.TabIndex = 11;
             this.btnConsultar.Text = "Consultar Hóspede";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -235,10 +210,8 @@ namespace Desktop.View
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAtualizar.Location = new System.Drawing.Point(491, 445);
+            this.btnAtualizar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAtualizar.Location = new System.Drawing.Point(480, 424);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(81, 57);
             this.btnAtualizar.TabIndex = 12;
@@ -248,10 +221,8 @@ namespace Desktop.View
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExcluir.Location = new System.Drawing.Point(404, 445);
+            this.btnExcluir.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnExcluir.Location = new System.Drawing.Point(393, 424);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(81, 57);
             this.btnExcluir.TabIndex = 13;
@@ -261,10 +232,8 @@ namespace Desktop.View
             // 
             // maskTxbNasc
             // 
-            this.maskTxbNasc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskTxbNasc.Location = new System.Drawing.Point(660, 208);
+            this.maskTxbNasc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.maskTxbNasc.Location = new System.Drawing.Point(594, 175);
             this.maskTxbNasc.Mask = "00/00/0000";
             this.maskTxbNasc.Name = "maskTxbNasc";
             this.maskTxbNasc.Size = new System.Drawing.Size(200, 27);
@@ -273,10 +242,8 @@ namespace Desktop.View
             // 
             // txbTelefone
             // 
-            this.txbTelefone.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbTelefone.Location = new System.Drawing.Point(222, 240);
+            this.txbTelefone.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txbTelefone.Location = new System.Drawing.Point(156, 207);
             this.txbTelefone.Mask = "+000 (000) 00000-0000";
             this.txbTelefone.Name = "txbTelefone";
             this.txbTelefone.Size = new System.Drawing.Size(200, 27);
@@ -285,10 +252,8 @@ namespace Desktop.View
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLimpar.Location = new System.Drawing.Point(317, 445);
+            this.btnLimpar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnLimpar.Location = new System.Drawing.Point(306, 424);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(81, 57);
             this.btnLimpar.TabIndex = 14;
@@ -298,22 +263,18 @@ namespace Desktop.View
             // 
             // txbLocalNasc
             // 
-            this.txbLocalNasc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbLocalNasc.Location = new System.Drawing.Point(660, 272);
+            this.txbLocalNasc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txbLocalNasc.Location = new System.Drawing.Point(594, 239);
             this.txbLocalNasc.Name = "txbLocalNasc";
             this.txbLocalNasc.Size = new System.Drawing.Size(200, 27);
             this.txbLocalNasc.TabIndex = 9;
             // 
             // lblLocalNasc
             // 
-            this.lblLocalNasc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLocalNasc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblLocalNasc.AutoSize = true;
             this.lblLocalNasc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLocalNasc.Location = new System.Drawing.Point(468, 272);
+            this.lblLocalNasc.Location = new System.Drawing.Point(402, 239);
             this.lblLocalNasc.Name = "lblLocalNasc";
             this.lblLocalNasc.Size = new System.Drawing.Size(191, 25);
             this.lblLocalNasc.TabIndex = 20;
@@ -322,12 +283,10 @@ namespace Desktop.View
             // 
             // lblCPF
             // 
-            this.lblCPF.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCPF.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblCPF.AutoSize = true;
             this.lblCPF.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCPF.Location = new System.Drawing.Point(604, 176);
+            this.lblCPF.Location = new System.Drawing.Point(538, 143);
             this.lblCPF.Name = "lblCPF";
             this.lblCPF.Size = new System.Drawing.Size(48, 25);
             this.lblCPF.TabIndex = 22;
@@ -336,8 +295,9 @@ namespace Desktop.View
             // 
             // btnVoltar
             // 
+            this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnVoltar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnVoltar.Location = new System.Drawing.Point(12, 466);
+            this.btnVoltar.Location = new System.Drawing.Point(12, 445);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(96, 36);
             this.btnVoltar.TabIndex = 15;
@@ -347,10 +307,8 @@ namespace Desktop.View
             // 
             // maskTxbCpf
             // 
-            this.maskTxbCpf.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskTxbCpf.Location = new System.Drawing.Point(660, 176);
+            this.maskTxbCpf.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.maskTxbCpf.Location = new System.Drawing.Point(594, 143);
             this.maskTxbCpf.Mask = "000,000,000-00";
             this.maskTxbCpf.Name = "maskTxbCpf";
             this.maskTxbCpf.Size = new System.Drawing.Size(200, 27);
@@ -359,10 +317,8 @@ namespace Desktop.View
             // 
             // maskTxbRg
             // 
-            this.maskTxbRg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskTxbRg.Location = new System.Drawing.Point(660, 144);
+            this.maskTxbRg.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.maskTxbRg.Location = new System.Drawing.Point(594, 111);
             this.maskTxbRg.Mask = "00,000,000-0";
             this.maskTxbRg.Name = "maskTxbRg";
             this.maskTxbRg.Size = new System.Drawing.Size(200, 27);
@@ -371,10 +327,8 @@ namespace Desktop.View
             // 
             // btnProsseguirCheckIn
             // 
-            this.btnProsseguirCheckIn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnProsseguirCheckIn.Location = new System.Drawing.Point(875, 445);
+            this.btnProsseguirCheckIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnProsseguirCheckIn.Location = new System.Drawing.Point(766, 424);
             this.btnProsseguirCheckIn.Name = "btnProsseguirCheckIn";
             this.btnProsseguirCheckIn.Size = new System.Drawing.Size(127, 57);
             this.btnProsseguirCheckIn.TabIndex = 16;
@@ -382,11 +336,35 @@ namespace Desktop.View
             this.btnProsseguirCheckIn.UseVisualStyleBackColor = true;
             this.btnProsseguirCheckIn.Click += new System.EventHandler(this.btnProsseguirCheckIn_Click);
             // 
+            // masktxbPesquisaID
+            // 
+            this.masktxbPesquisaID.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.masktxbPesquisaID.Location = new System.Drawing.Point(450, 339);
+            this.masktxbPesquisaID.Mask = "00,000,000-0";
+            this.masktxbPesquisaID.Name = "masktxbPesquisaID";
+            this.masktxbPesquisaID.Size = new System.Drawing.Size(200, 27);
+            this.masktxbPesquisaID.TabIndex = 23;
+            this.masktxbPesquisaID.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // lblPesquisaID
+            // 
+            this.lblPesquisaID.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblPesquisaID.AutoSize = true;
+            this.lblPesquisaID.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPesquisaID.Location = new System.Drawing.Point(60, 340);
+            this.lblPesquisaID.Name = "lblPesquisaID";
+            this.lblPesquisaID.Size = new System.Drawing.Size(388, 25);
+            this.lblPesquisaID.TabIndex = 24;
+            this.lblPesquisaID.Text = "Pesquisa de Hóspede pelo Documento de ID:";
+            this.lblPesquisaID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FRM_Hospede
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1036, 524);
+            this.ClientSize = new System.Drawing.Size(905, 493);
+            this.Controls.Add(this.masktxbPesquisaID);
+            this.Controls.Add(this.lblPesquisaID);
             this.Controls.Add(this.btnProsseguirCheckIn);
             this.Controls.Add(this.maskTxbRg);
             this.Controls.Add(this.maskTxbCpf);
@@ -450,5 +428,7 @@ namespace Desktop.View
         private System.Windows.Forms.MaskedTextBox maskTxbCpf;
         private System.Windows.Forms.MaskedTextBox maskTxbRg;
         private System.Windows.Forms.Button btnProsseguirCheckIn;
+        private System.Windows.Forms.MaskedTextBox masktxbPesquisaID;
+        private System.Windows.Forms.Label lblPesquisaID;
     }
 }

@@ -15,7 +15,7 @@ namespace Desktop.View
     {
         SqlCommand cmd;
         SqlDataAdapter DA;
-        SqlConnection con = new SqlConnection(@"Server=.\SQLEXPRESS;Database=BDHOTEL;Trusted_Connection=True;"); //connection string do BD
+        SqlConnection con = new SqlConnection(@"Data Source=35.198.4.184;Initial Catalog=BDHOTEL;User ID=sqlserver;Password=pim4semestre;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); //connection string do BD
         Mensagem Mensagem = new Mensagem();
         DataTable lista;
         ListaHospede ListaHospede = new ListaHospede();
@@ -43,12 +43,12 @@ namespace Desktop.View
             }
             else
             {
-                ListaHospede.DocumentoID = Convert.ToDouble(txbPesquise.Text);
+                ListaHospede.DocumentoID = txbPesquise.Text;
                 try
                 {
 
                     con.Open();
-                    Mensagem.sql = "SELECT * FROM HOSPEDES WHERE RG = @DocumentoID";
+                    Mensagem.sql = "SELECT * FROM HOSPEDES WHERE DOCID = @DocumentoID";
                     cmd = new SqlCommand(Mensagem.sql, con);
                     cmd.Parameters.AddWithValue("@DocumentoID", ListaHospede.DocumentoID);
 

@@ -69,7 +69,7 @@ namespace Desktop.View
         {
             SqlCommand cmd;
             SqlDataAdapter DA;
-            SqlConnection con = new SqlConnection(@"Server=.\SQLEXPRESS;Database=BDHOTEL;Trusted_Connection=True;"); //connection string do BD
+            SqlConnection con = new SqlConnection(@"Data Source=35.198.4.184;Initial Catalog=BDHOTEL;User ID=sqlserver;Password=pim4semestre;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); //connection string do BD
             DataTable lista = new DataTable();
 
             dgvListaHospedes.DataSource = null;

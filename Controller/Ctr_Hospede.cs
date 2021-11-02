@@ -11,7 +11,7 @@ namespace Desktop.Controller
         DAO_Hospede DAO_Hospede = new DAO_Hospede();
         Mensagem Mensagem = new Mensagem();
         SqlCommand cmd;
-        SqlConnection con = new SqlConnection(@"Server=.\SQLEXPRESS;Database=BDHOTEL;Trusted_Connection=True;"); //connection string do BD
+        SqlConnection con = new SqlConnection(@"Data Source=35.198.4.184;Initial Catalog=BDHOTEL;User ID=sqlserver;Password=pim4semestre;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); //connection string do BD
 
         public Mensagem AdicionarHospede(Hospede Hospede)
         {
@@ -19,11 +19,11 @@ namespace Desktop.Controller
             {
                 con.Open();
 
-                Mensagem.sql = "INSERT INTO HOSPEDES (RG,NOME,ENDERECO,TELEFONE,EMAIL,DATANASCIMENTO,NACIONALIDADE,CPF,LOCALDENASCIMENTO)" 
-                    + "VALUES (@Rg, @Nome, @Endereco, @Telefone, @Email, @Nascimento, @Nacionalidade, @Cpf, @Localdenascimento)";
+                Mensagem.sql = "INSERT INTO HOSPEDES (DOCID,NOME,ENDERECO,TELEFONE,EMAIL,DATANASCIMENTO,NACIONALIDADE,CPF,LOCALDENASCIMENTO)" 
+                    + "VALUES (@DocId, @Nome, @Endereco, @Telefone, @Email, @Nascimento, @Nacionalidade, @Cpf, @Localdenascimento)";
 
                 cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@Rg", Hospede.rgPessoa);
+                cmd.Parameters.AddWithValue("@DocId", Hospede.idPessoa);
                 cmd.Parameters.AddWithValue("@Nome", Hospede.nomePessoa);
                 cmd.Parameters.AddWithValue("@Endereco", Hospede.enderecoPessoa);
                 cmd.Parameters.AddWithValue("@Telefone", Hospede.telefonePessoa); //Atribuindos os valores
@@ -59,16 +59,16 @@ namespace Desktop.Controller
                 SqlDataReader reader;
 
                 con.Open();
-                Mensagem.sql = "SELECT * FROM HOSPEDES WHERE CPF = @Cpf";
+                Mensagem.sql = "SELECT * FROM HOSPEDES WHERE DOCID = @DocId";
                 cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@Cpf", Hospede.cpfPessoa);
+                cmd.Parameters.AddWithValue("@DocId", Hospede.idPessoa);
 
                 reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
                     Hospede.cpfPessoa = Convert.ToDouble(reader["CPF"]);
-                    Hospede.rgPessoa = Convert.ToDouble(reader["RG"]);
+                    Hospede.idPessoa = Convert.ToString(reader["DOCID"]);
                     Hospede.nomePessoa = Convert.ToString(reader["NOME"]);
                     Hospede.enderecoPessoa = Convert.ToString(reader["ENDERECO"]);
                     Hospede.telefonePessoa = Convert.ToString(reader["TELEFONE"]);
@@ -101,7 +101,7 @@ namespace Desktop.Controller
                 Mensagem.sql = "UPDATE HOSPEDES set NOME = @Nome, ENDERECO = @Endereco, TELEFONE = @Telefone, EMAIL = @Email, DATANASCIMENTO = @Nascimento, NACIONALIDADE = @Nacionalidade WHERE CPF = @Cpf";
                 cmd = new SqlCommand(Mensagem.sql, con);
 
-                cmd.Parameters.AddWithValue("@Rg", Hospede.rgPessoa);
+                cmd.Parameters.AddWithValue("@DocId", Hospede.idPessoa);
                 cmd.Parameters.AddWithValue("@Nome", Hospede.nomePessoa);
                 cmd.Parameters.AddWithValue("@Endereco", Hospede.enderecoPessoa);
                 cmd.Parameters.AddWithValue("@Telefone", Hospede.telefonePessoa); //Atribuindos os parâmetros com os valores
@@ -134,9 +134,9 @@ namespace Desktop.Controller
             try
             {
                 con.Open();
-                Mensagem.sql = "DELETE FROM HOSPEDES WHERE CPF = @Cpf";
+                Mensagem.sql = "DELETE FROM HOSPEDES WHERE DOCID = @DocId";
                 cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@Cpf", Hospede.cpfPessoa);
+                cmd.Parameters.AddWithValue("@DocId", Hospede.idPessoa);
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 
