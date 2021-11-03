@@ -45,8 +45,8 @@ namespace Desktop.View
             "Quarto Standard",
             "2",
             "Praia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.panelMaisHospedes = new System.Windows.Forms.Panel();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cBoxSelectQuarto = new System.Windows.Forms.ComboBox();
@@ -59,8 +59,6 @@ namespace Desktop.View
             this.lviewSubTotal = new System.Windows.Forms.ListView();
             this.colunaSubTotalQuartos = new System.Windows.Forms.ColumnHeader();
             this.colunaSubTotalHospedes = new System.Windows.Forms.ColumnHeader();
-            this.btnTeste = new System.Windows.Forms.Button();
-            this.panelQuartos = new System.Windows.Forms.Panel();
             this.btnEscolherQuartos = new System.Windows.Forms.Button();
             this.radBtnStand = new System.Windows.Forms.RadioButton();
             this.radBtnFam = new System.Windows.Forms.RadioButton();
@@ -69,15 +67,17 @@ namespace Desktop.View
             this.lviewQuartos = new System.Windows.Forms.ListView();
             this.colunaQuartos = new System.Windows.Forms.ColumnHeader();
             this.colunaMaxPessoas = new System.Windows.Forms.ColumnHeader();
-            this.panelMaisHospedes.SuspendLayout();
-            this.panelQuartos.SuspendLayout();
+            this.dgvMapaQuartos = new System.Windows.Forms.DataGridView();
+            this.btnFinalizarCheckIn = new System.Windows.Forms.Button();
+            this.btnCarregarLista = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMapaQuartos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVoltar
             // 
             this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnVoltar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnVoltar.Location = new System.Drawing.Point(12, 489);
+            this.btnVoltar.Location = new System.Drawing.Point(12, 521);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(96, 36);
             this.btnVoltar.TabIndex = 16;
@@ -85,38 +85,23 @@ namespace Desktop.View
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // panelMaisHospedes
-            // 
-            this.panelMaisHospedes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelMaisHospedes.Controls.Add(this.btnPesquisar);
-            this.panelMaisHospedes.Controls.Add(this.label1);
-            this.panelMaisHospedes.Controls.Add(this.cBoxSelectQuarto);
-            this.panelMaisHospedes.Controls.Add(this.btnAddMaisHosp);
-            this.panelMaisHospedes.Controls.Add(this.maskTxbRg);
-            this.panelMaisHospedes.Controls.Add(this.lblRG);
-            this.panelMaisHospedes.Controls.Add(this.txbNome);
-            this.panelMaisHospedes.Controls.Add(this.lblNome);
-            this.panelMaisHospedes.Controls.Add(this.lblMaisHospedes);
-            this.panelMaisHospedes.Location = new System.Drawing.Point(545, 12);
-            this.panelMaisHospedes.Name = "panelMaisHospedes";
-            this.panelMaisHospedes.Size = new System.Drawing.Size(519, 297);
-            this.panelMaisHospedes.TabIndex = 3;
-            // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(408, 62);
+            this.btnPesquisar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPesquisar.Location = new System.Drawing.Point(960, 79);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(94, 29);
             this.btnPesquisar.TabIndex = 23;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click_1);
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(19, 131);
+            this.label1.Location = new System.Drawing.Point(571, 148);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(174, 25);
             this.label1.TabIndex = 22;
@@ -124,17 +109,20 @@ namespace Desktop.View
             // 
             // cBoxSelectQuarto
             // 
+            this.cBoxSelectQuarto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cBoxSelectQuarto.FormattingEnabled = true;
-            this.cBoxSelectQuarto.Location = new System.Drawing.Point(202, 130);
+            this.cBoxSelectQuarto.Location = new System.Drawing.Point(754, 147);
             this.cBoxSelectQuarto.Name = "cBoxSelectQuarto";
             this.cBoxSelectQuarto.Size = new System.Drawing.Size(200, 28);
             this.cBoxSelectQuarto.TabIndex = 21;
+            this.cBoxSelectQuarto.SelectedIndexChanged += new System.EventHandler(this.cBoxSelectQuarto_SelectedIndexChanged);
             // 
             // btnAddMaisHosp
             // 
-            this.btnAddMaisHosp.Location = new System.Drawing.Point(408, 259);
+            this.btnAddMaisHosp.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddMaisHosp.Location = new System.Drawing.Point(958, 225);
             this.btnAddMaisHosp.Name = "btnAddMaisHosp";
-            this.btnAddMaisHosp.Size = new System.Drawing.Size(94, 29);
+            this.btnAddMaisHosp.Size = new System.Drawing.Size(96, 29);
             this.btnAddMaisHosp.TabIndex = 20;
             this.btnAddMaisHosp.Text = "Adicionar";
             this.btnAddMaisHosp.UseVisualStyleBackColor = true;
@@ -142,10 +130,8 @@ namespace Desktop.View
             // 
             // maskTxbRg
             // 
-            this.maskTxbRg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskTxbRg.Location = new System.Drawing.Point(202, 64);
+            this.maskTxbRg.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.maskTxbRg.Location = new System.Drawing.Point(754, 81);
             this.maskTxbRg.Mask = "00,000,000-0";
             this.maskTxbRg.Name = "maskTxbRg";
             this.maskTxbRg.Size = new System.Drawing.Size(200, 27);
@@ -154,12 +140,10 @@ namespace Desktop.View
             // 
             // lblRG
             // 
-            this.lblRG.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRG.AutoSize = true;
             this.lblRG.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRG.Location = new System.Drawing.Point(30, 64);
+            this.lblRG.Location = new System.Drawing.Point(582, 81);
             this.lblRG.Name = "lblRG";
             this.lblRG.Size = new System.Drawing.Size(163, 25);
             this.lblRG.TabIndex = 18;
@@ -168,22 +152,18 @@ namespace Desktop.View
             // 
             // txbNome
             // 
-            this.txbNome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbNome.Location = new System.Drawing.Point(202, 97);
+            this.txbNome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbNome.Location = new System.Drawing.Point(754, 114);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(200, 27);
             this.txbNome.TabIndex = 11;
             // 
             // lblNome
             // 
-            this.lblNome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNome.Location = new System.Drawing.Point(126, 99);
+            this.lblNome.Location = new System.Drawing.Point(678, 116);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(67, 25);
             this.lblNome.TabIndex = 10;
@@ -192,9 +172,10 @@ namespace Desktop.View
             // 
             // lblMaisHospedes
             // 
+            this.lblMaisHospedes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMaisHospedes.AutoSize = true;
             this.lblMaisHospedes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblMaisHospedes.Location = new System.Drawing.Point(4, 10);
+            this.lblMaisHospedes.Location = new System.Drawing.Point(556, 27);
             this.lblMaisHospedes.Name = "lblMaisHospedes";
             this.lblMaisHospedes.Size = new System.Drawing.Size(198, 23);
             this.lblMaisHospedes.TabIndex = 0;
@@ -202,7 +183,7 @@ namespace Desktop.View
             // 
             // lviewSubTotal
             // 
-            this.lviewSubTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lviewSubTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lviewSubTotal.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colunaSubTotalQuartos,
             this.colunaSubTotalHospedes});
@@ -210,7 +191,7 @@ namespace Desktop.View
             this.lviewSubTotal.GridLines = true;
             this.lviewSubTotal.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lviewSubTotal.HideSelection = false;
-            this.lviewSubTotal.Location = new System.Drawing.Point(12, 326);
+            this.lviewSubTotal.Location = new System.Drawing.Point(550, 296);
             this.lviewSubTotal.Name = "lviewSubTotal";
             this.lviewSubTotal.Size = new System.Drawing.Size(504, 157);
             this.lviewSubTotal.TabIndex = 4;
@@ -229,51 +210,24 @@ namespace Desktop.View
             this.colunaSubTotalHospedes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colunaSubTotalHospedes.Width = 300;
             // 
-            // btnTeste
-            // 
-            this.btnTeste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTeste.Location = new System.Drawing.Point(953, 496);
-            this.btnTeste.Name = "btnTeste";
-            this.btnTeste.Size = new System.Drawing.Size(94, 29);
-            this.btnTeste.TabIndex = 3;
-            this.btnTeste.Text = "teste";
-            this.btnTeste.UseVisualStyleBackColor = true;
-            this.btnTeste.Click += new System.EventHandler(this.btnTeste_Click);
-            // 
-            // panelQuartos
-            // 
-            this.panelQuartos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelQuartos.Controls.Add(this.btnEscolherQuartos);
-            this.panelQuartos.Controls.Add(this.radBtnStand);
-            this.panelQuartos.Controls.Add(this.radBtnFam);
-            this.panelQuartos.Controls.Add(this.radBtnDelux);
-            this.panelQuartos.Controls.Add(this.radBtnDeuses);
-            this.panelQuartos.Controls.Add(this.lviewQuartos);
-            this.panelQuartos.Location = new System.Drawing.Point(12, 12);
-            this.panelQuartos.Name = "panelQuartos";
-            this.panelQuartos.Size = new System.Drawing.Size(524, 295);
-            this.panelQuartos.TabIndex = 1;
-            // 
             // btnEscolherQuartos
             // 
-            this.btnEscolherQuartos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEscolherQuartos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEscolherQuartos.Enabled = false;
             this.btnEscolherQuartos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEscolherQuartos.Location = new System.Drawing.Point(361, 251);
+            this.btnEscolherQuartos.Location = new System.Drawing.Point(59, 303);
             this.btnEscolherQuartos.Name = "btnEscolherQuartos";
             this.btnEscolherQuartos.Size = new System.Drawing.Size(153, 37);
             this.btnEscolherQuartos.TabIndex = 13;
-            this.btnEscolherQuartos.Text = "Escolher quartos";
+            this.btnEscolherQuartos.Text = "Escolher quarto";
             this.btnEscolherQuartos.UseVisualStyleBackColor = true;
             this.btnEscolherQuartos.Click += new System.EventHandler(this.btnEscolherQuartos_Click);
             // 
             // radBtnStand
             // 
-            this.radBtnStand.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radBtnStand.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.radBtnStand.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radBtnStand.Location = new System.Drawing.Point(9, 194);
+            this.radBtnStand.Location = new System.Drawing.Point(11, 203);
             this.radBtnStand.Name = "radBtnStand";
             this.radBtnStand.Size = new System.Drawing.Size(42, 31);
             this.radBtnStand.TabIndex = 12;
@@ -284,9 +238,9 @@ namespace Desktop.View
             // 
             // radBtnFam
             // 
-            this.radBtnFam.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radBtnFam.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.radBtnFam.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radBtnFam.Location = new System.Drawing.Point(9, 152);
+            this.radBtnFam.Location = new System.Drawing.Point(11, 161);
             this.radBtnFam.Name = "radBtnFam";
             this.radBtnFam.Size = new System.Drawing.Size(42, 31);
             this.radBtnFam.TabIndex = 11;
@@ -297,9 +251,9 @@ namespace Desktop.View
             // 
             // radBtnDelux
             // 
-            this.radBtnDelux.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radBtnDelux.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.radBtnDelux.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radBtnDelux.Location = new System.Drawing.Point(9, 110);
+            this.radBtnDelux.Location = new System.Drawing.Point(11, 119);
             this.radBtnDelux.Name = "radBtnDelux";
             this.radBtnDelux.Size = new System.Drawing.Size(42, 31);
             this.radBtnDelux.TabIndex = 9;
@@ -310,9 +264,9 @@ namespace Desktop.View
             // 
             // radBtnDeuses
             // 
-            this.radBtnDeuses.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radBtnDeuses.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.radBtnDeuses.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radBtnDeuses.Location = new System.Drawing.Point(9, 68);
+            this.radBtnDeuses.Location = new System.Drawing.Point(11, 77);
             this.radBtnDeuses.Name = "radBtnDeuses";
             this.radBtnDeuses.Size = new System.Drawing.Size(42, 31);
             this.radBtnDeuses.TabIndex = 8;
@@ -324,6 +278,7 @@ namespace Desktop.View
             // lviewQuartos
             // 
             this.lviewQuartos.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.lviewQuartos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lviewQuartos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lviewQuartos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colunaQuartos,
@@ -342,7 +297,7 @@ namespace Desktop.View
             listViewItem3,
             listViewItem4});
             this.lviewQuartos.LabelWrap = false;
-            this.lviewQuartos.Location = new System.Drawing.Point(61, 3);
+            this.lviewQuartos.Location = new System.Drawing.Point(59, 12);
             this.lviewQuartos.MultiSelect = false;
             this.lviewQuartos.Name = "lviewQuartos";
             this.lviewQuartos.Size = new System.Drawing.Size(394, 242);
@@ -363,31 +318,95 @@ namespace Desktop.View
             this.colunaMaxPessoas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colunaMaxPessoas.Width = 120;
             // 
+            // dgvMapaQuartos
+            // 
+            this.dgvMapaQuartos.AllowUserToAddRows = false;
+            this.dgvMapaQuartos.AllowUserToDeleteRows = false;
+            this.dgvMapaQuartos.AllowUserToResizeColumns = false;
+            this.dgvMapaQuartos.AllowUserToResizeRows = false;
+            this.dgvMapaQuartos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMapaQuartos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvMapaQuartos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMapaQuartos.Location = new System.Drawing.Point(218, 260);
+            this.dgvMapaQuartos.MultiSelect = false;
+            this.dgvMapaQuartos.Name = "dgvMapaQuartos";
+            this.dgvMapaQuartos.ReadOnly = true;
+            this.dgvMapaQuartos.RowHeadersWidth = 51;
+            this.dgvMapaQuartos.RowTemplate.Height = 29;
+            this.dgvMapaQuartos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvMapaQuartos.Size = new System.Drawing.Size(235, 276);
+            this.dgvMapaQuartos.TabIndex = 24;
+            this.dgvMapaQuartos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMapaQuartos_CellDoubleClick);
+            // 
+            // btnFinalizarCheckIn
+            // 
+            this.btnFinalizarCheckIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFinalizarCheckIn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFinalizarCheckIn.Location = new System.Drawing.Point(883, 489);
+            this.btnFinalizarCheckIn.Name = "btnFinalizarCheckIn";
+            this.btnFinalizarCheckIn.Size = new System.Drawing.Size(171, 58);
+            this.btnFinalizarCheckIn.TabIndex = 25;
+            this.btnFinalizarCheckIn.Text = "Finalizar CheckIn";
+            this.btnFinalizarCheckIn.UseVisualStyleBackColor = true;
+            // 
+            // btnCarregarLista
+            // 
+            this.btnCarregarLista.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCarregarLista.Enabled = false;
+            this.btnCarregarLista.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCarregarLista.Location = new System.Drawing.Point(59, 260);
+            this.btnCarregarLista.Name = "btnCarregarLista";
+            this.btnCarregarLista.Size = new System.Drawing.Size(153, 37);
+            this.btnCarregarLista.TabIndex = 26;
+            this.btnCarregarLista.Text = "Carregar Lista";
+            this.btnCarregarLista.UseVisualStyleBackColor = true;
+            this.btnCarregarLista.Click += new System.EventHandler(this.btnCarregarLista_Click);
+            // 
             // FRM_CheckIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 537);
-            this.Controls.Add(this.panelMaisHospedes);
-            this.Controls.Add(this.panelQuartos);
+            this.ClientSize = new System.Drawing.Size(1090, 569);
+            this.Controls.Add(this.btnCarregarLista);
+            this.Controls.Add(this.btnFinalizarCheckIn);
+            this.Controls.Add(this.dgvMapaQuartos);
+            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.btnEscolherQuartos);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cBoxSelectQuarto);
+            this.Controls.Add(this.radBtnStand);
+            this.Controls.Add(this.btnAddMaisHosp);
+            this.Controls.Add(this.radBtnFam);
+            this.Controls.Add(this.maskTxbRg);
+            this.Controls.Add(this.lblRG);
             this.Controls.Add(this.lviewSubTotal);
+            this.Controls.Add(this.txbNome);
+            this.Controls.Add(this.radBtnDelux);
+            this.Controls.Add(this.lblNome);
             this.Controls.Add(this.btnVoltar);
-            this.Controls.Add(this.btnTeste);
+            this.Controls.Add(this.lblMaisHospedes);
+            this.Controls.Add(this.radBtnDeuses);
+            this.Controls.Add(this.lviewQuartos);
             this.Name = "FRM_CheckIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Check In";
             this.Load += new System.EventHandler(this.FRM_CheckIn_Load);
-            this.panelMaisHospedes.ResumeLayout(false);
-            this.panelMaisHospedes.PerformLayout();
-            this.panelQuartos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMapaQuartos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.Panel panelMaisHospedes;
         private System.Windows.Forms.Label lblMaisHospedes;
         private System.Windows.Forms.MaskedTextBox maskTxbRg;
         private System.Windows.Forms.Label lblRG;
@@ -396,8 +415,6 @@ namespace Desktop.View
         private System.Windows.Forms.Button btnAddMaisHosp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cBoxSelectQuarto;
-        private System.Windows.Forms.Button btnTeste;
-        private System.Windows.Forms.Panel panelQuartos;
         private System.Windows.Forms.RadioButton radBtnFam;
         private System.Windows.Forms.RadioButton radBtnDelux;
         private System.Windows.Forms.RadioButton radBtnDeuses;
@@ -410,5 +427,8 @@ namespace Desktop.View
         private System.Windows.Forms.ColumnHeader colunaSubTotalHospedes;
         private System.Windows.Forms.Button btnEscolherQuartos;
         private System.Windows.Forms.RadioButton radBtnStand;
+        private System.Windows.Forms.DataGridView dgvMapaQuartos;
+        private System.Windows.Forms.Button btnFinalizarCheckIn;
+        private System.Windows.Forms.Button btnCarregarLista;
     }
 }

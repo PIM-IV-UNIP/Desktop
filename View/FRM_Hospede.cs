@@ -130,7 +130,7 @@ namespace Desktop.View
         {
             Hide();
             FRM_CheckIn FRM_CheckIn = new FRM_CheckIn();
-            FRM_CheckIn.Show();
+            FRM_CheckIn.ShowDialog();
         }
     }
 }
