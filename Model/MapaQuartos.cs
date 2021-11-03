@@ -4,10 +4,9 @@ using System.Text;
 
 namespace Desktop.Model
 {
-    class CheckIn
+    class MapaQuartos
     {
+        public string TipoQuarto { get; set; }
         public int NumeroQuarto { get; set; }
-        public string IdQuarto { get; set; }
-        public string AddPessoas { get; set; }
     }
 }
