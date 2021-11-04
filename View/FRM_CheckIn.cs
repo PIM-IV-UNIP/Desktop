@@ -59,33 +59,41 @@ namespace Desktop.View
 
         private void btnEscolherQuartos_Click(object sender, EventArgs e)
         {
-            lviewSubTotal.Items.Add($"{CheckIn.NumeroQuarto}");
-            cBoxSelectQuarto.Items.Add($"{CheckIn.IdQuarto}: {CheckIn.NumeroQuarto}");
-
+            ListViewItem item = lviewSubTotal.FindItemWithText($"{CheckIn.NumeroQuarto}");
+            if (!lviewSubTotal.Items.Contains(item))
+            {
+                lviewSubTotal.Items.Add($"{CheckIn.NumeroQuarto}");
+                cBoxSelectQuarto.Items.Add($"{CheckIn.IdQuarto}: {CheckIn.NumeroQuarto}");
+                HabilitarDepoisQuartos();
+            }
+            else
+            {
+                MessageBox.Show("Este quarto já foi adicionado!", "Aviso: Quarto já Adicionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void radBtnDelux_CheckedChanged(object sender, EventArgs e)
         {
             CheckIn.IdQuarto = "Quarto Deluxe";
-            btnCarregarLista.Enabled = true;
+            HabilitarControles();
         }
 
         private void radBtnDeuses_CheckedChanged(object sender, EventArgs e)
         {
             CheckIn.IdQuarto = "Suite dos Deuses";
-            btnCarregarLista.Enabled = true;
+            HabilitarControles();
         }
 
         private void radBtnFam_CheckedChanged(object sender, EventArgs e)
         {
             CheckIn.IdQuarto = "Quarto Familia";
-            btnCarregarLista.Enabled = true;
+            HabilitarControles();
         }
 
         private void radBtnStand_CheckedChanged(object sender, EventArgs e)
         {
             CheckIn.IdQuarto = "Quarto Standard";
-            btnCarregarLista.Enabled = true;
+            HabilitarControles();
         }
 
         private void btnCarregarLista_Click(object sender, EventArgs e)
@@ -103,9 +111,10 @@ namespace Desktop.View
             try
             {
                 con.Open();
-                Mensagem.sql = "SELECT NUMEROQUARTO FROM QUARTOS WHERE TIPODOQUARTO = @TipoDoQuarto";
+                Mensagem.sql = "SELECT NUMEROQUARTO FROM QUARTOS WHERE TIPODOQUARTO = @TipoDoQuarto AND STATUS = @Status";
                 cmd = new SqlCommand(Mensagem.sql, con);
                 cmd.Parameters.AddWithValue("@TipoDoQuarto", CheckIn.IdQuarto);
+                cmd.Parameters.AddWithValue("@Status", "Livre");
 
                 cmd.CommandType = CommandType.Text;
 
@@ -123,12 +132,6 @@ namespace Desktop.View
                 con.Close();
             }
             dgvMapaQuartos.DataSource = lista;
-        }
-
-        private void dgvMapaQuartos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            CheckIn.NumeroQuarto = Convert.ToInt32(dgvMapaQuartos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-            btnEscolherQuartos.Enabled = true;
         }
 
         private void cBoxSelectQuarto_SelectedIndexChanged(object sender, EventArgs e)
@@ -173,6 +176,58 @@ namespace Desktop.View
             maskTxbRg.Text = Hospede.idPessoa;
             txbNome.Text = Hospede.nomePessoa;
 
+        }
+
+        private void dgvMapaQuartos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CheckIn.NumeroQuarto = Convert.ToInt32(dgvMapaQuartos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+            btnEscolherQuartos.Enabled = true;
+            btnEscolherQuartos.Visible = true;
+        }
+
+        private void maskTxbRg_Click(object sender, EventArgs e)
+        {
+            maskTxbRg.SelectionStart = 0;
+        }
+
+        private void btnFinalizarCheckIn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HabilitarControles()
+        {
+            //habilitando os controles
+            btnCarregarLista.Enabled = true;
+            dgvMapaQuartos.Enabled = true;
+
+
+            //deixando-os visíveis
+            btnCarregarLista.Visible = true;
+            dgvMapaQuartos.Visible = true;
+        }
+
+        private void HabilitarDepoisQuartos()
+        {
+            //habilitando os controles
+            maskTxbRg.Enabled = true;
+            txbNome.Enabled = true;
+            cBoxSelectQuarto.Enabled = true;
+            btnAddMaisHosp.Enabled = true;
+            btnPesquisar.Enabled = true;
+            lviewSubTotal.Enabled = true;
+            btnFinalizarCheckIn.Enabled = true;
+
+            //deixando-os visíveis
+            lblMaisHospedes.Visible = true;
+            lblRG.Visible = true;
+            maskTxbRg.Visible = true;
+            txbNome.Visible = true;
+            cBoxSelectQuarto.Visible = true;
+            btnAddMaisHosp.Visible = true;
+            btnPesquisar.Visible = true;
+            lviewSubTotal.Visible = true;
+            btnFinalizarCheckIn.Visible = true;
         }
     }
 }

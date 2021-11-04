@@ -22,11 +22,12 @@ namespace Desktop.Controller
                 con.Open();
 
                 //insert na tabela quartos
-                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO) VALUES (@NumeroQuarto, @TipoDoQuarto)";
+                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO, STATUS) VALUES (@NumeroQuarto, @TipoDoQuarto, @Status)";
 
                 cmd = new SqlCommand(Mensagem.sql, con);
                 cmd.Parameters.AddWithValue("@NumeroQuarto", GerenciarQuartos.NumeroQuarto);
                 cmd.Parameters.AddWithValue("@TipoDoQuarto", GerenciarQuartos.TipoQuarto);
+                cmd.Parameters.AddWithValue("@Status", "Livre");
 
                 cmd.CommandType = CommandType.Text;
 
@@ -54,11 +55,12 @@ namespace Desktop.Controller
                 con.Open();
 
                 //insert na tabela quartos
-                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO) VALUES (@NumeroQuarto, @TipoDoQuarto)";
+                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO, STATUS) VALUES (@NumeroQuarto, @TipoDoQuarto, @Status)";
 
                 cmd = new SqlCommand(Mensagem.sql, con);
                 cmd.Parameters.AddWithValue("@NumeroQuarto", GerenciarQuartos.NumeroQuarto);
                 cmd.Parameters.AddWithValue("@TipoDoQuarto", GerenciarQuartos.TipoQuarto);
+                cmd.Parameters.AddWithValue("@Status", "Livre");
 
                 cmd.CommandType = CommandType.Text;
 
@@ -85,11 +87,12 @@ namespace Desktop.Controller
                 con.Open();
 
                 //insert na tabela quartos
-                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO) VALUES (@NumeroQuarto, @TipoDoQuarto)";
+                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO, STATUS) VALUES (@NumeroQuarto, @TipoDoQuarto, @Status)";
 
                 cmd = new SqlCommand(Mensagem.sql, con);
                 cmd.Parameters.AddWithValue("@NumeroQuarto", GerenciarQuartos.NumeroQuarto);
                 cmd.Parameters.AddWithValue("@TipoDoQuarto", GerenciarQuartos.TipoQuarto);
+                cmd.Parameters.AddWithValue("@Status", "Livre");
 
                 cmd.CommandType = CommandType.Text;
 
@@ -115,12 +118,13 @@ namespace Desktop.Controller
             {
                 con.Open();
 
-                //insert na tabela quartos
-                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO) VALUES (@NumeroQuarto, @TipoDoQuarto)";
+                //insert na tabela QUARTOS na categoria deuses
+                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO, STATUS) VALUES (@NumeroQuarto, @TipoDoQuarto, @Status)";
 
                 cmd = new SqlCommand(Mensagem.sql, con);
                 cmd.Parameters.AddWithValue("@NumeroQuarto", GerenciarQuartos.NumeroQuarto);
                 cmd.Parameters.AddWithValue("@TipoDoQuarto", GerenciarQuartos.TipoQuarto);
+                cmd.Parameters.AddWithValue("@Status", "Livre");
 
                 cmd.CommandType = CommandType.Text;
 
@@ -148,10 +152,10 @@ namespace Desktop.Controller
                 con.Open();
 
                 Mensagem.sql = "UPDATE QUARTOS SET TIPODOQUARTO = @TipoDoQuarto WHERE NUMEROQUARTO = @NumeroQuarto";
-                cmd = new SqlCommand(Mensagem.sql, con);
 
-                cmd.Parameters.AddWithValue("@TipoDoQuarto", GerenciarQuartos.TipoQuarto);
+                cmd = new SqlCommand(Mensagem.sql, con);
                 cmd.Parameters.AddWithValue("@NumeroQuarto", GerenciarQuartos.NumeroQuarto);
+                cmd.Parameters.AddWithValue("@TipoDoQuarto", GerenciarQuartos.TipoQuarto);
 
                 cmd.CommandType = CommandType.Text;
 
