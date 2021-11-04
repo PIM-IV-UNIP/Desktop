@@ -132,5 +132,30 @@ namespace Desktop.View
             FRM_CheckIn FRM_CheckIn = new FRM_CheckIn();
             FRM_CheckIn.ShowDialog();
         }
+
+        private void maskTxbRg_Click(object sender, EventArgs e)
+        {
+            maskTxbRg.SelectionStart = 0;
+        }
+
+        private void maskTxbCpf_Click(object sender, EventArgs e)
+        {
+            maskTxbCpf.SelectionStart = 0;
+        }
+
+        private void maskTxbNasc_Click(object sender, EventArgs e)
+        {
+            maskTxbNasc.SelectionStart = 0;
+        }
+
+        private void txbTelefone_Click(object sender, EventArgs e)
+        {
+            txbTelefone.SelectionStart = 0;
+        }
+
+        private void masktxbPesquisaID_Click(object sender, EventArgs e)
+        {
+            masktxbPesquisaID.SelectionStart = 0;
+        }
     }
 }

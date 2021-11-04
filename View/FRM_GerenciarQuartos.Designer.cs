@@ -69,6 +69,7 @@ namespace Desktop.View
             // cmbTiposQuartos
             // 
             this.cmbTiposQuartos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbTiposQuartos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTiposQuartos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbTiposQuartos.FormattingEnabled = true;
             this.cmbTiposQuartos.Items.AddRange(new object[] {
@@ -116,11 +117,11 @@ namespace Desktop.View
             // 
             this.btnAlterarQuarto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAlterarQuarto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAlterarQuarto.Location = new System.Drawing.Point(372, 409);
+            this.btnAlterarQuarto.Location = new System.Drawing.Point(372, 399);
             this.btnAlterarQuarto.Name = "btnAlterarQuarto";
-            this.btnAlterarQuarto.Size = new System.Drawing.Size(189, 56);
+            this.btnAlterarQuarto.Size = new System.Drawing.Size(189, 66);
             this.btnAlterarQuarto.TabIndex = 3;
-            this.btnAlterarQuarto.Text = "Alterar Quarto";
+            this.btnAlterarQuarto.Text = "Alterar Tipo do Quarto";
             this.btnAlterarQuarto.UseVisualStyleBackColor = true;
             this.btnAlterarQuarto.Click += new System.EventHandler(this.btnAlterarQuarto_Click);
             // 

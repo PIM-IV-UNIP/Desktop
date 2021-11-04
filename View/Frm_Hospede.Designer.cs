@@ -239,6 +239,7 @@ namespace Desktop.View
             this.maskTxbNasc.Size = new System.Drawing.Size(200, 27);
             this.maskTxbNasc.TabIndex = 7;
             this.maskTxbNasc.ValidatingType = typeof(System.DateTime);
+            this.maskTxbNasc.Click += new System.EventHandler(this.maskTxbNasc_Click);
             // 
             // txbTelefone
             // 
@@ -249,6 +250,7 @@ namespace Desktop.View
             this.txbTelefone.Size = new System.Drawing.Size(200, 27);
             this.txbTelefone.TabIndex = 4;
             this.txbTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txbTelefone.Click += new System.EventHandler(this.txbTelefone_Click);
             // 
             // btnLimpar
             // 
@@ -314,6 +316,7 @@ namespace Desktop.View
             this.maskTxbCpf.Size = new System.Drawing.Size(200, 27);
             this.maskTxbCpf.TabIndex = 6;
             this.maskTxbCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.maskTxbCpf.Click += new System.EventHandler(this.maskTxbCpf_Click);
             // 
             // maskTxbRg
             // 
@@ -324,6 +327,7 @@ namespace Desktop.View
             this.maskTxbRg.Size = new System.Drawing.Size(200, 27);
             this.maskTxbRg.TabIndex = 5;
             this.maskTxbRg.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.maskTxbRg.Click += new System.EventHandler(this.maskTxbRg_Click);
             // 
             // btnProsseguirCheckIn
             // 
@@ -345,6 +349,7 @@ namespace Desktop.View
             this.masktxbPesquisaID.Size = new System.Drawing.Size(200, 27);
             this.masktxbPesquisaID.TabIndex = 23;
             this.masktxbPesquisaID.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.masktxbPesquisaID.Click += new System.EventHandler(this.masktxbPesquisaID_Click);
             // 
             // lblPesquisaID
             // 
