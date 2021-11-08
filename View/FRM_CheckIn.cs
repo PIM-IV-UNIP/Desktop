@@ -90,10 +90,6 @@ namespace Desktop.View
 
         private void btnEscolherQuartos_Click(object sender, EventArgs e)
         {
-            lviewSubTotal.Items.Add(CheckIn.NumeroQuarto);
-            lviewSubTotal.Items[0].SubItems.Add(" ");
-            HabilitarDepoisQuartos();
-            DeshabilitarEsquerda();
 
         }
 
@@ -205,9 +201,9 @@ namespace Desktop.View
 
         private void dgvMapaQuartos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-                CheckIn.NumeroQuarto = Convert.ToString(dgvMapaQuartos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                btnEscolherQuartos.Enabled = true;
-                btnEscolherQuartos.Visible = true;
+            CheckIn.NumeroQuarto = Convert.ToInt32(dgvMapaQuartos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+            btnEscolherQuartos.Enabled = true;
+            btnEscolherQuartos.Visible = true;
         }
 
         private void maskTxbRg_Click(object sender, EventArgs e)
