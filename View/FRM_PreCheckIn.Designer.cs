@@ -41,9 +41,9 @@ namespace Desktop.View
             this.lblPergunta.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPergunta.Location = new System.Drawing.Point(124, 9);
             this.lblPergunta.Name = "lblPergunta";
-            this.lblPergunta.Size = new System.Drawing.Size(188, 41);
+            this.lblPergunta.Size = new System.Drawing.Size(198, 41);
             this.lblPergunta.TabIndex = 0;
-            this.lblPergunta.Text = "Tem reserva?";
+            this.lblPergunta.Text = "Novo cliente?";
             this.lblPergunta.Click += new System.EventHandler(this.lblPergunta_Click);
             // 
             // btnSim

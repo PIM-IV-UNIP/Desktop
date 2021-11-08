@@ -6,8 +6,11 @@ namespace Desktop.Model
 {
     class CheckIn
     {
-        public int NumeroQuarto { get; set; }
+        public string NumeroQuarto { get; set; }
         public string IdQuarto { get; set; }
         public string AddPessoas { get; set; }
+        public string IdPesquisa { get; set; }
+        public string NomePesquisa { get; set; }
+        public string teste { get; set; }
     }
 }

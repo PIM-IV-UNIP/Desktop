@@ -29,27 +29,25 @@ namespace Desktop.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "Suite dos Deuses",
             "2",
             "Vista dos Deuses"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quarto Deluxe",
             "8",
             "Praia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quarto Família",
             "5",
             "Praia"}, "(nenhum)", System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quarto Standard",
             "2",
             "Praia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cBoxSelectQuarto = new System.Windows.Forms.ComboBox();
             this.btnAddMaisHosp = new System.Windows.Forms.Button();
             this.maskTxbRg = new System.Windows.Forms.MaskedTextBox();
             this.lblRG = new System.Windows.Forms.Label();
@@ -97,31 +95,6 @@ namespace Desktop.View
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Visible = false;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(571, 148);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 25);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Selecione o quarto:";
-            this.label1.Visible = false;
-            // 
-            // cBoxSelectQuarto
-            // 
-            this.cBoxSelectQuarto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cBoxSelectQuarto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxSelectQuarto.Enabled = false;
-            this.cBoxSelectQuarto.FormattingEnabled = true;
-            this.cBoxSelectQuarto.Location = new System.Drawing.Point(754, 147);
-            this.cBoxSelectQuarto.Name = "cBoxSelectQuarto";
-            this.cBoxSelectQuarto.Size = new System.Drawing.Size(200, 28);
-            this.cBoxSelectQuarto.TabIndex = 21;
-            this.cBoxSelectQuarto.Visible = false;
-            this.cBoxSelectQuarto.SelectedIndexChanged += new System.EventHandler(this.cBoxSelectQuarto_SelectedIndexChanged);
             // 
             // btnAddMaisHosp
             // 
@@ -208,9 +181,9 @@ namespace Desktop.View
             this.lviewSubTotal.GridLines = true;
             this.lviewSubTotal.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lviewSubTotal.HideSelection = false;
-            this.lviewSubTotal.Location = new System.Drawing.Point(550, 296);
+            this.lviewSubTotal.Location = new System.Drawing.Point(550, 336);
             this.lviewSubTotal.Name = "lviewSubTotal";
-            this.lviewSubTotal.Size = new System.Drawing.Size(504, 157);
+            this.lviewSubTotal.Size = new System.Drawing.Size(504, 88);
             this.lviewSubTotal.TabIndex = 4;
             this.lviewSubTotal.UseCompatibleStateImageBehavior = false;
             this.lviewSubTotal.View = System.Windows.Forms.View.Details;
@@ -306,15 +279,15 @@ namespace Desktop.View
             this.lviewQuartos.GridLines = true;
             this.lviewQuartos.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lviewQuartos.HideSelection = false;
-            listViewItem5.StateImageIndex = 0;
-            listViewItem6.StateImageIndex = 0;
-            listViewItem7.StateImageIndex = 0;
-            listViewItem8.StateImageIndex = 0;
+            listViewItem1.StateImageIndex = 0;
+            listViewItem2.StateImageIndex = 0;
+            listViewItem3.StateImageIndex = 0;
+            listViewItem4.StateImageIndex = 0;
             this.lviewQuartos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
             this.lviewQuartos.LabelWrap = false;
             this.lviewQuartos.Location = new System.Drawing.Point(59, 12);
             this.lviewQuartos.MultiSelect = false;
@@ -344,14 +317,14 @@ namespace Desktop.View
             this.dgvMapaQuartos.AllowUserToResizeColumns = false;
             this.dgvMapaQuartos.AllowUserToResizeRows = false;
             this.dgvMapaQuartos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMapaQuartos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMapaQuartos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMapaQuartos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMapaQuartos.Enabled = false;
             this.dgvMapaQuartos.Location = new System.Drawing.Point(218, 260);
@@ -404,8 +377,6 @@ namespace Desktop.View
             this.Controls.Add(this.dgvMapaQuartos);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnEscolherQuartos);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cBoxSelectQuarto);
             this.Controls.Add(this.radBtnStand);
             this.Controls.Add(this.btnAddMaisHosp);
             this.Controls.Add(this.radBtnFam);
@@ -438,8 +409,6 @@ namespace Desktop.View
         private System.Windows.Forms.TextBox txbNome;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Button btnAddMaisHosp;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cBoxSelectQuarto;
         private System.Windows.Forms.RadioButton radBtnFam;
         private System.Windows.Forms.RadioButton radBtnDelux;
         private System.Windows.Forms.RadioButton radBtnDeuses;

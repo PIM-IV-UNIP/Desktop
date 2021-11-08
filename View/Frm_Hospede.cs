@@ -34,7 +34,7 @@ namespace Desktop.View
             Hospede.emailPessoa = txbEmail.Text;
             Hospede.enderecoPessoa = txbEndereco.Text;
             Hospede.telefonePessoa = txbTelefone.Text;
-            Hospede.rgPessoa = Convert.ToDouble(maskTxbRg.Text);
+            Hospede.idPessoa = maskTxbRg.Text;
             Hospede.nascimentoPessoa = Convert.ToDateTime(maskTxbNasc.Text);
             Hospede.nacionalidade = txbNacionalidade.Text;
             Hospede.cpfPessoa = Convert.ToDouble(maskTxbCpf.Text);
@@ -47,7 +47,7 @@ namespace Desktop.View
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            Hospede.cpfPessoa = Convert.ToDouble(maskTxbCpf.Text);
+            Hospede.idPessoa = masktxbPesquisaID.Text;
 
             Mensagem = CTR_Hospede.ConsultarHospede(Hospede);
 
@@ -55,7 +55,7 @@ namespace Desktop.View
             txbEmail.Text = Hospede.emailPessoa;
             txbEndereco.Text = Hospede.enderecoPessoa;
             txbTelefone.Text = (Hospede.telefonePessoa);
-            maskTxbRg.Text = Convert.ToString(Hospede.rgPessoa);
+            maskTxbRg.Text = Convert.ToString(Hospede.idPessoa);
             maskTxbNasc.Text = Convert.ToString(Hospede.nascimentoPessoa);
             txbNacionalidade.Text = Hospede.nacionalidade;
             txbLocalNasc.Text = Hospede.localNascimento;
@@ -74,7 +74,7 @@ namespace Desktop.View
             txbEmail.Text = Hospede.emailPessoa;
             txbEndereco.Text = Hospede.enderecoPessoa;
             txbTelefone.Text = (Hospede.telefonePessoa);
-            maskTxbRg.Text = Convert.ToString(Hospede.rgPessoa);
+            maskTxbRg.Text = Convert.ToString(Hospede.idPessoa);
             maskTxbNasc.Text = Convert.ToString(Hospede.nascimentoPessoa);
             txbNacionalidade.Text = Hospede.nacionalidade;
             txbLocalNasc.Text = Hospede.localNascimento;
@@ -84,7 +84,7 @@ namespace Desktop.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Hospede.cpfPessoa = Convert.ToDouble(maskTxbCpf.Text);
+            Hospede.idPessoa = masktxbPesquisaID.Text;
 
             Mensagem = CTR_Hospede.ExcluirHospede(Hospede);
 
@@ -94,7 +94,8 @@ namespace Desktop.View
             txbEmail.Text = Hospede.emailPessoa;
             txbEndereco.Text = Hospede.enderecoPessoa;
             txbTelefone.Text = (Hospede.telefonePessoa);
-            maskTxbRg.Text = Convert.ToString(Hospede.rgPessoa);
+            masktxbPesquisaID.Text = Convert.ToString(Hospede.idPessoa);
+            maskTxbRg.Text = Convert.ToString(Hospede.idPessoa);
             maskTxbNasc.Text = Convert.ToString(Hospede.nascimentoPessoa);
             txbNacionalidade.Text = Hospede.nacionalidade;
             txbLocalNasc.Text = Hospede.localNascimento;
@@ -114,7 +115,7 @@ namespace Desktop.View
             Hospede.emailPessoa = txbEmail.Text;
             Hospede.enderecoPessoa = txbEndereco.Text;
             Hospede.telefonePessoa = txbTelefone.Text;
-            Hospede.rgPessoa = Convert.ToDouble(maskTxbRg.Text);
+            Hospede.idPessoa = maskTxbRg.Text;
             Hospede.nascimentoPessoa = Convert.ToDateTime(maskTxbNasc.Text);
             Hospede.nacionalidade = txbNacionalidade.Text;
             Hospede.cpfPessoa = Convert.ToDouble(maskTxbCpf.Text);
@@ -129,6 +130,32 @@ namespace Desktop.View
         {
             Hide();
             FRM_CheckIn FRM_CheckIn = new FRM_CheckIn();
+            FRM_CheckIn.ShowDialog();
+        }
+
+        private void maskTxbRg_Click(object sender, EventArgs e)
+        {
+            maskTxbRg.SelectionStart = 0;
+        }
+
+        private void maskTxbCpf_Click(object sender, EventArgs e)
+        {
+            maskTxbCpf.SelectionStart = 0;
+        }
+
+        private void maskTxbNasc_Click(object sender, EventArgs e)
+        {
+            maskTxbNasc.SelectionStart = 0;
+        }
+
+        private void txbTelefone_Click(object sender, EventArgs e)
+        {
+            txbTelefone.SelectionStart = 0;
+        }
+
+        private void masktxbPesquisaID_Click(object sender, EventArgs e)
+        {
+            masktxbPesquisaID.SelectionStart = 0;
         }
     }
 }
