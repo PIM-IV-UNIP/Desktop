@@ -31,20 +31,16 @@ namespace Desktop.View
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "Suite dos Deuses",
-            "2",
-            "Vista dos Deuses"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
+            "2"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quarto Deluxe",
-            "8",
-            "Praia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
+            "2 - 4"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quarto Família",
-            "5",
-            "Praia"}, "(nenhum)", System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
+            "2 - 4"}, "(nenhum)", System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "Quarto Standard",
-            "2",
-            "Praia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
+            "2"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
@@ -57,6 +53,7 @@ namespace Desktop.View
             this.lviewSubTotal = new System.Windows.Forms.ListView();
             this.colunaSubTotalQuartos = new System.Windows.Forms.ColumnHeader();
             this.colunaSubTotalHospedes = new System.Windows.Forms.ColumnHeader();
+            this.colunaSubTotalValor = new System.Windows.Forms.ColumnHeader();
             this.btnEscolherQuartos = new System.Windows.Forms.Button();
             this.radBtnStand = new System.Windows.Forms.RadioButton();
             this.radBtnFam = new System.Windows.Forms.RadioButton();
@@ -87,7 +84,7 @@ namespace Desktop.View
             // 
             this.btnPesquisar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPesquisar.Enabled = false;
-            this.btnPesquisar.Location = new System.Drawing.Point(960, 79);
+            this.btnPesquisar.Location = new System.Drawing.Point(959, 104);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(94, 29);
             this.btnPesquisar.TabIndex = 23;
@@ -100,7 +97,7 @@ namespace Desktop.View
             // 
             this.btnAddMaisHosp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddMaisHosp.Enabled = false;
-            this.btnAddMaisHosp.Location = new System.Drawing.Point(958, 225);
+            this.btnAddMaisHosp.Location = new System.Drawing.Point(960, 235);
             this.btnAddMaisHosp.Name = "btnAddMaisHosp";
             this.btnAddMaisHosp.Size = new System.Drawing.Size(96, 29);
             this.btnAddMaisHosp.TabIndex = 20;
@@ -113,7 +110,7 @@ namespace Desktop.View
             // 
             this.maskTxbRg.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.maskTxbRg.Enabled = false;
-            this.maskTxbRg.Location = new System.Drawing.Point(754, 81);
+            this.maskTxbRg.Location = new System.Drawing.Point(753, 106);
             this.maskTxbRg.Mask = "00,000,000-0";
             this.maskTxbRg.Name = "maskTxbRg";
             this.maskTxbRg.Size = new System.Drawing.Size(200, 27);
@@ -127,7 +124,7 @@ namespace Desktop.View
             this.lblRG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRG.AutoSize = true;
             this.lblRG.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRG.Location = new System.Drawing.Point(582, 81);
+            this.lblRG.Location = new System.Drawing.Point(581, 106);
             this.lblRG.Name = "lblRG";
             this.lblRG.Size = new System.Drawing.Size(163, 25);
             this.lblRG.TabIndex = 18;
@@ -139,7 +136,7 @@ namespace Desktop.View
             // 
             this.txbNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbNome.Enabled = false;
-            this.txbNome.Location = new System.Drawing.Point(754, 114);
+            this.txbNome.Location = new System.Drawing.Point(753, 139);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(200, 27);
             this.txbNome.TabIndex = 11;
@@ -150,7 +147,7 @@ namespace Desktop.View
             this.lblNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNome.Location = new System.Drawing.Point(678, 116);
+            this.lblNome.Location = new System.Drawing.Point(677, 141);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(67, 25);
             this.lblNome.TabIndex = 10;
@@ -175,13 +172,14 @@ namespace Desktop.View
             this.lviewSubTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lviewSubTotal.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colunaSubTotalQuartos,
-            this.colunaSubTotalHospedes});
+            this.colunaSubTotalHospedes,
+            this.colunaSubTotalValor});
             this.lviewSubTotal.Enabled = false;
             this.lviewSubTotal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lviewSubTotal.GridLines = true;
             this.lviewSubTotal.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lviewSubTotal.HideSelection = false;
-            this.lviewSubTotal.Location = new System.Drawing.Point(550, 336);
+            this.lviewSubTotal.Location = new System.Drawing.Point(550, 334);
             this.lviewSubTotal.Name = "lviewSubTotal";
             this.lviewSubTotal.Size = new System.Drawing.Size(504, 88);
             this.lviewSubTotal.TabIndex = 4;
@@ -200,6 +198,11 @@ namespace Desktop.View
             this.colunaSubTotalHospedes.Text = "Hospedes";
             this.colunaSubTotalHospedes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colunaSubTotalHospedes.Width = 300;
+            // 
+            // colunaSubTotalValor
+            // 
+            this.colunaSubTotalValor.Text = "Valor";
+            this.colunaSubTotalValor.Width = 100;
             // 
             // btnEscolherQuartos
             // 
@@ -271,7 +274,6 @@ namespace Desktop.View
             // 
             this.lviewQuartos.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.lviewQuartos.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lviewQuartos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lviewQuartos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colunaQuartos,
             this.colunaMaxPessoas});
@@ -331,6 +333,7 @@ namespace Desktop.View
             this.dgvMapaQuartos.MultiSelect = false;
             this.dgvMapaQuartos.Name = "dgvMapaQuartos";
             this.dgvMapaQuartos.ReadOnly = true;
+            this.dgvMapaQuartos.RowHeadersVisible = false;
             this.dgvMapaQuartos.RowHeadersWidth = 51;
             this.dgvMapaQuartos.RowTemplate.Height = 29;
             this.dgvMapaQuartos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -424,5 +427,6 @@ namespace Desktop.View
         private System.Windows.Forms.DataGridView dgvMapaQuartos;
         private System.Windows.Forms.Button btnFinalizarCheckIn;
         private System.Windows.Forms.Button btnCarregarLista;
+        private System.Windows.Forms.ColumnHeader colunaSubTotalValor;
     }
 }

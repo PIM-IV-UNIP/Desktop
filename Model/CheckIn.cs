@@ -11,6 +11,5 @@ namespace Desktop.Model
         public string AddPessoas { get; set; }
         public string IdPesquisa { get; set; }
         public string NomePesquisa { get; set; }
-        public string teste { get; set; }
     }
 }

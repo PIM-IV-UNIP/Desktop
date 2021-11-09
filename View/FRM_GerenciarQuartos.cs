@@ -33,35 +33,41 @@ namespace Desktop.View
         {
             GerenciarQuartos.TipoQuarto = (cmbTiposQuartos.SelectedIndex.ToString());
 
-            switch (GerenciarQuartos.TipoQuarto)
+            if (txbNumeroQuarto.Text.Equals(""))
             {
-                case "0":
-                    GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
-                    GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                    Mensagem = CTR_GerenciarQuartos.AdicionarDeluxe(GerenciarQuartos);
-                    MessageBox.Show(Mensagem.TMensagem);
-                    break;
+                MessageBox.Show("Você não selecionou um quarto!", "Erro: Quarto não selecionado",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            else {
+                switch (GerenciarQuartos.TipoQuarto)
+                {
+                    case "0":
+                        GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
+                        GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
+                        Mensagem = CTR_GerenciarQuartos.AdicionarDeluxe(GerenciarQuartos);
+                        MessageBox.Show(Mensagem.TMensagem);
+                        break;
 
-                case "1":
-                    GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
-                    GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                    Mensagem = CTR_GerenciarQuartos.AdicionarFamilia(GerenciarQuartos);
-                    MessageBox.Show(Mensagem.TMensagem);
-                    break;
+                    case "1":
+                        GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
+                        GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
+                        Mensagem = CTR_GerenciarQuartos.AdicionarFamilia(GerenciarQuartos);
+                        MessageBox.Show(Mensagem.TMensagem);
+                        break;
 
-                case "2":
-                    GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
-                    GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                    Mensagem = CTR_GerenciarQuartos.AdicionarStandard(GerenciarQuartos);
-                    MessageBox.Show(Mensagem.TMensagem);
-                    break;
+                    case "2":
+                        GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
+                        GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
+                        Mensagem = CTR_GerenciarQuartos.AdicionarStandard(GerenciarQuartos);
+                        MessageBox.Show(Mensagem.TMensagem);
+                        break;
 
-                case "3":
-                    GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
-                    GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                    Mensagem = CTR_GerenciarQuartos.AdicionarDeuses(GerenciarQuartos);
-                    MessageBox.Show(Mensagem.TMensagem);
-                    break;
+                    case "3":
+                        GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
+                        GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
+                        Mensagem = CTR_GerenciarQuartos.AdicionarDeuses(GerenciarQuartos);
+                        MessageBox.Show(Mensagem.TMensagem);
+                        break;
+                }
             }
         }
 
@@ -102,12 +108,39 @@ namespace Desktop.View
 
         private void btnAlterarQuarto_Click(object sender, EventArgs e)
         {
-            GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-            GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
+            if (txbNumeroQuarto.Text.Equals("")) 
+            {
+                MessageBox.Show("Você não selecionou um quarto!", "Erro: Quarto não selecionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
+                GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
 
-            Mensagem = CTR_GerenciarQuartos.AlterarQuarto(GerenciarQuartos);
+                Mensagem = CTR_GerenciarQuartos.AlterarQuarto(GerenciarQuartos);
+                MessageBox.Show(Mensagem.TMensagem);
+            }
+        }
 
-            MessageBox.Show(Mensagem.TMensagem);
+        private void dgvListaHospedes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvListaHospedes.CurrentRow.Cells["Status"].Value.Equals("Indisponível"))
+            {
+                MessageBox.Show("Este quarto está ocupado, selecione outro quarto para editar!", "Erro: Quarto Ocupado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                int val;
+
+                if (int.TryParse(GerenciarQuartos.Validar, out val).Equals(true))
+                {
+                    txbNumeroQuarto.Text = Convert.ToString(dgvListaHospedes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                }
+                else
+                {
+                    MessageBox.Show("Selecione o número do quarto!", "Erro: Número do quarto não selecionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }

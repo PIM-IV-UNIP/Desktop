@@ -49,6 +49,7 @@ namespace Desktop.View
             this.dgvListaHospedes.Location = new System.Drawing.Point(191, 56);
             this.dgvListaHospedes.Name = "dgvListaHospedes";
             this.dgvListaHospedes.ReadOnly = true;
+            this.dgvListaHospedes.RowHeadersVisible = false;
             this.dgvListaHospedes.RowHeadersWidth = 51;
             this.dgvListaHospedes.RowTemplate.Height = 29;
             this.dgvListaHospedes.Size = new System.Drawing.Size(1094, 531);

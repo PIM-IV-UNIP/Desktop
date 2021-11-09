@@ -18,15 +18,15 @@ namespace Desktop.View
         private void btnSim_Click(object sender, EventArgs e)
         {
             Hide();
-            FRM_CheckIn FRM_CheckIn = new FRM_CheckIn();
-            FRM_CheckIn.ShowDialog();
+            FRM_Hospede FRM_Hospede = new FRM_Hospede();
+            FRM_Hospede.ShowDialog();
         }
 
         private void btnNao_Click(object sender, EventArgs e)
         {
             Hide();
-            FRM_Hospede FRM_Hospede = new FRM_Hospede();
-            FRM_Hospede.ShowDialog();
+            FRM_CheckIn FRM_CheckIn = new FRM_CheckIn();
+            FRM_CheckIn.ShowDialog();
         }
 
         private void lblPergunta_Click(object sender, EventArgs e)

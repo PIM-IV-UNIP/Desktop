@@ -25,6 +25,8 @@ namespace Desktop.View
             Hide(); //Esconde a tela do Login
             Inicio.ShowDialog(); //Exibe a tela de Início
             Show(); //Mostra a tela de Login novamente após o usuário clicar no botão sair
+            txbUser.Text = string.Empty;
+            txbSenha.Text = string.Empty;
             
         }
 

@@ -217,7 +217,39 @@ namespace Desktop.View
 
         private void btnFinalizarCheckIn_Click(object sender, EventArgs e)
         {
+            CheckIn.NumeroQuarto = lviewSubTotal.Items[0].Text;
+            CheckIn.NomePesquisa = lviewSubTotal.Items[0].SubItems[1].Text;
 
+            Credenciais credenciais = new Credenciais();
+            SqlCommand cmd;
+            SqlConnection con = new SqlConnection(credenciais.constring); //connection string do BD
+
+            try
+            {
+                con.Open(); //conectando ao BD
+                Mensagem.sql = "UPDATE QUARTOS SET STATUS = @Status, HOSPEDES = @Hospedes WHERE NUMEROQUARTO = @NumeroQuarto";
+                cmd = new SqlCommand(Mensagem.sql, con);
+
+                cmd.Parameters.AddWithValue("@Status", "Indisponível");
+                cmd.Parameters.AddWithValue("@Hospedes", CheckIn.NomePesquisa);
+                cmd.Parameters.AddWithValue("@NumeroQuarto", CheckIn.NumeroQuarto);
+                cmd.CommandType = CommandType.Text;
+
+                Mensagem.verifSQL = cmd.ExecuteNonQuery();
+
+                if (Mensagem.verifSQL > 0)
+                    Mensagem.TMensagem = "CheckIn realizado com sucesso!";
+            }
+            catch (Exception ex)
+            {
+                Mensagem.TMensagem = ("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close(); //fechando a conexão com o BD
+            }
+
+            MessageBox.Show(Mensagem.TMensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void HabilitarControles()
