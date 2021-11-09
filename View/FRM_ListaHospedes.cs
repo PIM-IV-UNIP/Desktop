@@ -39,7 +39,7 @@ namespace Desktop.View
         {
             if (txbPesquise.Text.Equals(""))
             {
-                MessageBox.Show("Por favor digite um Documento de ID para procurar!", "Erro: Sem ID");
+                MessageBox.Show("Por favor digite um Documento de ID para procurar!", "Erro: Sem ID",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             else
             {

@@ -132,12 +132,16 @@ namespace Desktop.View
             this.dgvListaHospedes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvListaHospedes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaHospedes.Location = new System.Drawing.Point(567, 74);
+            this.dgvListaHospedes.MultiSelect = false;
             this.dgvListaHospedes.Name = "dgvListaHospedes";
             this.dgvListaHospedes.ReadOnly = true;
+            this.dgvListaHospedes.RowHeadersVisible = false;
             this.dgvListaHospedes.RowHeadersWidth = 51;
             this.dgvListaHospedes.RowTemplate.Height = 29;
+            this.dgvListaHospedes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvListaHospedes.Size = new System.Drawing.Size(612, 453);
             this.dgvListaHospedes.TabIndex = 104;
+            this.dgvListaHospedes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaHospedes_CellClick);
             // 
             // btnCarregarLista
             // 
@@ -179,6 +183,7 @@ namespace Desktop.View
             this.Controls.Add(this.lblGerenciar);
             this.Controls.Add(this.btnVoltar);
             this.Name = "FRM_GerenciarQuartos";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciar Quartos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaHospedes)).EndInit();

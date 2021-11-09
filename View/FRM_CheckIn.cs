@@ -1,8 +1,8 @@
 ﻿using Desktop.Model;
 using System;
-using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Desktop.View
 {
@@ -35,7 +35,7 @@ namespace Desktop.View
 
         private void btnAddMaisHosp_Click(object sender, EventArgs e)
         {
-            if (lviewSubTotal.Items[cBoxSelectQuarto.SelectedIndex].SubItems[1].Text.Equals(" "))
+            if (lviewSubTotal.Items[0].SubItems[1].Text.Equals(" "))
             {
                 CheckIn.AddPessoas = txbNome.Text;
             }
@@ -44,12 +44,43 @@ namespace Desktop.View
                 CheckIn.AddPessoas += ", " + txbNome.Text;
             }
 
-            lviewSubTotal.Items[cBoxSelectQuarto.SelectedIndex].SubItems[1].Text = CheckIn.AddPessoas;
+            lviewSubTotal.Items[0].SubItems[1].Text = CheckIn.AddPessoas;
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
+            SqlCommand cmd;
+            SqlConnection con = new SqlConnection(@"Data Source=35.198.4.184;Initial Catalog=BDHOTEL;User ID=sqlserver;Password=pim4semestre;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); //connection string do BD
+            SqlDataReader reader;
 
+            CheckIn.IdPesquisa = maskTxbRg.Text;
+
+            try
+            {
+                con.Open();
+                Mensagem.sql = "SELECT NOME FROM HOSPEDES WHERE DOCID = @DocId";
+                cmd = new SqlCommand(Mensagem.sql, con);
+                cmd.Parameters.AddWithValue("@DocId", CheckIn.IdPesquisa);
+
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    CheckIn.IdPesquisa = Convert.ToString(reader["DOCID"]);
+                    CheckIn.NomePesquisa = Convert.ToString(reader["NOME"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Mensagem.TMensagem = "Erro: " + ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            maskTxbRg.Text = CheckIn.IdPesquisa;
+            txbNome.Text = CheckIn.NomePesquisa;
         }
 
         private void lviewSubTotal_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -59,17 +90,7 @@ namespace Desktop.View
 
         private void btnEscolherQuartos_Click(object sender, EventArgs e)
         {
-            ListViewItem item = lviewSubTotal.FindItemWithText($"{CheckIn.NumeroQuarto}");
-            if (!lviewSubTotal.Items.Contains(item))
-            {
-                lviewSubTotal.Items.Add($"{CheckIn.NumeroQuarto}");
-                cBoxSelectQuarto.Items.Add($"{CheckIn.IdQuarto}: {CheckIn.NumeroQuarto}");
-                HabilitarDepoisQuartos();
-            }
-            else
-            {
-                MessageBox.Show("Este quarto já foi adicionado!", "Aviso: Quarto já Adicionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
         }
 
         private void radBtnDelux_CheckedChanged(object sender, EventArgs e)
@@ -136,7 +157,7 @@ namespace Desktop.View
 
         private void cBoxSelectQuarto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lviewSubTotal.Items[cBoxSelectQuarto.SelectedIndex].SubItems.Add(" ");
+
         }
 
         private void btnPesquisar_Click_1(object sender, EventArgs e)
@@ -192,7 +213,39 @@ namespace Desktop.View
 
         private void btnFinalizarCheckIn_Click(object sender, EventArgs e)
         {
+            CheckIn.NumeroQuarto = lviewSubTotal.Items[0].Text;
+            CheckIn.NomePesquisa = lviewSubTotal.Items[0].SubItems[1].Text;
 
+            Credenciais credenciais = new Credenciais();
+            SqlCommand cmd;
+            SqlConnection con = new SqlConnection(credenciais.constring); //connection string do BD
+
+            try
+            {
+                con.Open(); //conectando ao BD
+                Mensagem.sql = "UPDATE QUARTOS SET STATUS = @Status, HOSPEDES = @Hospedes WHERE NUMEROQUARTO = @NumeroQuarto";
+                cmd = new SqlCommand(Mensagem.sql, con);
+
+                cmd.Parameters.AddWithValue("@Status", "Indisponível");
+                cmd.Parameters.AddWithValue("@Hospedes", CheckIn.NomePesquisa);
+                cmd.Parameters.AddWithValue("@NumeroQuarto", CheckIn.NumeroQuarto);
+                cmd.CommandType = CommandType.Text;
+
+                Mensagem.verifSQL = cmd.ExecuteNonQuery();
+
+                if (Mensagem.verifSQL > 0)
+                    Mensagem.TMensagem = "CheckIn realizado com sucesso!";
+            }
+            catch (Exception ex)
+            {
+                Mensagem.TMensagem = ("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close(); //fechando a conexão com o BD
+            }
+
+            MessageBox.Show(Mensagem.TMensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void HabilitarControles()
@@ -212,7 +265,6 @@ namespace Desktop.View
             //habilitando os controles
             maskTxbRg.Enabled = true;
             txbNome.Enabled = true;
-            cBoxSelectQuarto.Enabled = true;
             btnAddMaisHosp.Enabled = true;
             btnPesquisar.Enabled = true;
             lviewSubTotal.Enabled = true;
@@ -223,11 +275,34 @@ namespace Desktop.View
             lblRG.Visible = true;
             maskTxbRg.Visible = true;
             txbNome.Visible = true;
-            cBoxSelectQuarto.Visible = true;
             btnAddMaisHosp.Visible = true;
             btnPesquisar.Visible = true;
             lviewSubTotal.Visible = true;
             btnFinalizarCheckIn.Visible = true;
+        }
+
+        private void DeshabilitarEsquerda()
+        {
+            //deshabilitando os componentes da esquerda
+            btnCarregarLista.Enabled = false;
+            dgvMapaQuartos.Enabled = false;
+            lviewQuartos.Enabled = false;
+            radBtnDelux.Enabled = false;
+            radBtnDeuses.Enabled = false;
+            radBtnFam.Enabled = false;
+            radBtnStand.Enabled = false;
+            btnEscolherQuartos.Enabled = false;
+
+
+            //deixando-os invisíveis
+            btnCarregarLista.Visible = false;
+            dgvMapaQuartos.Visible = false;
+            lviewQuartos.Visible = false;
+            radBtnDelux.Visible = false;
+            radBtnDeuses.Visible = false;
+            radBtnFam.Visible = false;
+            radBtnStand.Visible = false;
+            btnEscolherQuartos.Visible = false;
         }
     }
 }
