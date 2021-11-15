@@ -73,10 +73,10 @@ namespace Desktop.View
             this.cmbTiposQuartos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbTiposQuartos.FormattingEnabled = true;
             this.cmbTiposQuartos.Items.AddRange(new object[] {
-            "Quarto Deluxe",
-            "Quarto Familia",
-            "Quarto Standard",
-            "Suite dos Deuses"});
+            "Quarto Quádruplo",
+            "Quarto Triplo",
+            "Quarto Duplo",
+            "Quarto Individual"});
             this.cmbTiposQuartos.Location = new System.Drawing.Point(278, 163);
             this.cmbTiposQuartos.Name = "cmbTiposQuartos";
             this.cmbTiposQuartos.Size = new System.Drawing.Size(235, 31);

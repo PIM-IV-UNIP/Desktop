@@ -11,5 +11,8 @@ namespace Desktop.Model
         public string AddPessoas { get; set; }
         public string IdPesquisa { get; set; }
         public string NomePesquisa { get; set; }
+        public DateTime Chegada { get; set; }
+        public DateTime Saida { get; set; }
+        public decimal Valor { get; set; }
     }
 }

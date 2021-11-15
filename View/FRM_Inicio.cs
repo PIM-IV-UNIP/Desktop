@@ -55,5 +55,13 @@ namespace Desktop.View
             FRM_GerenciarQuartos.ShowDialog();
             Show();
         }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            FRM_CheckOut FRM_CheckOut = new FRM_CheckOut();
+            Hide();
+            FRM_CheckOut.ShowDialog();
+            Show();
+        }
     }
 }
