@@ -35,13 +35,14 @@ namespace Desktop.View
             this.lblSenha = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEntrar
             // 
             this.btnEntrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEntrar.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEntrar.Location = new System.Drawing.Point(353, 319);
+            this.btnEntrar.Location = new System.Drawing.Point(360, 317);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(132, 61);
             this.btnEntrar.TabIndex = 11;
@@ -107,12 +108,25 @@ namespace Desktop.View
             this.lblLogin.Text = "Login";
             this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
             // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCadastrar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCadastrar.Location = new System.Drawing.Point(679, 403);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(109, 35);
+            this.btnCadastrar.TabIndex = 12;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            // 
             // FRM_Login
             // 
             this.AcceptButton = this.btnEntrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.txbSenha);
             this.Controls.Add(this.txbUser);
@@ -135,5 +149,6 @@ namespace Desktop.View
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.Button btnCadastrar;
     }
 }

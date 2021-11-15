@@ -8,13 +8,14 @@ namespace Desktop.Controller
 {
     class CTR_Hospede
     {
-        DAO_Hospede DAO_Hospede = new DAO_Hospede();
         Mensagem Mensagem = new Mensagem();
         SqlCommand cmd;
-        SqlConnection con = new SqlConnection(@"Data Source=35.198.4.184;Initial Catalog=BDHOTEL;User ID=sqlserver;Password=pim4semestre;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); //connection string do BD
+        Credenciais cred = new Credenciais();
+        SqlConnection con;
 
         public Mensagem AdicionarHospede(Hospede Hospede)
         {
+            con = new SqlConnection(cred.constring);
             try
             {
                 con.Open();
@@ -54,6 +55,7 @@ namespace Desktop.Controller
 
         public Mensagem ConsultarHospede(Hospede Hospede)
         {
+            con = new SqlConnection(cred.constring);
             try
             {
                 SqlDataReader reader;
@@ -95,6 +97,7 @@ namespace Desktop.Controller
         }
         public Mensagem AtualizarHospede(Hospede Hospede)
         {
+            con = new SqlConnection(cred.constring);
             try
             {
                 con.Open(); //conectando ao BD
@@ -131,6 +134,7 @@ namespace Desktop.Controller
 
         public Mensagem ExcluirHospede(Hospede Hospede)
         {
+            con = new SqlConnection(cred.constring);
             try
             {
                 con.Open();
@@ -153,11 +157,6 @@ namespace Desktop.Controller
             }
 
             return Mensagem;
-
-
-
-
-
         }
     }
 }

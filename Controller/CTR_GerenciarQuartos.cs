@@ -34,7 +34,7 @@ namespace Desktop.Controller
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 
                 if (Mensagem.verifSQL > 0)
-                    Mensagem.TMensagem = "Quarto adicionado com sucesso à categoria Deluxe.";
+                    Mensagem.TMensagem = "Quarto adicionado com sucesso à categoria Triplo.";
             }
             catch (Exception ex)
             {
@@ -67,7 +67,7 @@ namespace Desktop.Controller
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 
                 if (Mensagem.verifSQL > 0)
-                    Mensagem.TMensagem = "Quarto adicionado com sucesso à categoria Standard.";
+                    Mensagem.TMensagem = "Quarto adicionado com sucesso à categoria Individual.";
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace Desktop.Controller
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 
                 if (Mensagem.verifSQL > 0)
-                    Mensagem.TMensagem = "Quarto adicionado com sucesso à categoria Família.";
+                    Mensagem.TMensagem = "Quarto adicionado com sucesso à categoria Duplo.";
             }
             catch (Exception ex)
             {
@@ -131,7 +131,7 @@ namespace Desktop.Controller
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 
                 if (Mensagem.verifSQL > 0)
-                    Mensagem.TMensagem = "Quarto adicionado com sucesso à categoria Deuses.";
+                    Mensagem.TMensagem = "Quarto adicionado com sucesso à categoria Quádruplo.";
             }
             catch (Exception ex)
             {

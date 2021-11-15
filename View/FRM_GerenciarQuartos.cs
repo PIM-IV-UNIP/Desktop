@@ -43,28 +43,28 @@ namespace Desktop.View
                     case "0":
                         GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
                         GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                        Mensagem = CTR_GerenciarQuartos.AdicionarDeluxe(GerenciarQuartos);
+                        Mensagem = CTR_GerenciarQuartos.AdicionarDeuses(GerenciarQuartos);
                         MessageBox.Show(Mensagem.TMensagem);
                         break;
 
                     case "1":
                         GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
                         GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                        Mensagem = CTR_GerenciarQuartos.AdicionarFamilia(GerenciarQuartos);
+                        Mensagem = CTR_GerenciarQuartos.AdicionarDeluxe(GerenciarQuartos);
                         MessageBox.Show(Mensagem.TMensagem);
                         break;
 
                     case "2":
                         GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
                         GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                        Mensagem = CTR_GerenciarQuartos.AdicionarStandard(GerenciarQuartos);
+                        Mensagem = CTR_GerenciarQuartos.AdicionarFamilia(GerenciarQuartos);
                         MessageBox.Show(Mensagem.TMensagem);
                         break;
 
                     case "3":
                         GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
                         GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                        Mensagem = CTR_GerenciarQuartos.AdicionarDeuses(GerenciarQuartos);
+                        Mensagem = CTR_GerenciarQuartos.AdicionarStandard(GerenciarQuartos);
                         MessageBox.Show(Mensagem.TMensagem);
                         break;
                 }

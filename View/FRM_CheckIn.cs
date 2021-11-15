@@ -35,52 +35,29 @@ namespace Desktop.View
 
         private void btnAddMaisHosp_Click(object sender, EventArgs e)
         {
-            if (lviewSubTotal.Items[0].SubItems[1].Text.Equals(" "))
+            //Fazer a verificação de hospede duplicado
+
+            /*CheckIn.teste = maskTxbRg.Text;
+
+            if (CheckIn.teste.Equals(CheckIn.IdPesquisa))
             {
-                CheckIn.AddPessoas = txbNome.Text;
+                MessageBox.Show(CheckIn.IdPesquisa);
             }
             else
             {
-                CheckIn.AddPessoas += ", " + txbNome.Text;
-            }
+                MessageBox.Show(CheckIn.teste);
+            }*/
+            
+                if (lviewSubTotal.Items[0].SubItems[1].Text.Equals(" "))
+                {
+                    CheckIn.AddPessoas = txbNome.Text;
+                }
+                else
+                {
+                    CheckIn.AddPessoas += ", " + txbNome.Text;
+                }
 
             lviewSubTotal.Items[0].SubItems[1].Text = CheckIn.AddPessoas;
-        }
-
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-            SqlCommand cmd;
-            SqlConnection con = new SqlConnection(@"Data Source=35.198.4.184;Initial Catalog=BDHOTEL;User ID=sqlserver;Password=pim4semestre;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); //connection string do BD
-            SqlDataReader reader;
-
-            CheckIn.IdPesquisa = maskTxbRg.Text;
-
-            try
-            {
-                con.Open();
-                Mensagem.sql = "SELECT NOME FROM HOSPEDES WHERE DOCID = @DocId";
-                cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@DocId", CheckIn.IdPesquisa);
-
-                reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    CheckIn.IdPesquisa = Convert.ToString(reader["DOCID"]);
-                    CheckIn.NomePesquisa = Convert.ToString(reader["NOME"]);
-                }
-            }
-            catch (Exception ex)
-            {
-                Mensagem.TMensagem = "Erro: " + ex.ToString();
-            }
-            finally
-            {
-                con.Close();
-            }
-
-            maskTxbRg.Text = CheckIn.IdPesquisa;
-            txbNome.Text = CheckIn.NomePesquisa;
         }
 
         private void lviewSubTotal_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -92,32 +69,40 @@ namespace Desktop.View
         {
             lviewSubTotal.Items.Add(CheckIn.NumeroQuarto);
             lviewSubTotal.Items[0].SubItems.Add(" ");
+            lviewSubTotal.Items[0].SubItems.Add(" ");
+            lviewSubTotal.Items[0].SubItems.Add(" ");
             HabilitarDepoisQuartos();
             DeshabilitarEsquerda();
+
+            //colocar os preos no lviewsubtotal
         }
 
         private void radBtnDelux_CheckedChanged(object sender, EventArgs e)
         {
-            CheckIn.IdQuarto = "Quarto Deluxe";
+            CheckIn.IdQuarto = "Quarto Triplo";
             HabilitarControles();
+            CheckIn.Valor = 270M;
         }
 
         private void radBtnDeuses_CheckedChanged(object sender, EventArgs e)
         {
-            CheckIn.IdQuarto = "Suite dos Deuses";
+            CheckIn.IdQuarto = "Quarto Quádruplo";
             HabilitarControles();
+            CheckIn.Valor = 360M;
         }
 
         private void radBtnFam_CheckedChanged(object sender, EventArgs e)
         {
-            CheckIn.IdQuarto = "Quarto Familia";
+            CheckIn.IdQuarto = "Quarto Duplo";
             HabilitarControles();
+            CheckIn.Valor = 180M;
         }
 
         private void radBtnStand_CheckedChanged(object sender, EventArgs e)
         {
-            CheckIn.IdQuarto = "Quarto Standard";
+            CheckIn.IdQuarto = "Quarto Individual";
             HabilitarControles();
+            CheckIn.Valor = 100M;
         }
 
         private void btnCarregarLista_Click(object sender, EventArgs e)
@@ -166,26 +151,33 @@ namespace Desktop.View
         private void btnPesquisar_Click_1(object sender, EventArgs e)
         {
             Credenciais credenciais = new Credenciais();
-            Hospede Hospede = new Hospede();
             SqlCommand cmd;
             SqlConnection con = new SqlConnection(credenciais.constring); //connection string do BD
             SqlDataReader reader;
 
-            Hospede.idPessoa = maskTxbRg.Text;
+            CheckIn.IdPesquisa = maskTxbRg.Text;
 
             try
             {
                 con.Open();
                 Mensagem.sql = "SELECT * FROM HOSPEDES WHERE DOCID = @DocId";
                 cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@DocId", Hospede.idPessoa);
+                cmd.Parameters.AddWithValue("@DocId", CheckIn.IdPesquisa);
 
                 reader = cmd.ExecuteReader();
 
-                while (reader.Read())
+                if (reader.HasRows.Equals(false))
                 {
-                    Hospede.nomePessoa = Convert.ToString(reader["NOME"]);
-                    Hospede.idPessoa = Convert.ToString(reader["DOCID"]);
+                    Mensagem.TMensagem = "Erro: Não foi encontrado um cliente com este ID.";
+                    MessageBox.Show(Mensagem.TMensagem, "Erro: ID não encontrado.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    while (reader.Read())
+                    {
+                        CheckIn.NomePesquisa = Convert.ToString(reader["NOME"]);
+                        CheckIn.IdPesquisa = Convert.ToString(reader["DOCID"]);
+                    }
                 }
             }
             catch (Exception ex)
@@ -197,8 +189,9 @@ namespace Desktop.View
                 con.Close();
             }
 
-            maskTxbRg.Text = Hospede.idPessoa;
-            txbNome.Text = Hospede.nomePessoa;
+            maskTxbRg.Text = CheckIn.IdPesquisa;
+            txbNome.Text = CheckIn.NomePesquisa;
+
 
         }
 
@@ -226,12 +219,15 @@ namespace Desktop.View
             try
             {
                 con.Open(); //conectando ao BD
-                Mensagem.sql = "UPDATE QUARTOS SET STATUS = @Status, HOSPEDES = @Hospedes WHERE NUMEROQUARTO = @NumeroQuarto";
+                Mensagem.sql = "UPDATE QUARTOS SET STATUS = @Status, HOSPEDES = @Hospedes , ENTRADA = @Entrada, SAÍDA = @Saída, VALOR = @Valor WHERE NUMEROQUARTO = @NumeroQuarto";
                 cmd = new SqlCommand(Mensagem.sql, con);
 
                 cmd.Parameters.AddWithValue("@Status", "Indisponível");
                 cmd.Parameters.AddWithValue("@Hospedes", CheckIn.NomePesquisa);
                 cmd.Parameters.AddWithValue("@NumeroQuarto", CheckIn.NumeroQuarto);
+                cmd.Parameters.AddWithValue("@Entrada", CheckIn.Chegada);
+                cmd.Parameters.AddWithValue("@Saída", CheckIn.Saida);
+                cmd.Parameters.AddWithValue("@Valor", CheckIn.Valor);
                 cmd.CommandType = CommandType.Text;
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
@@ -272,6 +268,13 @@ namespace Desktop.View
             btnPesquisar.Enabled = true;
             lviewSubTotal.Enabled = true;
             btnFinalizarCheckIn.Enabled = true;
+            lblPeriodo.Enabled = true;
+            lblDe.Enabled = true;
+            lblAte.Enabled = true;
+            dateTimeFinal.Enabled = true;
+            dateTimeInicio.Enabled = true;
+            btnConfirmarData.Enabled = true;
+
 
             //deixando-os visíveis
             lblMaisHospedes.Visible = true;
@@ -282,6 +285,12 @@ namespace Desktop.View
             btnPesquisar.Visible = true;
             lviewSubTotal.Visible = true;
             btnFinalizarCheckIn.Visible = true;
+            lblPeriodo.Visible = true;
+            lblAte.Visible = true;
+            lblDe.Visible = true;
+            dateTimeFinal.Visible = true;
+            dateTimeInicio.Visible = true;
+            btnConfirmarData.Visible = true;
         }
 
         private void DeshabilitarEsquerda()
@@ -290,10 +299,10 @@ namespace Desktop.View
             btnCarregarLista.Enabled = false;
             dgvMapaQuartos.Enabled = false;
             lviewQuartos.Enabled = false;
-            radBtnDelux.Enabled = false;
-            radBtnDeuses.Enabled = false;
-            radBtnFam.Enabled = false;
-            radBtnStand.Enabled = false;
+            radBtnTriplo.Enabled = false;
+            radBtnQuadruplo.Enabled = false;
+            radBtnDuplo.Enabled = false;
+            radBtnIndividual.Enabled = false;
             btnEscolherQuartos.Enabled = false;
 
 
@@ -301,11 +310,23 @@ namespace Desktop.View
             btnCarregarLista.Visible = false;
             dgvMapaQuartos.Visible = false;
             lviewQuartos.Visible = false;
-            radBtnDelux.Visible = false;
-            radBtnDeuses.Visible = false;
-            radBtnFam.Visible = false;
-            radBtnStand.Visible = false;
+            radBtnTriplo.Visible = false;
+            radBtnQuadruplo.Visible = false;
+            radBtnDuplo.Visible = false;
+            radBtnIndividual.Visible = false;
             btnEscolherQuartos.Visible = false;
+        }
+
+        private void btnConfirmarData_Click(object sender, EventArgs e)
+        {
+            CheckIn.Chegada = dateTimeInicio.Value;
+            CheckIn.Saida = dateTimeFinal.Value;
+
+            lviewSubTotal.Items[0].SubItems[2].Text = Convert.ToString(Math.Ceiling((CheckIn.Saida - CheckIn.Chegada).TotalDays)) + " Noites"; //Fazer uma verificação para quando for apenas uma noite e para quando for 2 ou mais.
+
+            CheckIn.Valor = CheckIn.Valor * Convert.ToDecimal(Math.Ceiling((CheckIn.Saida - CheckIn.Chegada).TotalDays));
+
+            lviewSubTotal.Items[0].SubItems[3].Text = "R$ " + Convert.ToString(CheckIn.Valor);
         }
     }
 }

@@ -30,17 +30,17 @@ namespace Desktop.View
         private void InitializeComponent()
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Suite dos Deuses",
-            "2"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
+            "Quarto Quádruplo",
+            "4"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Transparent, new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point));
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Quarto Deluxe",
-            "2 - 4"}, -1);
+            "Quarto Triplo",
+            "3"}, -1);
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Quarto Família",
-            "2 - 4"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Quarto Standard",
+            "Quarto Duplo",
             "2"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Quarto Individual",
+            "1"}, -1);
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnAddMaisHosp = new System.Windows.Forms.Button();
@@ -52,18 +52,25 @@ namespace Desktop.View
             this.lviewSubTotal = new System.Windows.Forms.ListView();
             this.colunaSubTotalQuartos = new System.Windows.Forms.ColumnHeader();
             this.colunaSubTotalHospedes = new System.Windows.Forms.ColumnHeader();
-            this.colunaSubTotalValor = new System.Windows.Forms.ColumnHeader();
+            this.colunaSubTotalEstadia = new System.Windows.Forms.ColumnHeader();
             this.btnEscolherQuartos = new System.Windows.Forms.Button();
-            this.radBtnStand = new System.Windows.Forms.RadioButton();
-            this.radBtnFam = new System.Windows.Forms.RadioButton();
-            this.radBtnDelux = new System.Windows.Forms.RadioButton();
-            this.radBtnDeuses = new System.Windows.Forms.RadioButton();
+            this.radBtnIndividual = new System.Windows.Forms.RadioButton();
+            this.radBtnDuplo = new System.Windows.Forms.RadioButton();
+            this.radBtnTriplo = new System.Windows.Forms.RadioButton();
+            this.radBtnQuadruplo = new System.Windows.Forms.RadioButton();
             this.lviewQuartos = new System.Windows.Forms.ListView();
             this.colunaQuartos = new System.Windows.Forms.ColumnHeader();
             this.colunaMaxPessoas = new System.Windows.Forms.ColumnHeader();
             this.dgvMapaQuartos = new System.Windows.Forms.DataGridView();
             this.btnFinalizarCheckIn = new System.Windows.Forms.Button();
             this.btnCarregarLista = new System.Windows.Forms.Button();
+            this.dateTimeInicio = new System.Windows.Forms.DateTimePicker();
+            this.lblDe = new System.Windows.Forms.Label();
+            this.lblAte = new System.Windows.Forms.Label();
+            this.dateTimeFinal = new System.Windows.Forms.DateTimePicker();
+            this.btnConfirmarData = new System.Windows.Forms.Button();
+            this.lblPeriodo = new System.Windows.Forms.Label();
+            this.colunaSubTotalValor = new System.Windows.Forms.ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMapaQuartos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +90,7 @@ namespace Desktop.View
             // 
             this.btnPesquisar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPesquisar.Enabled = false;
-            this.btnPesquisar.Location = new System.Drawing.Point(959, 104);
+            this.btnPesquisar.Location = new System.Drawing.Point(961, 30);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(94, 29);
             this.btnPesquisar.TabIndex = 23;
@@ -96,7 +103,7 @@ namespace Desktop.View
             // 
             this.btnAddMaisHosp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddMaisHosp.Enabled = false;
-            this.btnAddMaisHosp.Location = new System.Drawing.Point(960, 235);
+            this.btnAddMaisHosp.Location = new System.Drawing.Point(959, 98);
             this.btnAddMaisHosp.Name = "btnAddMaisHosp";
             this.btnAddMaisHosp.Size = new System.Drawing.Size(96, 29);
             this.btnAddMaisHosp.TabIndex = 20;
@@ -109,7 +116,7 @@ namespace Desktop.View
             // 
             this.maskTxbRg.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.maskTxbRg.Enabled = false;
-            this.maskTxbRg.Location = new System.Drawing.Point(753, 106);
+            this.maskTxbRg.Location = new System.Drawing.Point(755, 32);
             this.maskTxbRg.Mask = "00,000,000-0";
             this.maskTxbRg.Name = "maskTxbRg";
             this.maskTxbRg.Size = new System.Drawing.Size(200, 27);
@@ -123,7 +130,7 @@ namespace Desktop.View
             this.lblRG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRG.AutoSize = true;
             this.lblRG.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRG.Location = new System.Drawing.Point(581, 106);
+            this.lblRG.Location = new System.Drawing.Point(583, 32);
             this.lblRG.Name = "lblRG";
             this.lblRG.Size = new System.Drawing.Size(163, 25);
             this.lblRG.TabIndex = 18;
@@ -135,7 +142,7 @@ namespace Desktop.View
             // 
             this.txbNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbNome.Enabled = false;
-            this.txbNome.Location = new System.Drawing.Point(753, 139);
+            this.txbNome.Location = new System.Drawing.Point(755, 65);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(200, 27);
             this.txbNome.TabIndex = 11;
@@ -146,7 +153,7 @@ namespace Desktop.View
             this.lblNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNome.Location = new System.Drawing.Point(677, 141);
+            this.lblNome.Location = new System.Drawing.Point(679, 67);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(67, 25);
             this.lblNome.TabIndex = 10;
@@ -159,11 +166,11 @@ namespace Desktop.View
             this.lblMaisHospedes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMaisHospedes.AutoSize = true;
             this.lblMaisHospedes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblMaisHospedes.Location = new System.Drawing.Point(556, 27);
+            this.lblMaisHospedes.Location = new System.Drawing.Point(693, 101);
             this.lblMaisHospedes.Name = "lblMaisHospedes";
-            this.lblMaisHospedes.Size = new System.Drawing.Size(198, 23);
+            this.lblMaisHospedes.Size = new System.Drawing.Size(260, 23);
             this.lblMaisHospedes.TabIndex = 0;
-            this.lblMaisHospedes.Text = "Cadastre mais hóspedes:";
+            this.lblMaisHospedes.Text = "Cadastre hóspedes neste quarto:";
             this.lblMaisHospedes.Visible = false;
             // 
             // lviewSubTotal
@@ -172,15 +179,16 @@ namespace Desktop.View
             this.lviewSubTotal.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colunaSubTotalQuartos,
             this.colunaSubTotalHospedes,
+            this.colunaSubTotalEstadia,
             this.colunaSubTotalValor});
             this.lviewSubTotal.Enabled = false;
             this.lviewSubTotal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lviewSubTotal.GridLines = true;
             this.lviewSubTotal.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lviewSubTotal.HideSelection = false;
-            this.lviewSubTotal.Location = new System.Drawing.Point(550, 334);
+            this.lviewSubTotal.Location = new System.Drawing.Point(459, 383);
             this.lviewSubTotal.Name = "lviewSubTotal";
-            this.lviewSubTotal.Size = new System.Drawing.Size(504, 88);
+            this.lviewSubTotal.Size = new System.Drawing.Size(619, 88);
             this.lviewSubTotal.TabIndex = 4;
             this.lviewSubTotal.UseCompatibleStateImageBehavior = false;
             this.lviewSubTotal.View = System.Windows.Forms.View.Details;
@@ -198,17 +206,18 @@ namespace Desktop.View
             this.colunaSubTotalHospedes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colunaSubTotalHospedes.Width = 300;
             // 
-            // colunaSubTotalValor
+            // colunaSubTotalEstadia
             // 
-            this.colunaSubTotalValor.Text = "Valor";
-            this.colunaSubTotalValor.Width = 100;
+            this.colunaSubTotalEstadia.Text = "Estadia";
+            this.colunaSubTotalEstadia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colunaSubTotalEstadia.Width = 90;
             // 
             // btnEscolherQuartos
             // 
             this.btnEscolherQuartos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEscolherQuartos.Enabled = false;
             this.btnEscolherQuartos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEscolherQuartos.Location = new System.Drawing.Point(59, 303);
+            this.btnEscolherQuartos.Location = new System.Drawing.Point(118, 303);
             this.btnEscolherQuartos.Name = "btnEscolherQuartos";
             this.btnEscolherQuartos.Size = new System.Drawing.Size(153, 37);
             this.btnEscolherQuartos.TabIndex = 13;
@@ -217,57 +226,57 @@ namespace Desktop.View
             this.btnEscolherQuartos.Visible = false;
             this.btnEscolherQuartos.Click += new System.EventHandler(this.btnEscolherQuartos_Click);
             // 
-            // radBtnStand
+            // radBtnIndividual
             // 
-            this.radBtnStand.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radBtnStand.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radBtnStand.Location = new System.Drawing.Point(11, 203);
-            this.radBtnStand.Name = "radBtnStand";
-            this.radBtnStand.Size = new System.Drawing.Size(42, 31);
-            this.radBtnStand.TabIndex = 12;
-            this.radBtnStand.TabStop = true;
-            this.radBtnStand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radBtnStand.UseVisualStyleBackColor = true;
-            this.radBtnStand.CheckedChanged += new System.EventHandler(this.radBtnStand_CheckedChanged);
+            this.radBtnIndividual.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radBtnIndividual.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radBtnIndividual.Location = new System.Drawing.Point(11, 203);
+            this.radBtnIndividual.Name = "radBtnIndividual";
+            this.radBtnIndividual.Size = new System.Drawing.Size(42, 31);
+            this.radBtnIndividual.TabIndex = 12;
+            this.radBtnIndividual.TabStop = true;
+            this.radBtnIndividual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radBtnIndividual.UseVisualStyleBackColor = true;
+            this.radBtnIndividual.CheckedChanged += new System.EventHandler(this.radBtnStand_CheckedChanged);
             // 
-            // radBtnFam
+            // radBtnDuplo
             // 
-            this.radBtnFam.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radBtnFam.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radBtnFam.Location = new System.Drawing.Point(11, 161);
-            this.radBtnFam.Name = "radBtnFam";
-            this.radBtnFam.Size = new System.Drawing.Size(42, 31);
-            this.radBtnFam.TabIndex = 11;
-            this.radBtnFam.TabStop = true;
-            this.radBtnFam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radBtnFam.UseVisualStyleBackColor = true;
-            this.radBtnFam.CheckedChanged += new System.EventHandler(this.radBtnFam_CheckedChanged);
+            this.radBtnDuplo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radBtnDuplo.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radBtnDuplo.Location = new System.Drawing.Point(11, 161);
+            this.radBtnDuplo.Name = "radBtnDuplo";
+            this.radBtnDuplo.Size = new System.Drawing.Size(42, 31);
+            this.radBtnDuplo.TabIndex = 11;
+            this.radBtnDuplo.TabStop = true;
+            this.radBtnDuplo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radBtnDuplo.UseVisualStyleBackColor = true;
+            this.radBtnDuplo.CheckedChanged += new System.EventHandler(this.radBtnFam_CheckedChanged);
             // 
-            // radBtnDelux
+            // radBtnTriplo
             // 
-            this.radBtnDelux.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radBtnDelux.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radBtnDelux.Location = new System.Drawing.Point(11, 119);
-            this.radBtnDelux.Name = "radBtnDelux";
-            this.radBtnDelux.Size = new System.Drawing.Size(42, 31);
-            this.radBtnDelux.TabIndex = 9;
-            this.radBtnDelux.TabStop = true;
-            this.radBtnDelux.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radBtnDelux.UseVisualStyleBackColor = true;
-            this.radBtnDelux.CheckedChanged += new System.EventHandler(this.radBtnDelux_CheckedChanged);
+            this.radBtnTriplo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radBtnTriplo.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radBtnTriplo.Location = new System.Drawing.Point(11, 119);
+            this.radBtnTriplo.Name = "radBtnTriplo";
+            this.radBtnTriplo.Size = new System.Drawing.Size(42, 31);
+            this.radBtnTriplo.TabIndex = 9;
+            this.radBtnTriplo.TabStop = true;
+            this.radBtnTriplo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radBtnTriplo.UseVisualStyleBackColor = true;
+            this.radBtnTriplo.CheckedChanged += new System.EventHandler(this.radBtnDelux_CheckedChanged);
             // 
-            // radBtnDeuses
+            // radBtnQuadruplo
             // 
-            this.radBtnDeuses.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radBtnDeuses.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radBtnDeuses.Location = new System.Drawing.Point(11, 77);
-            this.radBtnDeuses.Name = "radBtnDeuses";
-            this.radBtnDeuses.Size = new System.Drawing.Size(42, 31);
-            this.radBtnDeuses.TabIndex = 8;
-            this.radBtnDeuses.TabStop = true;
-            this.radBtnDeuses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radBtnDeuses.UseVisualStyleBackColor = true;
-            this.radBtnDeuses.CheckedChanged += new System.EventHandler(this.radBtnDeuses_CheckedChanged);
+            this.radBtnQuadruplo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radBtnQuadruplo.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radBtnQuadruplo.Location = new System.Drawing.Point(11, 77);
+            this.radBtnQuadruplo.Name = "radBtnQuadruplo";
+            this.radBtnQuadruplo.Size = new System.Drawing.Size(42, 31);
+            this.radBtnQuadruplo.TabIndex = 8;
+            this.radBtnQuadruplo.TabStop = true;
+            this.radBtnQuadruplo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radBtnQuadruplo.UseVisualStyleBackColor = true;
+            this.radBtnQuadruplo.CheckedChanged += new System.EventHandler(this.radBtnDeuses_CheckedChanged);
             // 
             // lviewQuartos
             // 
@@ -316,8 +325,9 @@ namespace Desktop.View
             this.dgvMapaQuartos.AllowUserToResizeRows = false;
             this.dgvMapaQuartos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvMapaQuartos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMapaQuartos.ColumnHeadersVisible = false;
             this.dgvMapaQuartos.Enabled = false;
-            this.dgvMapaQuartos.Location = new System.Drawing.Point(218, 260);
+            this.dgvMapaQuartos.Location = new System.Drawing.Point(288, 260);
             this.dgvMapaQuartos.MultiSelect = false;
             this.dgvMapaQuartos.Name = "dgvMapaQuartos";
             this.dgvMapaQuartos.ReadOnly = true;
@@ -325,7 +335,7 @@ namespace Desktop.View
             this.dgvMapaQuartos.RowHeadersWidth = 51;
             this.dgvMapaQuartos.RowTemplate.Height = 29;
             this.dgvMapaQuartos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvMapaQuartos.Size = new System.Drawing.Size(235, 276);
+            this.dgvMapaQuartos.Size = new System.Drawing.Size(165, 276);
             this.dgvMapaQuartos.TabIndex = 24;
             this.dgvMapaQuartos.Visible = false;
             this.dgvMapaQuartos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMapaQuartos_CellClick);
@@ -335,7 +345,7 @@ namespace Desktop.View
             this.btnFinalizarCheckIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFinalizarCheckIn.Enabled = false;
             this.btnFinalizarCheckIn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnFinalizarCheckIn.Location = new System.Drawing.Point(883, 489);
+            this.btnFinalizarCheckIn.Location = new System.Drawing.Point(907, 499);
             this.btnFinalizarCheckIn.Name = "btnFinalizarCheckIn";
             this.btnFinalizarCheckIn.Size = new System.Drawing.Size(171, 58);
             this.btnFinalizarCheckIn.TabIndex = 25;
@@ -349,7 +359,7 @@ namespace Desktop.View
             this.btnCarregarLista.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCarregarLista.Enabled = false;
             this.btnCarregarLista.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCarregarLista.Location = new System.Drawing.Point(59, 260);
+            this.btnCarregarLista.Location = new System.Drawing.Point(118, 260);
             this.btnCarregarLista.Name = "btnCarregarLista";
             this.btnCarregarLista.Size = new System.Drawing.Size(153, 37);
             this.btnCarregarLista.TabIndex = 26;
@@ -358,28 +368,111 @@ namespace Desktop.View
             this.btnCarregarLista.Visible = false;
             this.btnCarregarLista.Click += new System.EventHandler(this.btnCarregarLista_Click);
             // 
+            // dateTimeInicio
+            // 
+            this.dateTimeInicio.CalendarFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimeInicio.Enabled = false;
+            this.dateTimeInicio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimeInicio.Location = new System.Drawing.Point(720, 221);
+            this.dateTimeInicio.Name = "dateTimeInicio";
+            this.dateTimeInicio.Size = new System.Drawing.Size(335, 30);
+            this.dateTimeInicio.TabIndex = 27;
+            this.dateTimeInicio.Visible = false;
+            // 
+            // lblDe
+            // 
+            this.lblDe.AutoSize = true;
+            this.lblDe.Enabled = false;
+            this.lblDe.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDe.Location = new System.Drawing.Point(675, 225);
+            this.lblDe.Name = "lblDe";
+            this.lblDe.Size = new System.Drawing.Size(39, 25);
+            this.lblDe.TabIndex = 28;
+            this.lblDe.Text = "De:";
+            this.lblDe.Visible = false;
+            // 
+            // lblAte
+            // 
+            this.lblAte.AutoSize = true;
+            this.lblAte.Enabled = false;
+            this.lblAte.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAte.Location = new System.Drawing.Point(670, 284);
+            this.lblAte.Name = "lblAte";
+            this.lblAte.Size = new System.Drawing.Size(44, 25);
+            this.lblAte.TabIndex = 30;
+            this.lblAte.Text = "Até:";
+            this.lblAte.Visible = false;
+            // 
+            // dateTimeFinal
+            // 
+            this.dateTimeFinal.CalendarFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimeFinal.Enabled = false;
+            this.dateTimeFinal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimeFinal.Location = new System.Drawing.Point(720, 280);
+            this.dateTimeFinal.Name = "dateTimeFinal";
+            this.dateTimeFinal.Size = new System.Drawing.Size(335, 30);
+            this.dateTimeFinal.TabIndex = 29;
+            this.dateTimeFinal.Visible = false;
+            // 
+            // btnConfirmarData
+            // 
+            this.btnConfirmarData.Enabled = false;
+            this.btnConfirmarData.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConfirmarData.Location = new System.Drawing.Point(998, 327);
+            this.btnConfirmarData.Name = "btnConfirmarData";
+            this.btnConfirmarData.Size = new System.Drawing.Size(57, 34);
+            this.btnConfirmarData.TabIndex = 31;
+            this.btnConfirmarData.Text = "Ok";
+            this.btnConfirmarData.UseVisualStyleBackColor = true;
+            this.btnConfirmarData.Visible = false;
+            this.btnConfirmarData.Click += new System.EventHandler(this.btnConfirmarData_Click);
+            // 
+            // lblPeriodo
+            // 
+            this.lblPeriodo.AutoSize = true;
+            this.lblPeriodo.Enabled = false;
+            this.lblPeriodo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPeriodo.Location = new System.Drawing.Point(594, 200);
+            this.lblPeriodo.Name = "lblPeriodo";
+            this.lblPeriodo.Size = new System.Drawing.Size(77, 25);
+            this.lblPeriodo.TabIndex = 32;
+            this.lblPeriodo.Text = "Período";
+            this.lblPeriodo.Visible = false;
+            // 
+            // colunaSubTotalValor
+            // 
+            this.colunaSubTotalValor.Text = "Valor";
+            this.colunaSubTotalValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colunaSubTotalValor.Width = 120;
+            // 
             // FRM_CheckIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 569);
+            this.Controls.Add(this.lblPeriodo);
+            this.Controls.Add(this.btnConfirmarData);
+            this.Controls.Add(this.lblAte);
+            this.Controls.Add(this.dateTimeFinal);
+            this.Controls.Add(this.lblDe);
+            this.Controls.Add(this.dateTimeInicio);
             this.Controls.Add(this.btnCarregarLista);
             this.Controls.Add(this.btnFinalizarCheckIn);
             this.Controls.Add(this.dgvMapaQuartos);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnEscolherQuartos);
-            this.Controls.Add(this.radBtnStand);
+            this.Controls.Add(this.radBtnIndividual);
             this.Controls.Add(this.btnAddMaisHosp);
-            this.Controls.Add(this.radBtnFam);
+            this.Controls.Add(this.radBtnDuplo);
             this.Controls.Add(this.maskTxbRg);
             this.Controls.Add(this.lblRG);
             this.Controls.Add(this.lviewSubTotal);
             this.Controls.Add(this.txbNome);
-            this.Controls.Add(this.radBtnDelux);
+            this.Controls.Add(this.radBtnTriplo);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.lblMaisHospedes);
-            this.Controls.Add(this.radBtnDeuses);
+            this.Controls.Add(this.radBtnQuadruplo);
             this.Controls.Add(this.lviewQuartos);
             this.Name = "FRM_CheckIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -400,9 +493,9 @@ namespace Desktop.View
         private System.Windows.Forms.TextBox txbNome;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Button btnAddMaisHosp;
-        private System.Windows.Forms.RadioButton radBtnFam;
-        private System.Windows.Forms.RadioButton radBtnDelux;
-        private System.Windows.Forms.RadioButton radBtnDeuses;
+        private System.Windows.Forms.RadioButton radBtnDuplo;
+        private System.Windows.Forms.RadioButton radBtnTriplo;
+        private System.Windows.Forms.RadioButton radBtnQuadruplo;
         private System.Windows.Forms.ListView lviewQuartos;
         private System.Windows.Forms.ColumnHeader colunaQuartos;
         private System.Windows.Forms.ColumnHeader colunaMaxPessoas;
@@ -411,10 +504,17 @@ namespace Desktop.View
         private System.Windows.Forms.ColumnHeader colunaSubTotalQuartos;
         private System.Windows.Forms.ColumnHeader colunaSubTotalHospedes;
         private System.Windows.Forms.Button btnEscolherQuartos;
-        private System.Windows.Forms.RadioButton radBtnStand;
+        private System.Windows.Forms.RadioButton radBtnIndividual;
         private System.Windows.Forms.DataGridView dgvMapaQuartos;
         private System.Windows.Forms.Button btnFinalizarCheckIn;
         private System.Windows.Forms.Button btnCarregarLista;
+        private System.Windows.Forms.ColumnHeader colunaSubTotalEstadia;
+        private System.Windows.Forms.DateTimePicker dateTimeInicio;
+        private System.Windows.Forms.Label lblDe;
+        private System.Windows.Forms.Label lblAte;
+        private System.Windows.Forms.DateTimePicker dateTimeFinal;
+        private System.Windows.Forms.Button btnConfirmarData;
+        private System.Windows.Forms.Label lblPeriodo;
         private System.Windows.Forms.ColumnHeader colunaSubTotalValor;
     }
 }
