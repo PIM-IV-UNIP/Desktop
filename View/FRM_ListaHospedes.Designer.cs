@@ -31,10 +31,10 @@ namespace Desktop.View
         {
             this.dgvListaHospedes = new System.Windows.Forms.DataGridView();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.txbPesquise = new System.Windows.Forms.TextBox();
             this.btnPesquise = new System.Windows.Forms.Button();
             this.lblPesquise = new System.Windows.Forms.Label();
             this.btnCarregarLista = new System.Windows.Forms.Button();
+            this.maskTxbPesquise = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaHospedes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,17 +67,6 @@ namespace Desktop.View
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // txbPesquise
-            // 
-            this.txbPesquise.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbPesquise.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbPesquise.Location = new System.Drawing.Point(816, 12);
-            this.txbPesquise.Name = "txbPesquise";
-            this.txbPesquise.PlaceholderText = "Digite o documento de ID";
-            this.txbPesquise.Size = new System.Drawing.Size(274, 32);
-            this.txbPesquise.TabIndex = 1;
-            // 
             // btnPesquise
             // 
             this.btnPesquise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -96,7 +85,7 @@ namespace Desktop.View
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPesquise.AutoSize = true;
             this.lblPesquise.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPesquise.Location = new System.Drawing.Point(597, 16);
+            this.lblPesquise.Location = new System.Drawing.Point(643, 15);
             this.lblPesquise.Name = "lblPesquise";
             this.lblPesquise.Size = new System.Drawing.Size(207, 25);
             this.lblPesquise.TabIndex = 5;
@@ -113,15 +102,25 @@ namespace Desktop.View
             this.btnCarregarLista.UseVisualStyleBackColor = true;
             this.btnCarregarLista.Click += new System.EventHandler(this.btnCarregarLista_Click);
             // 
+            // maskTxbPesquise
+            // 
+            this.maskTxbPesquise.Location = new System.Drawing.Point(856, 16);
+            this.maskTxbPesquise.Mask = "00,000,000-0";
+            this.maskTxbPesquise.Name = "maskTxbPesquise";
+            this.maskTxbPesquise.Size = new System.Drawing.Size(245, 27);
+            this.maskTxbPesquise.TabIndex = 7;
+            this.maskTxbPesquise.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.maskTxbPesquise.Click += new System.EventHandler(this.maskTxbPesquise_Click);
+            // 
             // FRM_ListaHospedes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1297, 599);
+            this.Controls.Add(this.maskTxbPesquise);
             this.Controls.Add(this.btnCarregarLista);
             this.Controls.Add(this.lblPesquise);
             this.Controls.Add(this.btnPesquise);
-            this.Controls.Add(this.txbPesquise);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.dgvListaHospedes);
             this.Name = "FRM_ListaHospedes";
@@ -137,9 +136,9 @@ namespace Desktop.View
         #endregion
         private System.Windows.Forms.DataGridView dgvListaHospedes;
         private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.TextBox txbPesquise;
         private System.Windows.Forms.Button btnPesquise;
         private System.Windows.Forms.Label lblPesquise;
         private System.Windows.Forms.Button btnCarregarLista;
+        private System.Windows.Forms.MaskedTextBox maskTxbPesquise;
     }
 }

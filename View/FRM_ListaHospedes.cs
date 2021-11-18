@@ -13,16 +13,14 @@ namespace Desktop.View
 {
     public partial class FRM_ListaHospedes : Form
     {
-        SqlCommand cmd;
-        SqlDataAdapter DA;
-        SqlConnection con = new SqlConnection(@"Data Source=35.198.4.184;Initial Catalog=BDHOTEL;User ID=sqlserver;Password=pim4semestre;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); //connection string do BD
-        Mensagem Mensagem = new Mensagem();
-        DataTable lista;
-        ListaHospede ListaHospede = new ListaHospede();
+        ListaHospede ListaHospede;
+        CTR_ListaHospedes CTR_ListaHospedes;
 
         public FRM_ListaHospedes()
         {
             InitializeComponent();
+            ListaHospede = new ListaHospede();
+            CTR_ListaHospedes = new CTR_ListaHospedes();
         }
 
         private void FRM_ListaHospedes_Load(object sender, EventArgs e)
@@ -37,40 +35,28 @@ namespace Desktop.View
 
         private void btnPesquise_Click(object sender, EventArgs e)
         {
-            if (txbPesquise.Text.Equals(""))
+            if (maskTxbPesquise.Text.Equals(""))
             {
                 MessageBox.Show("Por favor digite um Documento de ID para procurar!", "Erro: Sem ID",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             else
             {
-                ListaHospede.DocumentoID = txbPesquise.Text;
-                try
+                ListaHospede.DocumentoID = maskTxbPesquise.Text;
+
+                CTR_ListaHospedes.PesquisarID(ListaHospede);             
+
+                if(ListaHospede.Lista != null)
                 {
-
-                    con.Open();
-                    Mensagem.sql = "SELECT * FROM HOSPEDES WHERE DOCID = @DocumentoID";
-                    cmd = new SqlCommand(Mensagem.sql, con);
-                    cmd.Parameters.AddWithValue("@DocumentoID", ListaHospede.DocumentoID);
-
-                    cmd.CommandType = CommandType.Text;
-
-                    DA = new SqlDataAdapter(cmd);
-                    lista = new DataTable();
-
-                    DA.Fill(lista);
+                    if (ListaHospede.Lista.Rows.Count > 0)
+                    {
+                        dgvListaHospedes.DataSource = ListaHospede.Lista;
+                        dgvListaHospedes.Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi encontrado um cliente com o ID informado.", "Erro: ID não encontrado", MessageBoxButtons.OK);
+                    }
                 }
-
-                catch (Exception ex)
-                {
-                    Mensagem.TMensagem = "Erro: " + ex.ToString();
-                    MessageBox.Show(Mensagem.TMensagem);
-                }
-                finally
-                {
-                    con.Close();
-                }
-                dgvListaHospedes.DataSource = lista;
-                dgvListaHospedes.Refresh();
             }
         }
 
@@ -80,30 +66,16 @@ namespace Desktop.View
             dgvListaHospedes.Columns.Clear();
             dgvListaHospedes.Rows.Clear();
             dgvListaHospedes.Refresh();
-            try
-            {
-                con.Open();
-                Mensagem.sql = "SELECT * FROM HOSPEDES";
-                cmd = new SqlCommand(Mensagem.sql, con);
 
-                cmd.CommandType = CommandType.Text;
+            CTR_ListaHospedes.CarregarLista(ListaHospede); 
 
-                DA = new SqlDataAdapter(cmd);
-                lista = new DataTable();
+            dgvListaHospedes.DataSource = ListaHospede.Lista;
 
-                DA.Fill(lista);
-            }
+        }
 
-            catch (Exception ex)
-            {
-                Mensagem.TMensagem = "Erro: " + ex.ToString();
-            }
-            finally
-            {
-                con.Close();
-            }
-            dgvListaHospedes.DataSource = lista;
-
+        private void maskTxbPesquise_Click(object sender, EventArgs e)
+        {
+            maskTxbPesquise.SelectionStart = 0;
         }
     }
 }

@@ -43,28 +43,28 @@ namespace Desktop.View
                     case "0":
                         GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
                         GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                        Mensagem = CTR_GerenciarQuartos.AdicionarDeuses(GerenciarQuartos);
+                        Mensagem = CTR_GerenciarQuartos.AdicionarQuadruplo(GerenciarQuartos);
                         MessageBox.Show(Mensagem.TMensagem);
                         break;
 
                     case "1":
                         GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
                         GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                        Mensagem = CTR_GerenciarQuartos.AdicionarDeluxe(GerenciarQuartos);
+                        Mensagem = CTR_GerenciarQuartos.Adicionartriplo(GerenciarQuartos);
                         MessageBox.Show(Mensagem.TMensagem);
                         break;
 
                     case "2":
                         GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
                         GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                        Mensagem = CTR_GerenciarQuartos.AdicionarFamilia(GerenciarQuartos);
+                        Mensagem = CTR_GerenciarQuartos.AdicionarDuplo(GerenciarQuartos);
                         MessageBox.Show(Mensagem.TMensagem);
                         break;
 
                     case "3":
                         GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
                         GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                        Mensagem = CTR_GerenciarQuartos.AdicionarStandard(GerenciarQuartos);
+                        Mensagem = CTR_GerenciarQuartos.AdicionarIndividual(GerenciarQuartos);
                         MessageBox.Show(Mensagem.TMensagem);
                         break;
                 }
@@ -73,37 +73,17 @@ namespace Desktop.View
 
         private void btnCarregarLista_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd;
-            SqlDataAdapter DA;
-            SqlConnection con = new SqlConnection(@"Data Source=35.198.4.184;Initial Catalog=BDHOTEL;User ID=sqlserver;Password=pim4semestre;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); //connection string do BD;
-            DataTable lista = new DataTable();
-
             dgvListaHospedes.DataSource = null;
             dgvListaHospedes.Columns.Clear();
             dgvListaHospedes.Rows.Clear();
             dgvListaHospedes.Refresh();
-            try
-            {
-                con.Open();
-                Mensagem.sql = "SELECT * FROM QUARTOS";
-                cmd = new SqlCommand(Mensagem.sql, con);
 
-                cmd.CommandType = CommandType.Text;
+            CTR_GerenciarQuartos.CarregarLista(GerenciarQuartos);
 
-                DA = new SqlDataAdapter(cmd);
+            dgvListaHospedes.DataSource = GerenciarQuartos.Lista;
 
-                DA.Fill(lista);
-            }
+            AparecerLadoEsquerdo();
 
-            catch (Exception ex)
-            {
-                Mensagem.TMensagem = "Erro: " + ex.ToString();
-            }
-            finally
-            {
-                con.Close();
-            }
-            dgvListaHospedes.DataSource = lista;
         }
 
         private void btnAlterarQuarto_Click(object sender, EventArgs e)
@@ -130,17 +110,18 @@ namespace Desktop.View
             }
             else
             {
-                int val;
-
-                if (int.TryParse(GerenciarQuartos.Validar, out val).Equals(true))
-                {
-                    txbNumeroQuarto.Text = Convert.ToString(dgvListaHospedes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
-                }
-                else
-                {
-                    MessageBox.Show("Selecione o número do quarto!", "Erro: Número do quarto não selecionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                txbNumeroQuarto.Text = Convert.ToString(dgvListaHospedes.Rows[e.RowIndex].Cells[0].Value);
             }
+        }
+
+        public void AparecerLadoEsquerdo()
+        {
+            btnAddQuarto.Visible = true;
+            btnAlterarQuarto.Visible = true;
+            lblNumeroQuarto.Visible = true;
+            lblTipoQuarto.Visible = true;
+            txbNumeroQuarto.Visible = true;
+            cmbTiposQuartos.Visible = true;
         }
     }
 }

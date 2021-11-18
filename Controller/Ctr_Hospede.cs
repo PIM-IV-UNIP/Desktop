@@ -20,19 +20,19 @@ namespace Desktop.Controller
             {
                 con.Open();
 
-                Mensagem.sql = "INSERT INTO HOSPEDES (DOCID,NOME,ENDERECO,TELEFONE,EMAIL,DATANASCIMENTO,NACIONALIDADE,CPF,LOCALDENASCIMENTO)" 
-                    + "VALUES (@DocId, @Nome, @Endereco, @Telefone, @Email, @Nascimento, @Nacionalidade, @Cpf, @Localdenascimento)";
+                Mensagem.sql = "INSERT INTO HOSPEDES (DOCID,NOME,ENDERECO,TELEFONE,EMAIL,DATANASCIMENTO,NACIONALIDADE,CPF,CIDADE)" 
+                    + "VALUES (@DocId, @Nome, @Endereco, @Telefone, @Email, @Nascimento, @Nacionalidade, @Cpf, @Cidade)";
 
                 cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@DocId", Hospede.idPessoa);
-                cmd.Parameters.AddWithValue("@Nome", Hospede.nomePessoa);
-                cmd.Parameters.AddWithValue("@Endereco", Hospede.enderecoPessoa);
-                cmd.Parameters.AddWithValue("@Telefone", Hospede.telefonePessoa); //Atribuindos os valores
-                cmd.Parameters.AddWithValue("@Email", Hospede.emailPessoa);
-                cmd.Parameters.AddWithValue("@Nascimento", Hospede.nascimentoPessoa);
-                cmd.Parameters.AddWithValue("@Nacionalidade", Hospede.nacionalidade);
-                cmd.Parameters.AddWithValue("@Cpf", Hospede.cpfPessoa);
-                cmd.Parameters.AddWithValue("@Localdenascimento", Hospede.localNascimento);
+                cmd.Parameters.AddWithValue("@DocId", Hospede.IDPessoa);
+                cmd.Parameters.AddWithValue("@Nome", Hospede.NomePessoa);
+                cmd.Parameters.AddWithValue("@Endereco", Hospede.EnderecoPessoa);
+                cmd.Parameters.AddWithValue("@Telefone", Hospede.TelefonePessoa); //Atribuindos os valores
+                cmd.Parameters.AddWithValue("@Email", Hospede.EmailPessoa);
+                cmd.Parameters.AddWithValue("@Nascimento", Hospede.NascimentoPessoa);
+                cmd.Parameters.AddWithValue("@Nacionalidade", Hospede.Nacionalidade);
+                cmd.Parameters.AddWithValue("@Cpf", Hospede.CPFPessoa);
+                cmd.Parameters.AddWithValue("@Cidade", Hospede.Cidade);
 
                 cmd.CommandType = CommandType.Text;
 
@@ -63,21 +63,21 @@ namespace Desktop.Controller
                 con.Open();
                 Mensagem.sql = "SELECT * FROM HOSPEDES WHERE DOCID = @DocId";
                 cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@DocId", Hospede.idPessoa);
+                cmd.Parameters.AddWithValue("@DocId", Hospede.IDPessoa);
 
                 reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
-                    Hospede.cpfPessoa = Convert.ToDouble(reader["CPF"]);
-                    Hospede.idPessoa = Convert.ToString(reader["DOCID"]);
-                    Hospede.nomePessoa = Convert.ToString(reader["NOME"]);
-                    Hospede.enderecoPessoa = Convert.ToString(reader["ENDERECO"]);
-                    Hospede.telefonePessoa = Convert.ToString(reader["TELEFONE"]);
-                    Hospede.emailPessoa = Convert.ToString(reader["EMAIL"]);
-                    Hospede.nascimentoPessoa = Convert.ToDateTime(reader["DATANASCIMENTO"]);
-                    Hospede.nacionalidade = Convert.ToString(reader["NACIONALIDADE"]);
-                    Hospede.localNascimento = Convert.ToString(reader["LOCALDENASCIMENTO"]);
+                    Hospede.CPFPessoa = Convert.ToDouble(reader["CPF"]);
+                    Hospede.IDPessoa = Convert.ToString(reader["DOCID"]);
+                    Hospede.NomePessoa = Convert.ToString(reader["NOME"]);
+                    Hospede.EnderecoPessoa = Convert.ToString(reader["ENDERECO"]);
+                    Hospede.TelefonePessoa = Convert.ToString(reader["TELEFONE"]);
+                    Hospede.EmailPessoa = Convert.ToString(reader["EMAIL"]);
+                    Hospede.NascimentoPessoa = Convert.ToDateTime(reader["DATANASCIMENTO"]);
+                    Hospede.Nacionalidade = Convert.ToString(reader["NACIONALIDADE"]);
+                    Hospede.Cidade = Convert.ToString(reader["CIDADE"]);
 
                     Mensagem.TMensagem = "Dados carregados com sucesso.";
                 }
@@ -101,18 +101,18 @@ namespace Desktop.Controller
             try
             {
                 con.Open(); //conectando ao BD
-                Mensagem.sql = "UPDATE HOSPEDES set NOME = @Nome, ENDERECO = @Endereco, TELEFONE = @Telefone, EMAIL = @Email, DATANASCIMENTO = @Nascimento, NACIONALIDADE = @Nacionalidade WHERE CPF = @Cpf";
+                Mensagem.sql = "UPDATE HOSPEDES set NOME = @Nome, ENDERECO = @Endereco, TELEFONE = @Telefone, EMAIL = @Email, DATANASCIMENTO = @Nascimento, NACIONALIDADE = @Nacionalidade, CIDADE = @Cidade WHERE CPF = @Cpf";
                 cmd = new SqlCommand(Mensagem.sql, con);
 
-                cmd.Parameters.AddWithValue("@DocId", Hospede.idPessoa);
-                cmd.Parameters.AddWithValue("@Nome", Hospede.nomePessoa);
-                cmd.Parameters.AddWithValue("@Endereco", Hospede.enderecoPessoa);
-                cmd.Parameters.AddWithValue("@Telefone", Hospede.telefonePessoa); //Atribuindos os parâmetros com os valores
-                cmd.Parameters.AddWithValue("@Email", Hospede.emailPessoa);
-                cmd.Parameters.AddWithValue("@Nascimento", Hospede.nascimentoPessoa);
-                cmd.Parameters.AddWithValue("@Nacionalidade", Hospede.nacionalidade);
-                cmd.Parameters.AddWithValue("@Cpf", Hospede.cpfPessoa);
-                cmd.Parameters.AddWithValue("@Localdenascimento", Hospede.localNascimento);
+                cmd.Parameters.AddWithValue("@DocId", Hospede.IDPessoa);
+                cmd.Parameters.AddWithValue("@Nome", Hospede.NomePessoa);
+                cmd.Parameters.AddWithValue("@Endereco", Hospede.EnderecoPessoa);
+                cmd.Parameters.AddWithValue("@Telefone", Hospede.TelefonePessoa); //Atribuindos os parâmetros com os valores
+                cmd.Parameters.AddWithValue("@Email", Hospede.EmailPessoa);
+                cmd.Parameters.AddWithValue("@Nascimento", Hospede.NascimentoPessoa);
+                cmd.Parameters.AddWithValue("@Nacionalidade", Hospede.Nacionalidade);
+                cmd.Parameters.AddWithValue("@Cpf", Hospede.CPFPessoa);
+                cmd.Parameters.AddWithValue("@Cidade", Hospede.Cidade);
 
                 cmd.CommandType = CommandType.Text;
 
@@ -140,7 +140,7 @@ namespace Desktop.Controller
                 con.Open();
                 Mensagem.sql = "DELETE FROM HOSPEDES WHERE DOCID = @DocId";
                 cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@DocId", Hospede.idPessoa);
+                cmd.Parameters.AddWithValue("@DocId", Hospede.IDPessoa);
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 

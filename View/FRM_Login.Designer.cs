@@ -42,9 +42,9 @@ namespace Desktop.View
             // 
             this.btnEntrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEntrar.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEntrar.Location = new System.Drawing.Point(360, 317);
+            this.btnEntrar.Location = new System.Drawing.Point(332, 309);
             this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(132, 61);
+            this.btnEntrar.Size = new System.Drawing.Size(160, 69);
             this.btnEntrar.TabIndex = 11;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
@@ -112,9 +112,9 @@ namespace Desktop.View
             // 
             this.btnCadastrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCadastrar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCadastrar.Location = new System.Drawing.Point(679, 403);
+            this.btnCadastrar.Location = new System.Drawing.Point(661, 395);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(109, 35);
+            this.btnCadastrar.Size = new System.Drawing.Size(127, 43);
             this.btnCadastrar.TabIndex = 12;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;

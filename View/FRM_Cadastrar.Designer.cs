@@ -59,7 +59,6 @@ namespace Desktop.View
             this.lblTitulo.Size = new System.Drawing.Size(454, 54);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Cadastro de Funcionário";
-            this.lblTitulo.Click += new System.EventHandler(this.label1_Click);
             // 
             // txbUser
             // 
@@ -88,7 +87,6 @@ namespace Desktop.View
             this.lblUser.Size = new System.Drawing.Size(120, 40);
             this.lblUser.TabIndex = 4;
             this.lblUser.Text = "Usuário:";
-            this.lblUser.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // lblSenha
             // 

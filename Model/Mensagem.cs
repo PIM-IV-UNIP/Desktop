@@ -11,5 +11,7 @@ namespace Desktop.Model
         public string sql { get; set; }
 
         public int verifSQL { get; set; }
+
+        public bool VerificaReturnFuncao { get; set; }
     }
 }

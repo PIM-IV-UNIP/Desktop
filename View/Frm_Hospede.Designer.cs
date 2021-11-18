@@ -48,8 +48,6 @@ namespace Desktop.View
             this.maskTxbNasc = new System.Windows.Forms.MaskedTextBox();
             this.txbTelefone = new System.Windows.Forms.MaskedTextBox();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.txbLocalNasc = new System.Windows.Forms.TextBox();
-            this.lblLocalNasc = new System.Windows.Forms.Label();
             this.lblCPF = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.maskTxbCpf = new System.Windows.Forms.MaskedTextBox();
@@ -57,6 +55,8 @@ namespace Desktop.View
             this.btnProsseguirCheckIn = new System.Windows.Forms.Button();
             this.masktxbPesquisaID = new System.Windows.Forms.MaskedTextBox();
             this.lblPesquisaID = new System.Windows.Forms.Label();
+            this.txbCity = new System.Windows.Forms.TextBox();
+            this.txbCidade = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNome
@@ -135,7 +135,7 @@ namespace Desktop.View
             this.lblTelefone.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblTelefone.AutoSize = true;
             this.lblTelefone.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTelefone.Location = new System.Drawing.Point(60, 207);
+            this.lblTelefone.Location = new System.Drawing.Point(60, 241);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(87, 25);
             this.lblTelefone.TabIndex = 5;
@@ -244,8 +244,8 @@ namespace Desktop.View
             // txbTelefone
             // 
             this.txbTelefone.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txbTelefone.Location = new System.Drawing.Point(156, 207);
-            this.txbTelefone.Mask = "+000 (000) 00000-0000";
+            this.txbTelefone.Location = new System.Drawing.Point(156, 241);
+            this.txbTelefone.Mask = "(00) 00000-0000";
             this.txbTelefone.Name = "txbTelefone";
             this.txbTelefone.Size = new System.Drawing.Size(200, 27);
             this.txbTelefone.TabIndex = 4;
@@ -262,26 +262,6 @@ namespace Desktop.View
             this.btnLimpar.Text = "Limpar Campos";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
-            // 
-            // txbLocalNasc
-            // 
-            this.txbLocalNasc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txbLocalNasc.Location = new System.Drawing.Point(594, 239);
-            this.txbLocalNasc.Name = "txbLocalNasc";
-            this.txbLocalNasc.Size = new System.Drawing.Size(200, 27);
-            this.txbLocalNasc.TabIndex = 9;
-            // 
-            // lblLocalNasc
-            // 
-            this.lblLocalNasc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblLocalNasc.AutoSize = true;
-            this.lblLocalNasc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLocalNasc.Location = new System.Drawing.Point(402, 239);
-            this.lblLocalNasc.Name = "lblLocalNasc";
-            this.lblLocalNasc.Size = new System.Drawing.Size(191, 25);
-            this.lblLocalNasc.TabIndex = 20;
-            this.lblLocalNasc.Text = "Local de Nascimento:";
-            this.lblLocalNasc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCPF
             // 
@@ -363,19 +343,39 @@ namespace Desktop.View
             this.lblPesquisaID.Text = "Pesquisa de Hóspede pelo Documento de ID:";
             this.lblPesquisaID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // txbCity
+            // 
+            this.txbCity.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txbCity.Location = new System.Drawing.Point(156, 208);
+            this.txbCity.Name = "txbCity";
+            this.txbCity.Size = new System.Drawing.Size(200, 27);
+            this.txbCity.TabIndex = 25;
+            // 
+            // txbCidade
+            // 
+            this.txbCidade.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txbCidade.AutoSize = true;
+            this.txbCidade.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txbCidade.Location = new System.Drawing.Point(72, 210);
+            this.txbCidade.Name = "txbCidade";
+            this.txbCidade.Size = new System.Drawing.Size(75, 25);
+            this.txbCidade.TabIndex = 26;
+            this.txbCidade.Text = "Cidade:";
+            this.txbCidade.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FRM_Hospede
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 493);
+            this.Controls.Add(this.txbCity);
+            this.Controls.Add(this.txbCidade);
             this.Controls.Add(this.masktxbPesquisaID);
             this.Controls.Add(this.lblPesquisaID);
             this.Controls.Add(this.btnProsseguirCheckIn);
             this.Controls.Add(this.maskTxbRg);
             this.Controls.Add(this.maskTxbCpf);
             this.Controls.Add(this.lblCPF);
-            this.Controls.Add(this.txbLocalNasc);
-            this.Controls.Add(this.lblLocalNasc);
             this.Controls.Add(this.txbTelefone);
             this.Controls.Add(this.maskTxbNasc);
             this.Controls.Add(this.txbNacionalidade);
@@ -426,8 +426,6 @@ namespace Desktop.View
         private System.Windows.Forms.MaskedTextBox maskTxbNasc;
         private System.Windows.Forms.MaskedTextBox txbTelefone;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.TextBox txbLocalNasc;
-        private System.Windows.Forms.Label lblLocalNasc;
         private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.MaskedTextBox maskTxbCpf;
@@ -435,5 +433,7 @@ namespace Desktop.View
         private System.Windows.Forms.Button btnProsseguirCheckIn;
         private System.Windows.Forms.MaskedTextBox masktxbPesquisaID;
         private System.Windows.Forms.Label lblPesquisaID;
+        private System.Windows.Forms.TextBox txbCity;
+        private System.Windows.Forms.Label txbCidade;
     }
 }
