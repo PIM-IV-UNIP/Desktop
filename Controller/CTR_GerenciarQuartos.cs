@@ -4,6 +4,7 @@ using System.Text;
 using Desktop.Model;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Desktop.Controller
 {
@@ -12,11 +13,13 @@ namespace Desktop.Controller
         GerenciarQuartos GerenciarQuartos = new GerenciarQuartos();
         Mensagem Mensagem = new Mensagem();
         SqlCommand cmd;
-        SqlConnection con = new SqlConnection(@"Data Source=35.198.4.184;Initial Catalog=BDHOTEL;User ID=sqlserver;Password=pim4semestre;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"); //connection string do BD
+        Credenciais cred = new Credenciais();
+        SqlConnection con;
 
-
-        public Mensagem AdicionarDeluxe(GerenciarQuartos GerenciarQuartos)
+        public Mensagem Adicionartriplo(GerenciarQuartos GerenciarQuartos)
         {
+            con = new SqlConnection(cred.constring);
+
             try
             {
                 con.Open();
@@ -48,8 +51,9 @@ namespace Desktop.Controller
             return Mensagem;
         }
 
-        public Mensagem AdicionarStandard(GerenciarQuartos GerenciarQuartos)
+        public Mensagem AdicionarIndividual(GerenciarQuartos GerenciarQuartos)
         {
+            con = new SqlConnection(cred.constring);
             try
             {
                 con.Open();
@@ -80,8 +84,9 @@ namespace Desktop.Controller
 
             return Mensagem;
         }        
-        public Mensagem AdicionarFamilia(GerenciarQuartos GerenciarQuartos)
+        public Mensagem AdicionarDuplo(GerenciarQuartos GerenciarQuartos)
         {
+            con = new SqlConnection(cred.constring);
             try
             {
                 con.Open();
@@ -112,8 +117,10 @@ namespace Desktop.Controller
 
             return Mensagem;
         }
-        public Mensagem AdicionarDeuses(GerenciarQuartos GerenciarQuartos)
+        public Mensagem AdicionarQuadruplo(GerenciarQuartos GerenciarQuartos)
         {
+            con = new SqlConnection(cred.constring);
+
             try
             {
                 con.Open();
@@ -147,6 +154,8 @@ namespace Desktop.Controller
 
         public Mensagem AlterarQuarto(GerenciarQuartos GerenciarQuartos)
         {
+            con = new SqlConnection(cred.constring);
+
             try
             {
                 con.Open();
@@ -173,6 +182,38 @@ namespace Desktop.Controller
             }
 
             return Mensagem;
+        }
+
+        public GerenciarQuartos CarregarLista(GerenciarQuartos GerenciarQuartos)
+        {
+            SqlDataAdapter DA;
+            con = new SqlConnection(cred.constring);
+
+            try
+            {
+                con.Open();
+                Mensagem.sql = "SELECT * FROM QUARTOS";
+                cmd = new SqlCommand(Mensagem.sql, con);
+
+                cmd.CommandType = CommandType.Text;
+
+                DA = new SqlDataAdapter(cmd);
+
+                GerenciarQuartos.Lista = new DataTable();
+
+                DA.Fill(GerenciarQuartos.Lista);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro de conexão com o Banco de Dados, por favor tente novamente em instantes. Se o problema persistir, entre em contato conosco pelos canais de atendimento.", "Erro: Conexão falhou", MessageBoxButtons.OK);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return GerenciarQuartos;
         }
     } 
 }

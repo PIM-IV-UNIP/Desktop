@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace Desktop.Model
 {
@@ -14,5 +15,6 @@ namespace Desktop.Model
         public DateTime Chegada { get; set; }
         public DateTime Saida { get; set; }
         public decimal Valor { get; set; }
+        public DataTable Lista { get; set; }
     }
 }

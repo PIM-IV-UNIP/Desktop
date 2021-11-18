@@ -2,6 +2,7 @@
 using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using Desktop.Controller;
 
 namespace Desktop.View
 {
@@ -9,58 +10,39 @@ namespace Desktop.View
     {
         Login Login;
         Mensagem Mensagem;
+        CTR_Login CTR_Login;
 
         public FRM_Login()
         {
             InitializeComponent();
             Login = new Login();
             Mensagem = new Mensagem();
+            CTR_Login = new CTR_Login();
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            Credenciais cred = new Credenciais();
-            SqlConnection con = new SqlConnection(cred.constring);
-            SqlCommand cmd;
-
             Login.User = txbUser.Text;
             Login.Senha = txbSenha.Text;
 
-            SqlDataReader reader;
+            Hide();
 
-            try
+            Mensagem = CTR_Login.AutenticarUser(Login);
+
+            if (Mensagem.VerificaReturnFuncao.Equals(false))
             {
-                con.Open();
-                Mensagem.sql = "SELECT * FROM FUNCIONARIOS WHERE USUÁRIO = @User AND SENHA = @Senha";
-                cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@User", Login.User);
-                cmd.Parameters.AddWithValue("Senha", Login.Senha);
-
-                reader = cmd.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    FRM_Inicio Inicio = new FRM_Inicio(); //Instância da do form Inicio
-                    Hide(); //Esconde a tela do Login
-                    Inicio.ShowDialog(); //Exibe a tela de Início
-                    Show(); //Mostra a tela de Login novamente após o usuário clicar no botão sair
-                    txbUser.Text = string.Empty;
-                    txbSenha.Text = string.Empty;
-                }
-                else
-                {
-                    MessageBox.Show("Usuário ou senha incorretos");
-                }
+                MessageBox.Show(Mensagem.TMensagem, "Erro: Falha no Login", MessageBoxButtons.OK);
             }
-
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Erro: " + ex.ToString());
+                FRM_Inicio FRM_Inicio = new FRM_Inicio();
+                FRM_Inicio.ShowDialog();
             }
-            finally
-            {
-                con.Close();
-            }
+            
+            txbUser.Text = Login.User;
+            txbSenha.Text = Login.Senha;
+
+            Show();
         }
 
         private void txbSenha_TextChanged(object sender, EventArgs e)

@@ -44,7 +44,7 @@ namespace Desktop.View
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(498, 52);
+            this.label1.Location = new System.Drawing.Point(497, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 0;
@@ -54,7 +54,7 @@ namespace Desktop.View
             this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTitulo.Location = new System.Drawing.Point(361, 42);
+            this.lblTitulo.Location = new System.Drawing.Point(360, 42);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(353, 57);
             this.lblTitulo.TabIndex = 1;
@@ -65,9 +65,9 @@ namespace Desktop.View
             // 
             this.btnCheckIn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCheckIn.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCheckIn.Location = new System.Drawing.Point(246, 301);
+            this.btnCheckIn.Location = new System.Drawing.Point(153, 288);
             this.btnCheckIn.Name = "btnCheckIn";
-            this.btnCheckIn.Size = new System.Drawing.Size(181, 93);
+            this.btnCheckIn.Size = new System.Drawing.Size(231, 119);
             this.btnCheckIn.TabIndex = 2;
             this.btnCheckIn.Text = "Check In";
             this.btnCheckIn.UseVisualStyleBackColor = true;
@@ -77,9 +77,9 @@ namespace Desktop.View
             // 
             this.btnCheckOut.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCheckOut.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCheckOut.Location = new System.Drawing.Point(450, 301);
+            this.btnCheckOut.Location = new System.Drawing.Point(415, 288);
             this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Size = new System.Drawing.Size(181, 93);
+            this.btnCheckOut.Size = new System.Drawing.Size(231, 119);
             this.btnCheckOut.TabIndex = 3;
             this.btnCheckOut.Text = "Check Out";
             this.btnCheckOut.UseVisualStyleBackColor = true;
@@ -89,9 +89,9 @@ namespace Desktop.View
             // 
             this.btnListaHospede.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnListaHospede.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnListaHospede.Location = new System.Drawing.Point(654, 301);
+            this.btnListaHospede.Location = new System.Drawing.Point(678, 288);
             this.btnListaHospede.Name = "btnListaHospede";
-            this.btnListaHospede.Size = new System.Drawing.Size(181, 93);
+            this.btnListaHospede.Size = new System.Drawing.Size(231, 119);
             this.btnListaHospede.TabIndex = 5;
             this.btnListaHospede.Text = "Lista de Hóspedes";
             this.btnListaHospede.UseVisualStyleBackColor = true;
@@ -101,9 +101,9 @@ namespace Desktop.View
             // 
             this.pbLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(484, 144);
+            this.pbLogo.Location = new System.Drawing.Point(459, 120);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(113, 90);
+            this.pbLogo.Size = new System.Drawing.Size(141, 115);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 7;
             this.pbLogo.TabStop = false;
@@ -112,9 +112,9 @@ namespace Desktop.View
             // 
             this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSair.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSair.Location = new System.Drawing.Point(28, 545);
+            this.btnSair.Location = new System.Drawing.Point(28, 543);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(96, 36);
+            this.btnSair.Size = new System.Drawing.Size(104, 38);
             this.btnSair.TabIndex = 8;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
@@ -124,9 +124,9 @@ namespace Desktop.View
             // 
             this.btnGerenciarQuartos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnGerenciarQuartos.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnGerenciarQuartos.Location = new System.Drawing.Point(450, 433);
+            this.btnGerenciarQuartos.Location = new System.Drawing.Point(415, 426);
             this.btnGerenciarQuartos.Name = "btnGerenciarQuartos";
-            this.btnGerenciarQuartos.Size = new System.Drawing.Size(181, 93);
+            this.btnGerenciarQuartos.Size = new System.Drawing.Size(231, 119);
             this.btnGerenciarQuartos.TabIndex = 9;
             this.btnGerenciarQuartos.Text = "Gerenciar Quartos";
             this.btnGerenciarQuartos.UseVisualStyleBackColor = true;

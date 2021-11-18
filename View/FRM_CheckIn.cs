@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using Desktop.Controller;
 
 namespace Desktop.View
 {
@@ -10,11 +11,14 @@ namespace Desktop.View
     {
         CheckIn CheckIn;
         Mensagem Mensagem;
+        CTR_CheckIn CTR_CheckIn;
         public FRM_CheckIn()
         {
             InitializeComponent();
             CheckIn = new CheckIn();
             Mensagem = new Mensagem();
+            CheckIn = new CheckIn();
+            CTR_CheckIn = new CTR_CheckIn();
 
         }
 
@@ -36,17 +40,6 @@ namespace Desktop.View
         private void btnAddMaisHosp_Click(object sender, EventArgs e)
         {
             //Fazer a verificação de hospede duplicado
-
-            /*CheckIn.teste = maskTxbRg.Text;
-
-            if (CheckIn.teste.Equals(CheckIn.IdPesquisa))
-            {
-                MessageBox.Show(CheckIn.IdPesquisa);
-            }
-            else
-            {
-                MessageBox.Show(CheckIn.teste);
-            }*/
             
                 if (lviewSubTotal.Items[0].SubItems[1].Text.Equals(" "))
                 {
@@ -73,8 +66,6 @@ namespace Desktop.View
             lviewSubTotal.Items[0].SubItems.Add(" ");
             HabilitarDepoisQuartos();
             DeshabilitarEsquerda();
-
-            //colocar os preos no lviewsubtotal
         }
 
         private void radBtnDelux_CheckedChanged(object sender, EventArgs e)
@@ -107,40 +98,14 @@ namespace Desktop.View
 
         private void btnCarregarLista_Click(object sender, EventArgs e)
         {
-            Credenciais credenciais = new Credenciais();
-            SqlCommand cmd;
-            SqlDataAdapter DA;
-            SqlConnection con = new SqlConnection(credenciais.constring); //connection string do BD
-            DataTable lista = new DataTable();
-
             dgvMapaQuartos.DataSource = null;
             dgvMapaQuartos.Columns.Clear();
             dgvMapaQuartos.Rows.Clear();
             dgvMapaQuartos.Refresh();
-            try
-            {
-                con.Open();
-                Mensagem.sql = "SELECT NUMEROQUARTO FROM QUARTOS WHERE TIPODOQUARTO = @TipoDoQuarto AND STATUS = @Status";
-                cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@TipoDoQuarto", CheckIn.IdQuarto);
-                cmd.Parameters.AddWithValue("@Status", "Livre");
 
-                cmd.CommandType = CommandType.Text;
-
-                DA = new SqlDataAdapter(cmd);
-
-                DA.Fill(lista);
-            }
-
-            catch (Exception ex)
-            {
-                Mensagem.TMensagem = "Erro: " + ex.ToString();
-            }
-            finally
-            {
-                con.Close();
-            }
-            dgvMapaQuartos.DataSource = lista;
+            CTR_CheckIn.CarregarLista(CheckIn);
+            
+            dgvMapaQuartos.DataSource = CheckIn.Lista;
         }
 
         private void cBoxSelectQuarto_SelectedIndexChanged(object sender, EventArgs e)
@@ -150,49 +115,19 @@ namespace Desktop.View
 
         private void btnPesquisar_Click_1(object sender, EventArgs e)
         {
-            Credenciais credenciais = new Credenciais();
-            SqlCommand cmd;
-            SqlConnection con = new SqlConnection(credenciais.constring); //connection string do BD
-            SqlDataReader reader;
-
             CheckIn.IdPesquisa = maskTxbRg.Text;
 
-            try
+            Mensagem = CTR_CheckIn.PesquisarHospede(CheckIn);
+
+            if (Mensagem.TMensagem.Equals("Sucesso"))
             {
-                con.Open();
-                Mensagem.sql = "SELECT * FROM HOSPEDES WHERE DOCID = @DocId";
-                cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@DocId", CheckIn.IdPesquisa);
-
-                reader = cmd.ExecuteReader();
-
-                if (reader.HasRows.Equals(false))
-                {
-                    Mensagem.TMensagem = "Erro: Não foi encontrado um cliente com este ID.";
-                    MessageBox.Show(Mensagem.TMensagem, "Erro: ID não encontrado.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    while (reader.Read())
-                    {
-                        CheckIn.NomePesquisa = Convert.ToString(reader["NOME"]);
-                        CheckIn.IdPesquisa = Convert.ToString(reader["DOCID"]);
-                    }
-                }
+                maskTxbRg.Text = CheckIn.IdPesquisa;
+                txbNome.Text = CheckIn.NomePesquisa;
             }
-            catch (Exception ex)
+            else
             {
-                Mensagem.TMensagem = "Erro: " + ex.ToString();
+                MessageBox.Show(Mensagem.TMensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            finally
-            {
-                con.Close();
-            }
-
-            maskTxbRg.Text = CheckIn.IdPesquisa;
-            txbNome.Text = CheckIn.NomePesquisa;
-
-
         }
 
         private void dgvMapaQuartos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -212,39 +147,9 @@ namespace Desktop.View
             CheckIn.NumeroQuarto = lviewSubTotal.Items[0].Text;
             CheckIn.NomePesquisa = lviewSubTotal.Items[0].SubItems[1].Text;
 
-            Credenciais credenciais = new Credenciais();
-            SqlCommand cmd;
-            SqlConnection con = new SqlConnection(credenciais.constring); //connection string do BD
+            Mensagem = CTR_CheckIn.FinalizarCheckIn(CheckIn);
 
-            try
-            {
-                con.Open(); //conectando ao BD
-                Mensagem.sql = "UPDATE QUARTOS SET STATUS = @Status, HOSPEDES = @Hospedes , ENTRADA = @Entrada, SAÍDA = @Saída, VALOR = @Valor WHERE NUMEROQUARTO = @NumeroQuarto";
-                cmd = new SqlCommand(Mensagem.sql, con);
-
-                cmd.Parameters.AddWithValue("@Status", "Indisponível");
-                cmd.Parameters.AddWithValue("@Hospedes", CheckIn.NomePesquisa);
-                cmd.Parameters.AddWithValue("@NumeroQuarto", CheckIn.NumeroQuarto);
-                cmd.Parameters.AddWithValue("@Entrada", CheckIn.Chegada);
-                cmd.Parameters.AddWithValue("@Saída", CheckIn.Saida);
-                cmd.Parameters.AddWithValue("@Valor", CheckIn.Valor);
-                cmd.CommandType = CommandType.Text;
-
-                Mensagem.verifSQL = cmd.ExecuteNonQuery();
-
-                if (Mensagem.verifSQL > 0)
-                    Mensagem.TMensagem = "CheckIn realizado com sucesso!";
-            }
-            catch (Exception ex)
-            {
-                Mensagem.TMensagem = ("Erro: " + ex.ToString());
-            }
-            finally
-            {
-                con.Close(); //fechando a conexão com o BD
-            }
-
-            MessageBox.Show(Mensagem.TMensagem, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(Mensagem.TMensagem, " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void HabilitarControles()
