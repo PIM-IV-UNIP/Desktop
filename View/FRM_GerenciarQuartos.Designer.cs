@@ -59,7 +59,7 @@ namespace Desktop.View
             this.lblGerenciar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblGerenciar.AutoSize = true;
             this.lblGerenciar.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblGerenciar.Location = new System.Drawing.Point(423, 9);
+            this.lblGerenciar.Location = new System.Drawing.Point(463, 9);
             this.lblGerenciar.Name = "lblGerenciar";
             this.lblGerenciar.Size = new System.Drawing.Size(349, 37);
             this.lblGerenciar.TabIndex = 17;
@@ -77,7 +77,7 @@ namespace Desktop.View
             "Quarto Triplo",
             "Quarto Duplo",
             "Quarto Individual"});
-            this.cmbTiposQuartos.Location = new System.Drawing.Point(282, 248);
+            this.cmbTiposQuartos.Location = new System.Drawing.Point(392, 249);
             this.cmbTiposQuartos.Name = "cmbTiposQuartos";
             this.cmbTiposQuartos.Size = new System.Drawing.Size(235, 31);
             this.cmbTiposQuartos.TabIndex = 2;
@@ -88,7 +88,7 @@ namespace Desktop.View
             this.lblTipoQuarto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTipoQuarto.AutoSize = true;
             this.lblTipoQuarto.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTipoQuarto.Location = new System.Drawing.Point(59, 251);
+            this.lblTipoQuarto.Location = new System.Drawing.Point(169, 252);
             this.lblTipoQuarto.Name = "lblTipoQuarto";
             this.lblTipoQuarto.Size = new System.Drawing.Size(217, 23);
             this.lblTipoQuarto.TabIndex = 100;
@@ -100,19 +100,18 @@ namespace Desktop.View
             this.lblNumeroQuarto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNumeroQuarto.AutoSize = true;
             this.lblNumeroQuarto.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNumeroQuarto.Location = new System.Drawing.Point(29, 190);
+            this.lblNumeroQuarto.Location = new System.Drawing.Point(77, 191);
             this.lblNumeroQuarto.Name = "lblNumeroQuarto";
-            this.lblNumeroQuarto.Size = new System.Drawing.Size(247, 23);
+            this.lblNumeroQuarto.Size = new System.Drawing.Size(309, 23);
             this.lblNumeroQuarto.TabIndex = 101;
-            this.lblNumeroQuarto.Text = "Selecione o número do quarto:";
+            this.lblNumeroQuarto.Text = "Selecione / Digite o número do quarto:";
             this.lblNumeroQuarto.Visible = false;
             // 
             // txbNumeroQuarto
             // 
             this.txbNumeroQuarto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbNumeroQuarto.Enabled = false;
             this.txbNumeroQuarto.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbNumeroQuarto.Location = new System.Drawing.Point(282, 187);
+            this.txbNumeroQuarto.Location = new System.Drawing.Point(392, 188);
             this.txbNumeroQuarto.Name = "txbNumeroQuarto";
             this.txbNumeroQuarto.Size = new System.Drawing.Size(235, 30);
             this.txbNumeroQuarto.TabIndex = 1;
@@ -122,7 +121,7 @@ namespace Desktop.View
             // 
             this.btnAlterarQuarto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAlterarQuarto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAlterarQuarto.Location = new System.Drawing.Point(372, 399);
+            this.btnAlterarQuarto.Location = new System.Drawing.Point(438, 399);
             this.btnAlterarQuarto.Name = "btnAlterarQuarto";
             this.btnAlterarQuarto.Size = new System.Drawing.Size(189, 66);
             this.btnAlterarQuarto.TabIndex = 3;
@@ -137,7 +136,7 @@ namespace Desktop.View
             this.dgvListaHospedes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvListaHospedes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvListaHospedes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaHospedes.Location = new System.Drawing.Point(567, 74);
+            this.dgvListaHospedes.Location = new System.Drawing.Point(649, 74);
             this.dgvListaHospedes.MultiSelect = false;
             this.dgvListaHospedes.Name = "dgvListaHospedes";
             this.dgvListaHospedes.ReadOnly = true;
@@ -153,7 +152,7 @@ namespace Desktop.View
             // 
             this.btnCarregarLista.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCarregarLista.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCarregarLista.Location = new System.Drawing.Point(1035, 533);
+            this.btnCarregarLista.Location = new System.Drawing.Point(1116, 533);
             this.btnCarregarLista.Name = "btnCarregarLista";
             this.btnCarregarLista.Size = new System.Drawing.Size(145, 51);
             this.btnCarregarLista.TabIndex = 5;
@@ -165,7 +164,7 @@ namespace Desktop.View
             // 
             this.btnAddQuarto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddQuarto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddQuarto.Location = new System.Drawing.Point(372, 471);
+            this.btnAddQuarto.Location = new System.Drawing.Point(438, 471);
             this.btnAddQuarto.Name = "btnAddQuarto";
             this.btnAddQuarto.Size = new System.Drawing.Size(189, 56);
             this.btnAddQuarto.TabIndex = 4;
@@ -178,7 +177,7 @@ namespace Desktop.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1192, 596);
+            this.ClientSize = new System.Drawing.Size(1273, 596);
             this.Controls.Add(this.btnAddQuarto);
             this.Controls.Add(this.btnCarregarLista);
             this.Controls.Add(this.dgvListaHospedes);
@@ -189,6 +188,7 @@ namespace Desktop.View
             this.Controls.Add(this.cmbTiposQuartos);
             this.Controls.Add(this.lblGerenciar);
             this.Controls.Add(this.btnVoltar);
+            this.MaximizeBox = false;
             this.Name = "FRM_GerenciarQuartos";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

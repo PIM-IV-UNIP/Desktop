@@ -79,6 +79,7 @@ namespace Desktop.View
             this.Controls.Add(this.btnSim);
             this.Controls.Add(this.lblPergunta);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "FRM_PreCheckIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aviso";

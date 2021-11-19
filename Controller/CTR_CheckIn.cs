@@ -10,7 +10,6 @@ namespace Desktop.Controller
 {
     class CTR_CheckIn
     {
-        CheckIn CheckIn = new CheckIn();
         Mensagem Mensagem = new Mensagem();
         Credenciais credenciais = new Credenciais();
         SqlConnection con;
@@ -31,6 +30,7 @@ namespace Desktop.Controller
 
                 if (reader.HasRows.Equals(false))
                 {
+                    Mensagem.VerificaReturnFuncao = false;
                     Mensagem.TMensagem = "Erro: Não foi encontrado um cliente com este ID.";
                 }
                 else
@@ -40,12 +40,14 @@ namespace Desktop.Controller
                         CheckIn.NomePesquisa = Convert.ToString(reader["NOME"]);
                         CheckIn.IdPesquisa = Convert.ToString(reader["DOCID"]);
 
+                        Mensagem.VerificaReturnFuncao = true;
                         Mensagem.TMensagem = "Sucesso";
                     }
                 }
             }
             catch (Exception ex)
             {
+                Mensagem.VerificaReturnFuncao = false;
                 Mensagem.TMensagem = "Erro: " + ex.Message;
             }
             finally
@@ -112,7 +114,7 @@ namespace Desktop.Controller
             }
             catch (Exception ex)
             {
-                Mensagem.TMensagem = ("Erro: " + ex.ToString());
+                Mensagem.TMensagem = "Erro: " + ex.ToString();
             }
             finally
             {

@@ -119,7 +119,7 @@ namespace Desktop.View
 
             Mensagem = CTR_CheckIn.PesquisarHospede(CheckIn);
 
-            if (Mensagem.TMensagem.Equals("Sucesso"))
+            if (Mensagem.TMensagem.Equals(true))
             {
                 maskTxbRg.Text = CheckIn.IdPesquisa;
                 txbNome.Text = CheckIn.NomePesquisa;
@@ -149,16 +149,11 @@ namespace Desktop.View
 
             Mensagem = CTR_CheckIn.FinalizarCheckIn(CheckIn);
 
-            MessageBox.Show(Mensagem.TMensagem, " ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(Mensagem.TMensagem, " ", MessageBoxButtons.OK);
         }
 
         private void HabilitarControles()
         {
-            //habilitando os controles
-            btnCarregarLista.Enabled = true;
-            dgvMapaQuartos.Enabled = true;
-
-
             //deixando-os visíveis
             btnCarregarLista.Visible = true;
             dgvMapaQuartos.Visible = true;
@@ -166,21 +161,6 @@ namespace Desktop.View
 
         private void HabilitarDepoisQuartos()
         {
-            //habilitando os controles
-            maskTxbRg.Enabled = true;
-            txbNome.Enabled = true;
-            btnAddMaisHosp.Enabled = true;
-            btnPesquisar.Enabled = true;
-            lviewSubTotal.Enabled = true;
-            btnFinalizarCheckIn.Enabled = true;
-            lblPeriodo.Enabled = true;
-            lblDe.Enabled = true;
-            lblAte.Enabled = true;
-            dateTimeFinal.Enabled = true;
-            dateTimeInicio.Enabled = true;
-            btnConfirmarData.Enabled = true;
-
-
             //deixando-os visíveis
             lblMaisHospedes.Visible = true;
             lblRG.Visible = true;
@@ -200,17 +180,6 @@ namespace Desktop.View
 
         private void DeshabilitarEsquerda()
         {
-            //deshabilitando os componentes da esquerda
-            btnCarregarLista.Enabled = false;
-            dgvMapaQuartos.Enabled = false;
-            lviewQuartos.Enabled = false;
-            radBtnTriplo.Enabled = false;
-            radBtnQuadruplo.Enabled = false;
-            radBtnDuplo.Enabled = false;
-            radBtnIndividual.Enabled = false;
-            btnEscolherQuartos.Enabled = false;
-
-
             //deixando-os invisíveis
             btnCarregarLista.Visible = false;
             dgvMapaQuartos.Visible = false;

@@ -40,9 +40,7 @@ namespace Desktop.View
             // 
             // dgvListaHospedes
             // 
-            this.dgvListaHospedes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvListaHospedes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvListaHospedes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvListaHospedes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvListaHospedes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -57,32 +55,31 @@ namespace Desktop.View
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnVoltar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnVoltar.Location = new System.Drawing.Point(12, 551);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(96, 36);
-            this.btnVoltar.TabIndex = 3;
+            this.btnVoltar.TabIndex = 4;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // btnPesquise
             // 
-            this.btnPesquise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPesquise.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPesquise.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnPesquise.Location = new System.Drawing.Point(1121, 12);
             this.btnPesquise.Name = "btnPesquise";
             this.btnPesquise.Size = new System.Drawing.Size(107, 32);
-            this.btnPesquise.TabIndex = 2;
+            this.btnPesquise.TabIndex = 3;
             this.btnPesquise.Text = "Pesquisar";
             this.btnPesquise.UseVisualStyleBackColor = true;
             this.btnPesquise.Click += new System.EventHandler(this.btnPesquise_Click);
             // 
             // lblPesquise
             // 
-            this.lblPesquise.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPesquise.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPesquise.AutoSize = true;
             this.lblPesquise.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPesquise.Location = new System.Drawing.Point(643, 15);
@@ -93,22 +90,24 @@ namespace Desktop.View
             // 
             // btnCarregarLista
             // 
+            this.btnCarregarLista.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCarregarLista.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCarregarLista.Location = new System.Drawing.Point(12, 16);
             this.btnCarregarLista.Name = "btnCarregarLista";
             this.btnCarregarLista.Size = new System.Drawing.Size(145, 67);
-            this.btnCarregarLista.TabIndex = 6;
+            this.btnCarregarLista.TabIndex = 1;
             this.btnCarregarLista.Text = "Carregar Lista";
             this.btnCarregarLista.UseVisualStyleBackColor = true;
             this.btnCarregarLista.Click += new System.EventHandler(this.btnCarregarLista_Click);
             // 
             // maskTxbPesquise
             // 
+            this.maskTxbPesquise.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.maskTxbPesquise.Location = new System.Drawing.Point(856, 16);
             this.maskTxbPesquise.Mask = "00,000,000-0";
             this.maskTxbPesquise.Name = "maskTxbPesquise";
             this.maskTxbPesquise.Size = new System.Drawing.Size(245, 27);
-            this.maskTxbPesquise.TabIndex = 7;
+            this.maskTxbPesquise.TabIndex = 2;
             this.maskTxbPesquise.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskTxbPesquise.Click += new System.EventHandler(this.maskTxbPesquise_Click);
             // 
@@ -123,9 +122,10 @@ namespace Desktop.View
             this.Controls.Add(this.btnPesquise);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.dgvListaHospedes);
+            this.MaximizeBox = false;
             this.Name = "FRM_ListaHospedes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FRM_ListaHospedes";
+            this.Text = "Lista de Hóspedes";
             this.Load += new System.EventHandler(this.FRM_ListaHospedes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaHospedes)).EndInit();
             this.ResumeLayout(false);

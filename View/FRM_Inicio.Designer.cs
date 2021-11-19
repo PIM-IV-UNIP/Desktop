@@ -68,7 +68,7 @@ namespace Desktop.View
             this.btnCheckIn.Location = new System.Drawing.Point(153, 288);
             this.btnCheckIn.Name = "btnCheckIn";
             this.btnCheckIn.Size = new System.Drawing.Size(231, 119);
-            this.btnCheckIn.TabIndex = 2;
+            this.btnCheckIn.TabIndex = 1;
             this.btnCheckIn.Text = "Check In";
             this.btnCheckIn.UseVisualStyleBackColor = true;
             this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
@@ -80,7 +80,7 @@ namespace Desktop.View
             this.btnCheckOut.Location = new System.Drawing.Point(415, 288);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(231, 119);
-            this.btnCheckOut.TabIndex = 3;
+            this.btnCheckOut.TabIndex = 2;
             this.btnCheckOut.Text = "Check Out";
             this.btnCheckOut.UseVisualStyleBackColor = true;
             this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
@@ -92,7 +92,7 @@ namespace Desktop.View
             this.btnListaHospede.Location = new System.Drawing.Point(678, 288);
             this.btnListaHospede.Name = "btnListaHospede";
             this.btnListaHospede.Size = new System.Drawing.Size(231, 119);
-            this.btnListaHospede.TabIndex = 5;
+            this.btnListaHospede.TabIndex = 3;
             this.btnListaHospede.Text = "Lista de Hóspedes";
             this.btnListaHospede.UseVisualStyleBackColor = true;
             this.btnListaHospede.Click += new System.EventHandler(this.btnListaHospede_Click);
@@ -115,7 +115,7 @@ namespace Desktop.View
             this.btnSair.Location = new System.Drawing.Point(28, 543);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(104, 38);
-            this.btnSair.TabIndex = 8;
+            this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -127,7 +127,7 @@ namespace Desktop.View
             this.btnGerenciarQuartos.Location = new System.Drawing.Point(415, 426);
             this.btnGerenciarQuartos.Name = "btnGerenciarQuartos";
             this.btnGerenciarQuartos.Size = new System.Drawing.Size(231, 119);
-            this.btnGerenciarQuartos.TabIndex = 9;
+            this.btnGerenciarQuartos.TabIndex = 4;
             this.btnGerenciarQuartos.Text = "Gerenciar Quartos";
             this.btnGerenciarQuartos.UseVisualStyleBackColor = true;
             this.btnGerenciarQuartos.Click += new System.EventHandler(this.btnGerenciarQuartos_Click);
@@ -145,9 +145,11 @@ namespace Desktop.View
             this.Controls.Add(this.btnCheckOut);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FRM_Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Inicial";
+            this.Load += new System.EventHandler(this.FRM_Inicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

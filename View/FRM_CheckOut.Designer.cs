@@ -42,12 +42,12 @@ namespace Desktop.View
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnVoltar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnVoltar.Location = new System.Drawing.Point(12, 407);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(108, 51);
-            this.btnVoltar.TabIndex = 17;
+            this.btnVoltar.TabIndex = 4;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -59,7 +59,7 @@ namespace Desktop.View
             this.btnProcurarQuarto.Location = new System.Drawing.Point(507, 8);
             this.btnProcurarQuarto.Name = "btnProcurarQuarto";
             this.btnProcurarQuarto.Size = new System.Drawing.Size(78, 38);
-            this.btnProcurarQuarto.TabIndex = 18;
+            this.btnProcurarQuarto.TabIndex = 2;
             this.btnProcurarQuarto.Text = "Ok";
             this.btnProcurarQuarto.UseVisualStyleBackColor = true;
             this.btnProcurarQuarto.Click += new System.EventHandler(this.btnProcurarQuarto_Click);
@@ -72,7 +72,7 @@ namespace Desktop.View
             this.txbProcurarQuarto.Name = "txbProcurarQuarto";
             this.txbProcurarQuarto.PlaceholderText = "Digite o número do quarto";
             this.txbProcurarQuarto.Size = new System.Drawing.Size(237, 32);
-            this.txbProcurarQuarto.TabIndex = 19;
+            this.txbProcurarQuarto.TabIndex = 1;
             // 
             // btnFinalizar
             // 
@@ -81,13 +81,14 @@ namespace Desktop.View
             this.btnFinalizar.Location = new System.Drawing.Point(625, 407);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(164, 51);
-            this.btnFinalizar.TabIndex = 20;
+            this.btnFinalizar.TabIndex = 3;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = true;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // lviewTotal
             // 
+            this.lviewTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lviewTotal.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.lviewTotalQuarto,
             this.lviewTotalHospedes,
@@ -95,6 +96,7 @@ namespace Desktop.View
             this.lviewTotalValor});
             this.lviewTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lviewTotal.GridLines = true;
+            this.lviewTotal.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lviewTotal.HideSelection = false;
             this.lviewTotal.Location = new System.Drawing.Point(146, 166);
             this.lviewTotal.Name = "lviewTotal";
@@ -136,9 +138,10 @@ namespace Desktop.View
             this.Controls.Add(this.txbProcurarQuarto);
             this.Controls.Add(this.btnProcurarQuarto);
             this.Controls.Add(this.btnVoltar);
+            this.MaximizeBox = false;
             this.Name = "FRM_CheckOut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FRM_CheckOut";
+            this.Text = "Check Out";
             this.ResumeLayout(false);
             this.PerformLayout();
 

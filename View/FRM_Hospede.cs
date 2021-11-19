@@ -30,15 +30,7 @@ namespace Desktop.View
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            Hospede.nomePessoa = txbNome.Text;
-            Hospede.emailPessoa = txbEmail.Text;
-            Hospede.enderecoPessoa = txbEndereco.Text;
-            Hospede.telefonePessoa = txbTelefone.Text;
-            Hospede.idPessoa = maskTxbRg.Text;
-            Hospede.nascimentoPessoa = Convert.ToDateTime(maskTxbNasc.Text);
-            Hospede.nacionalidade = txbNacionalidade.Text;
-            Hospede.cpfPessoa = Convert.ToDouble(maskTxbCpf.Text);
-            Hospede.localNascimento = txbLocalNasc.Text;
+            SetarAtributos();
 
             Mensagem = CTR_Hospede.AdicionarHospede(Hospede);
 
@@ -47,20 +39,11 @@ namespace Desktop.View
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            Hospede.idPessoa = masktxbPesquisaID.Text;
+            Hospede.IDPessoa = masktxbPesquisaID.Text;
 
             Mensagem = CTR_Hospede.ConsultarHospede(Hospede);
 
-            txbNome.Text = Hospede.nomePessoa;
-            txbEmail.Text = Hospede.emailPessoa;
-            txbEndereco.Text = Hospede.enderecoPessoa;
-            txbTelefone.Text = (Hospede.telefonePessoa);
-            maskTxbRg.Text = Convert.ToString(Hospede.idPessoa);
-            maskTxbNasc.Text = Convert.ToString(Hospede.nascimentoPessoa);
-            txbNacionalidade.Text = Hospede.nacionalidade;
-            txbLocalNasc.Text = Hospede.localNascimento;
-            maskTxbCpf.Text = Convert.ToString(Hospede.cpfPessoa);
-            txbLocalNasc.Text = Hospede.localNascimento;
+            SetarTextbox();
 
             MessageBox.Show(Mensagem.TMensagem);
 
@@ -70,36 +53,19 @@ namespace Desktop.View
         {
             Hospede.Limpar();
 
-            txbNome.Text = Hospede.nomePessoa;
-            txbEmail.Text = Hospede.emailPessoa;
-            txbEndereco.Text = Hospede.enderecoPessoa;
-            txbTelefone.Text = (Hospede.telefonePessoa);
-            maskTxbRg.Text = Convert.ToString(Hospede.idPessoa);
-            maskTxbNasc.Text = Convert.ToString(Hospede.nascimentoPessoa);
-            txbNacionalidade.Text = Hospede.nacionalidade;
-            txbLocalNasc.Text = Hospede.localNascimento;
-            maskTxbCpf.Text = Convert.ToString(Hospede.cpfPessoa);
+            SetarTextbox();
 
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Hospede.idPessoa = masktxbPesquisaID.Text;
+            Hospede.IDPessoa = masktxbPesquisaID.Text;
 
             Mensagem = CTR_Hospede.ExcluirHospede(Hospede);
 
             Hospede.Limpar();
 
-            txbNome.Text = Hospede.nomePessoa;
-            txbEmail.Text = Hospede.emailPessoa;
-            txbEndereco.Text = Hospede.enderecoPessoa;
-            txbTelefone.Text = (Hospede.telefonePessoa);
-            masktxbPesquisaID.Text = Convert.ToString(Hospede.idPessoa);
-            maskTxbRg.Text = Convert.ToString(Hospede.idPessoa);
-            maskTxbNasc.Text = Convert.ToString(Hospede.nascimentoPessoa);
-            txbNacionalidade.Text = Hospede.nacionalidade;
-            txbLocalNasc.Text = Hospede.localNascimento;
-            maskTxbCpf.Text = Convert.ToString(Hospede.cpfPessoa);
+            SetarTextbox();
 
             MessageBox.Show(Mensagem.TMensagem);
         }
@@ -111,15 +77,7 @@ namespace Desktop.View
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            Hospede.nomePessoa = txbNome.Text;
-            Hospede.emailPessoa = txbEmail.Text;
-            Hospede.enderecoPessoa = txbEndereco.Text;
-            Hospede.telefonePessoa = txbTelefone.Text;
-            Hospede.idPessoa = maskTxbRg.Text;
-            Hospede.nascimentoPessoa = Convert.ToDateTime(maskTxbNasc.Text);
-            Hospede.nacionalidade = txbNacionalidade.Text;
-            Hospede.cpfPessoa = Convert.ToDouble(maskTxbCpf.Text);
-            Hospede.localNascimento = txbLocalNasc.Text;
+            SetarAtributos();
             
             Mensagem = CTR_Hospede.AtualizarHospede(Hospede);
 
@@ -156,6 +114,33 @@ namespace Desktop.View
         private void masktxbPesquisaID_Click(object sender, EventArgs e)
         {
             masktxbPesquisaID.SelectionStart = 0;
+        }
+
+        public void SetarTextbox()
+        {
+            txbNome.Text = Hospede.NomePessoa;
+            txbEmail.Text = Hospede.EmailPessoa;
+            txbEndereco.Text = Hospede.EnderecoPessoa;
+            txbTelefone.Text = (Hospede.TelefonePessoa);
+            masktxbPesquisaID.Text = Convert.ToString(Hospede.IDPessoa);
+            maskTxbRg.Text = Convert.ToString(Hospede.IDPessoa);
+            maskTxbNasc.Text = Convert.ToString(Hospede.NascimentoPessoa);
+            txbNacionalidade.Text = Hospede.Nacionalidade;
+            txbCity.Text = Hospede.Cidade;
+            maskTxbCpf.Text = Convert.ToString(Hospede.CPFPessoa);
+        }
+
+        public void SetarAtributos()
+        {
+            Hospede.NomePessoa = txbNome.Text;
+            Hospede.EmailPessoa = txbEmail.Text;
+            Hospede.EnderecoPessoa = txbEndereco.Text;
+            Hospede.TelefonePessoa = txbTelefone.Text;
+            Hospede.IDPessoa = maskTxbRg.Text;
+            Hospede.NascimentoPessoa = Convert.ToDateTime(maskTxbNasc.Text);
+            Hospede.Nacionalidade = txbNacionalidade.Text;
+            Hospede.CPFPessoa = Convert.ToDouble(maskTxbCpf.Text);
+            Hospede.Cidade = txbCity.Text;
         }
     }
 }
