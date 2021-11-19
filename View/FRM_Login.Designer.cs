@@ -45,7 +45,7 @@ namespace Desktop.View
             this.btnEntrar.Location = new System.Drawing.Point(332, 309);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(160, 69);
-            this.btnEntrar.TabIndex = 11;
+            this.btnEntrar.TabIndex = 3;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
@@ -58,7 +58,7 @@ namespace Desktop.View
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(218, 45);
-            this.txbSenha.TabIndex = 10;
+            this.txbSenha.TabIndex = 2;
             this.txbSenha.UseSystemPasswordChar = true;
             this.txbSenha.TextChanged += new System.EventHandler(this.txbSenha_TextChanged);
             // 
@@ -69,7 +69,7 @@ namespace Desktop.View
             this.txbUser.Location = new System.Drawing.Point(310, 157);
             this.txbUser.Name = "txbUser";
             this.txbUser.Size = new System.Drawing.Size(218, 45);
-            this.txbUser.TabIndex = 9;
+            this.txbUser.TabIndex = 1;
             this.txbUser.TextChanged += new System.EventHandler(this.txbUser_TextChanged);
             // 
             // lblSenha
@@ -115,7 +115,7 @@ namespace Desktop.View
             this.btnCadastrar.Location = new System.Drawing.Point(661, 395);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(127, 43);
-            this.btnCadastrar.TabIndex = 12;
+            this.btnCadastrar.TabIndex = 4;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -133,6 +133,7 @@ namespace Desktop.View
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblLogin);
+            this.MaximizeBox = false;
             this.Name = "FRM_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

@@ -16,8 +16,6 @@ namespace Desktop.Controller
         Credenciais cred = new Credenciais();
         SqlConnection con;
         Mensagem Mensagem = new Mensagem();
-        ListaHospede ListaHospede = new ListaHospede();
-
 
         public ListaHospede PesquisarID(ListaHospede ListaHospede)
         {

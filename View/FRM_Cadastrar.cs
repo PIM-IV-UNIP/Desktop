@@ -32,7 +32,10 @@ namespace Desktop.View
 
             Mensagem = CTR_Cadastrar.CadastrarLogin(Cadastrar);
 
-            MessageBox.Show(Mensagem.TMensagem, "Sucesso", MessageBoxButtons.OK);
+            if(Mensagem.VerificaReturnFuncao.Equals(true))
+                MessageBox.Show(Mensagem.TMensagem, "Sucesso", MessageBoxButtons.OK);
+            else
+                MessageBox.Show(Mensagem.TMensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void FRM_Cadastrar_Load(object sender, EventArgs e)

@@ -9,7 +9,6 @@ namespace Desktop.Controller
 {
     class CTR_Cadastrar
     {
-        Cadastrar Cadastrar = new Cadastrar();
         Credenciais cred = new Credenciais();
         SqlConnection con;
         SqlCommand cmd;
@@ -36,12 +35,14 @@ namespace Desktop.Controller
 
                 if (Mensagem.verifSQL > 0)
                 {
+                    Mensagem.VerificaReturnFuncao = true;
                     Mensagem.TMensagem = "Funcionário cadastrado com sucesso.";
                 }
                     
             }
-            catch (Exception ex)
+            catch
             {
+                Mensagem.VerificaReturnFuncao = false;
                 Mensagem.TMensagem = "Já existe um funcionário cadastrado com este usuário.";
             }
             finally

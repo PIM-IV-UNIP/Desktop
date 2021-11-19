@@ -63,5 +63,10 @@ namespace Desktop.View
             FRM_CheckOut.ShowDialog();
             Show();
         }
+
+        private void FRM_Inicio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

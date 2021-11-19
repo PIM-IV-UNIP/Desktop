@@ -11,5 +11,6 @@ namespace Desktop.Model
         public DateTime PeriodoInicio { get; set; }
         public DateTime PeriodoFinal { get; set; }
         public decimal Valor { get; set; }
+        public double PeriodoTotal { get; set; }
     }
 }

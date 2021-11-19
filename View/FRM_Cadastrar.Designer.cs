@@ -45,7 +45,7 @@ namespace Desktop.View
             this.btnVoltar.Location = new System.Drawing.Point(12, 345);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(111, 41);
-            this.btnVoltar.TabIndex = 0;
+            this.btnVoltar.TabIndex = 4;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -66,7 +66,7 @@ namespace Desktop.View
             this.txbUser.Location = new System.Drawing.Point(345, 140);
             this.txbUser.Name = "txbUser";
             this.txbUser.Size = new System.Drawing.Size(156, 45);
-            this.txbUser.TabIndex = 2;
+            this.txbUser.TabIndex = 1;
             // 
             // txbSenha
             // 
@@ -75,7 +75,7 @@ namespace Desktop.View
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(156, 45);
-            this.txbSenha.TabIndex = 3;
+            this.txbSenha.TabIndex = 2;
             this.txbSenha.UseSystemPasswordChar = true;
             // 
             // lblUser
@@ -105,7 +105,7 @@ namespace Desktop.View
             this.btnCadastrar.Location = new System.Drawing.Point(509, 329);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(185, 57);
-            this.btnCadastrar.TabIndex = 6;
+            this.btnCadastrar.TabIndex = 3;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -122,9 +122,10 @@ namespace Desktop.View
             this.Controls.Add(this.txbUser);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnVoltar);
+            this.MaximizeBox = false;
             this.Name = "FRM_Cadastrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FRM_Cadastrar";
+            this.Text = "Cadastro de Usuários";
             this.Load += new System.EventHandler(this.FRM_Cadastrar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

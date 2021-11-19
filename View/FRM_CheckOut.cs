@@ -15,11 +15,13 @@ namespace Desktop.View
     {
         CheckOut CheckOut;
         Mensagem Mensagem;
+        CTR_CheckOut CTR_CheckOut;
         public FRM_CheckOut()
         {
             InitializeComponent();
             CheckOut = new CheckOut();
             Mensagem = new Mensagem();
+            CTR_CheckOut = new CTR_CheckOut();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -34,96 +36,42 @@ namespace Desktop.View
 
         private void btnProcurarQuarto_Click(object sender, EventArgs e)
         {
-            Credenciais credenciais = new Credenciais();
-            SqlDataReader reader;
-            SqlConnection con = new SqlConnection(credenciais.constring);
-            SqlCommand cmd;
-
             CheckOut.NumeroQuarto = txbProcurarQuarto.Text;
 
-            try
+            Mensagem = CTR_CheckOut.ProcurarQuarto(CheckOut);
+
+            if (Mensagem.TMensagem.Equals(string.Empty))
             {
-                con.Open();
-                Mensagem.sql = "SELECT HOSPEDES, ENTRADA, SAÍDA, VALOR FROM QUARTOS WHERE NUMEROQUARTO = @NumeroQuarto";
-                cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@NumeroQuarto", CheckOut.NumeroQuarto);
+                lviewTotal.Items.Clear();
 
+                lviewTotal.Items.Add($"{CheckOut.NumeroQuarto}");
+                lviewTotal.Items[0].SubItems.Add($"{CheckOut.Hospedadas}");
+                lviewTotal.Items[0].SubItems.Add(" ");
+                lviewTotal.Items[0].SubItems.Add(" ");
 
-                reader = cmd.ExecuteReader();
-
-                if (reader.HasRows.Equals(false))
-                {
-                    Mensagem.TMensagem = "Erro: Não foi encontrado um quarto com este número.";
-                    MessageBox.Show(Mensagem.TMensagem, "Erro: Quarto não encontrado.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                if(CheckOut.PeriodoTotal > 1)
+                    lviewTotal.Items[0].SubItems[2].Text = Convert.ToString(CheckOut.PeriodoTotal) + " Noites";
                 else
-                {
-                    while (reader.Read())
-                    {
-                        CheckOut.PeriodoFinal = Convert.ToDateTime(reader["SAÍDA"]);
-                        CheckOut.PeriodoInicio = Convert.ToDateTime(reader["ENTRADA"]);
-                        CheckOut.Hospedadas = Convert.ToString(reader["HOSPEDES"]);
-                        CheckOut.Valor = Convert.ToDecimal(reader["VALOR"]);
-                    }
+                    lviewTotal.Items[0].SubItems[2].Text = Convert.ToString(CheckOut.PeriodoTotal) + " Noite";
 
-                    lviewTotal.Items.Add($"{CheckOut.NumeroQuarto}");
-                    lviewTotal.Items[0].SubItems.Add($"{CheckOut.Hospedadas}");
-                    lviewTotal.Items[0].SubItems.Add(" ");
-                    lviewTotal.Items[0].SubItems.Add(" ");
-                    lviewTotal.Items[0].SubItems[2].Text = Convert.ToString(Math.Ceiling((CheckOut.PeriodoFinal - CheckOut.PeriodoInicio).TotalDays)) + " Noites"; //Fazer uma verificação para quando for apenas uma noite e para quando for 2 ou mais.
-                    lviewTotal.Items[0].SubItems[3].Text = "R$ " + CheckOut.Valor;
-
-                }
+                lviewTotal.Items[0].SubItems[3].Text = "R$ " + CheckOut.Valor;
             }
-
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Erro: " + ex.ToString());
-            }
-            finally
-            {
-                con.Close();
+                MessageBox.Show(Mensagem.TMensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            Credenciais credenciais = new Credenciais();
-            SqlConnection con = new SqlConnection(credenciais.constring);
-            SqlCommand cmd;
-
             CheckOut.NumeroQuarto = txbProcurarQuarto.Text;
 
-            try
-            {
-                con.Open(); //conectando ao BD
-                Mensagem.sql = "UPDATE QUARTOS set STATUS = @Status, HOSPEDES = @Hospedes, Entrada = @Entrada, SAÍDA = @Saída, VALOR = @Valor WHERE NUMEROQUARTO = @NumeroQuarto";
-                cmd = new SqlCommand(Mensagem.sql, con);
+            Mensagem = CTR_CheckOut.FinalizarCheckOut(CheckOut);
 
-                cmd.Parameters.AddWithValue("@Status", "Livre");
-                cmd.Parameters.AddWithValue("@Hospedes", string.Empty);
-                cmd.Parameters.AddWithValue("@Entrada", string.Empty);
-                cmd.Parameters.AddWithValue("@Saída", string.Empty);
-                cmd.Parameters.AddWithValue("@Valor", decimal.Zero);
-                cmd.Parameters.AddWithValue("@NumeroQuarto", CheckOut.NumeroQuarto);  
+            MessageBox.Show(Mensagem.TMensagem, "Sucesso", MessageBoxButtons.OK);
 
-                cmd.CommandType = CommandType.Text;
-
-                Mensagem.verifSQL = cmd.ExecuteNonQuery();
-                if (Mensagem.verifSQL > 0)
-                    MessageBox.Show("CheckOut finalizado.", "Pronto", MessageBoxButtons.OK);
-
-                lviewTotal.Items.Clear();
-                txbProcurarQuarto.Text = " ";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro: " + ex.ToString());
-            }
-            finally
-            {
-                con.Close(); //fechando a conexão com o BD
-            }
+            lviewTotal.Items.Clear();
+            txbProcurarQuarto.Text = " ";
         }
     }
 }

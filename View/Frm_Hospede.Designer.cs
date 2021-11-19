@@ -172,7 +172,7 @@ namespace Desktop.View
             this.txbNacionalidade.Location = new System.Drawing.Point(594, 207);
             this.txbNacionalidade.Name = "txbNacionalidade";
             this.txbNacionalidade.Size = new System.Drawing.Size(200, 27);
-            this.txbNacionalidade.TabIndex = 8;
+            this.txbNacionalidade.TabIndex = 9;
             // 
             // lblNacionalidade
             // 
@@ -192,7 +192,7 @@ namespace Desktop.View
             this.btnAdicionar.Location = new System.Drawing.Point(568, 424);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(81, 57);
-            this.btnAdicionar.TabIndex = 10;
+            this.btnAdicionar.TabIndex = 15;
             this.btnAdicionar.Text = "Adicionar Hóspede";
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
@@ -214,7 +214,7 @@ namespace Desktop.View
             this.btnAtualizar.Location = new System.Drawing.Point(480, 424);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(81, 57);
-            this.btnAtualizar.TabIndex = 12;
+            this.btnAtualizar.TabIndex = 14;
             this.btnAtualizar.Text = "Atualizar Hóspede";
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
@@ -237,7 +237,7 @@ namespace Desktop.View
             this.maskTxbNasc.Mask = "00/00/0000";
             this.maskTxbNasc.Name = "maskTxbNasc";
             this.maskTxbNasc.Size = new System.Drawing.Size(200, 27);
-            this.maskTxbNasc.TabIndex = 7;
+            this.maskTxbNasc.TabIndex = 8;
             this.maskTxbNasc.ValidatingType = typeof(System.DateTime);
             this.maskTxbNasc.Click += new System.EventHandler(this.maskTxbNasc_Click);
             // 
@@ -248,7 +248,7 @@ namespace Desktop.View
             this.txbTelefone.Mask = "(00) 00000-0000";
             this.txbTelefone.Name = "txbTelefone";
             this.txbTelefone.Size = new System.Drawing.Size(200, 27);
-            this.txbTelefone.TabIndex = 4;
+            this.txbTelefone.TabIndex = 5;
             this.txbTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txbTelefone.Click += new System.EventHandler(this.txbTelefone_Click);
             // 
@@ -258,7 +258,7 @@ namespace Desktop.View
             this.btnLimpar.Location = new System.Drawing.Point(306, 424);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(81, 57);
-            this.btnLimpar.TabIndex = 14;
+            this.btnLimpar.TabIndex = 12;
             this.btnLimpar.Text = "Limpar Campos";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -282,7 +282,7 @@ namespace Desktop.View
             this.btnVoltar.Location = new System.Drawing.Point(12, 445);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(96, 36);
-            this.btnVoltar.TabIndex = 15;
+            this.btnVoltar.TabIndex = 17;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
@@ -294,7 +294,7 @@ namespace Desktop.View
             this.maskTxbCpf.Mask = "000,000,000-00";
             this.maskTxbCpf.Name = "maskTxbCpf";
             this.maskTxbCpf.Size = new System.Drawing.Size(200, 27);
-            this.maskTxbCpf.TabIndex = 6;
+            this.maskTxbCpf.TabIndex = 7;
             this.maskTxbCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskTxbCpf.Click += new System.EventHandler(this.maskTxbCpf_Click);
             // 
@@ -305,7 +305,7 @@ namespace Desktop.View
             this.maskTxbRg.Mask = "00,000,000-0";
             this.maskTxbRg.Name = "maskTxbRg";
             this.maskTxbRg.Size = new System.Drawing.Size(200, 27);
-            this.maskTxbRg.TabIndex = 5;
+            this.maskTxbRg.TabIndex = 6;
             this.maskTxbRg.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskTxbRg.Click += new System.EventHandler(this.maskTxbRg_Click);
             // 
@@ -327,7 +327,7 @@ namespace Desktop.View
             this.masktxbPesquisaID.Mask = "00,000,000-0";
             this.masktxbPesquisaID.Name = "masktxbPesquisaID";
             this.masktxbPesquisaID.Size = new System.Drawing.Size(200, 27);
-            this.masktxbPesquisaID.TabIndex = 23;
+            this.masktxbPesquisaID.TabIndex = 10;
             this.masktxbPesquisaID.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.masktxbPesquisaID.Click += new System.EventHandler(this.masktxbPesquisaID_Click);
             // 
@@ -349,7 +349,7 @@ namespace Desktop.View
             this.txbCity.Location = new System.Drawing.Point(156, 208);
             this.txbCity.Name = "txbCity";
             this.txbCity.Size = new System.Drawing.Size(200, 27);
-            this.txbCity.TabIndex = 25;
+            this.txbCity.TabIndex = 4;
             // 
             // txbCidade
             // 
@@ -396,6 +396,7 @@ namespace Desktop.View
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.lblTitulo);
+            this.MaximizeBox = false;
             this.Name = "FRM_Hospede";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciamento do Hóspede";

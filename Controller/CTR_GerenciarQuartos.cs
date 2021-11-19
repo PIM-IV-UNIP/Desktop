@@ -10,7 +10,6 @@ namespace Desktop.Controller
 {
     class CTR_GerenciarQuartos
     {
-        GerenciarQuartos GerenciarQuartos = new GerenciarQuartos();
         Mensagem Mensagem = new Mensagem();
         SqlCommand cmd;
         Credenciais cred = new Credenciais();
@@ -142,7 +141,7 @@ namespace Desktop.Controller
             }
             catch (Exception ex)
             {
-                Mensagem.TMensagem = ("Erro: " + ex.ToString());
+                Mensagem.TMensagem = "Erro: " + ex.ToString();
             }
             finally
             {
@@ -174,7 +173,7 @@ namespace Desktop.Controller
             }
             catch (Exception ex)
             {
-                Mensagem.TMensagem = ("Erro: " + ex.ToString());
+                Mensagem.TMensagem = "Erro: " + ex.ToString();
             }
             finally
             {
