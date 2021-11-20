@@ -41,7 +41,6 @@ namespace Desktop.Controller
                         CheckIn.IdPesquisa = Convert.ToString(reader["DOCID"]);
 
                         Mensagem.VerificaReturnFuncao = true;
-                        Mensagem.TMensagem = "Sucesso";
                     }
                 }
             }
@@ -104,7 +103,7 @@ namespace Desktop.Controller
                 cmd.Parameters.AddWithValue("@NumeroQuarto", CheckIn.NumeroQuarto);
                 cmd.Parameters.AddWithValue("@Entrada", CheckIn.Chegada);
                 cmd.Parameters.AddWithValue("@Saída", CheckIn.Saida);
-                cmd.Parameters.AddWithValue("@Valor", CheckIn.Valor);
+                cmd.Parameters.AddWithValue("@Valor", CheckIn.ValorFinal);
                 cmd.CommandType = CommandType.Text;
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();

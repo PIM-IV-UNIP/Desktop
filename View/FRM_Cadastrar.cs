@@ -30,12 +30,22 @@ namespace Desktop.View
             Cadastrar.User = txbUser.Text;
             Cadastrar.Senha = txbSenha.Text;
 
-            Mensagem = CTR_Cadastrar.CadastrarLogin(Cadastrar);
+            if (!txbUser.Text.Equals(string.Empty) & !txbSenha.Text.Equals(string.Empty))
+            {
+                Mensagem = CTR_Cadastrar.CadastrarLogin(Cadastrar);
 
-            if(Mensagem.VerificaReturnFuncao.Equals(true))
-                MessageBox.Show(Mensagem.TMensagem, "Sucesso", MessageBoxButtons.OK);
+                if (Mensagem.VerificaReturnFuncao.Equals(true))
+                {
+                    MessageBox.Show(Mensagem.TMensagem, "Sucesso", MessageBoxButtons.OK);
+
+                    DialogResult = DialogResult.OK;
+                }
+                else
+                    MessageBox.Show(Mensagem.TMensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else
-                MessageBox.Show(Mensagem.TMensagem, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor preencha os dois campos");
+                
         }
 
         private void FRM_Cadastrar_Load(object sender, EventArgs e)

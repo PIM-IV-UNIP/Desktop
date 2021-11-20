@@ -29,6 +29,7 @@ namespace Desktop.View
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txbNome = new System.Windows.Forms.TextBox();
@@ -56,7 +57,9 @@ namespace Desktop.View
             this.masktxbPesquisaID = new System.Windows.Forms.MaskedTextBox();
             this.lblPesquisaID = new System.Windows.Forms.Label();
             this.txbCity = new System.Windows.Forms.TextBox();
-            this.txbCidade = new System.Windows.Forms.Label();
+            this.lblCidade = new System.Windows.Forms.Label();
+            this.IdentificadorErro = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.IdentificadorErro)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNome
@@ -89,6 +92,7 @@ namespace Desktop.View
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(200, 27);
             this.txbNome.TabIndex = 1;
+            this.txbNome.Validating += new System.ComponentModel.CancelEventHandler(this.txbNome_Validating);
             // 
             // txbEmail
             // 
@@ -97,6 +101,7 @@ namespace Desktop.View
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(200, 27);
             this.txbEmail.TabIndex = 2;
+            this.txbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txbEmail_Validating);
             // 
             // lblEmail
             // 
@@ -117,6 +122,7 @@ namespace Desktop.View
             this.txbEndereco.Name = "txbEndereco";
             this.txbEndereco.Size = new System.Drawing.Size(200, 27);
             this.txbEndereco.TabIndex = 3;
+            this.txbEndereco.Validating += new System.ComponentModel.CancelEventHandler(this.txbEndereco_Validating);
             // 
             // lblEndereco
             // 
@@ -127,7 +133,7 @@ namespace Desktop.View
             this.lblEndereco.Name = "lblEndereco";
             this.lblEndereco.Size = new System.Drawing.Size(95, 25);
             this.lblEndereco.TabIndex = 3;
-            this.lblEndereco.Text = "Endereco:";
+            this.lblEndereco.Text = "Endereço:";
             this.lblEndereco.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTelefone
@@ -147,7 +153,7 @@ namespace Desktop.View
             this.lblRG.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblRG.AutoSize = true;
             this.lblRG.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRG.Location = new System.Drawing.Point(425, 111);
+            this.lblRG.Location = new System.Drawing.Point(459, 111);
             this.lblRG.Name = "lblRG";
             this.lblRG.Size = new System.Drawing.Size(163, 25);
             this.lblRG.TabIndex = 7;
@@ -159,7 +165,7 @@ namespace Desktop.View
             this.lblNascimento.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblNascimento.AutoSize = true;
             this.lblNascimento.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNascimento.Location = new System.Drawing.Point(402, 175);
+            this.lblNascimento.Location = new System.Drawing.Point(436, 175);
             this.lblNascimento.Name = "lblNascimento";
             this.lblNascimento.Size = new System.Drawing.Size(186, 25);
             this.lblNascimento.TabIndex = 9;
@@ -169,17 +175,18 @@ namespace Desktop.View
             // txbNacionalidade
             // 
             this.txbNacionalidade.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txbNacionalidade.Location = new System.Drawing.Point(594, 207);
+            this.txbNacionalidade.Location = new System.Drawing.Point(628, 207);
             this.txbNacionalidade.Name = "txbNacionalidade";
             this.txbNacionalidade.Size = new System.Drawing.Size(200, 27);
             this.txbNacionalidade.TabIndex = 9;
+            this.txbNacionalidade.Validating += new System.ComponentModel.CancelEventHandler(this.txbNacionalidade_Validating);
             // 
             // lblNacionalidade
             // 
             this.lblNacionalidade.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblNacionalidade.AutoSize = true;
             this.lblNacionalidade.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNacionalidade.Location = new System.Drawing.Point(450, 207);
+            this.lblNacionalidade.Location = new System.Drawing.Point(484, 207);
             this.lblNacionalidade.Name = "lblNacionalidade";
             this.lblNacionalidade.Size = new System.Drawing.Size(138, 25);
             this.lblNacionalidade.TabIndex = 11;
@@ -228,18 +235,20 @@ namespace Desktop.View
             this.btnExcluir.TabIndex = 13;
             this.btnExcluir.Text = "Excluir Hóspede";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Visible = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // maskTxbNasc
             // 
             this.maskTxbNasc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.maskTxbNasc.Location = new System.Drawing.Point(594, 175);
+            this.maskTxbNasc.Location = new System.Drawing.Point(628, 175);
             this.maskTxbNasc.Mask = "00/00/0000";
             this.maskTxbNasc.Name = "maskTxbNasc";
             this.maskTxbNasc.Size = new System.Drawing.Size(200, 27);
             this.maskTxbNasc.TabIndex = 8;
             this.maskTxbNasc.ValidatingType = typeof(System.DateTime);
             this.maskTxbNasc.Click += new System.EventHandler(this.maskTxbNasc_Click);
+            this.maskTxbNasc.Validating += new System.ComponentModel.CancelEventHandler(this.maskTxbNasc_Validating);
             // 
             // txbTelefone
             // 
@@ -251,6 +260,7 @@ namespace Desktop.View
             this.txbTelefone.TabIndex = 5;
             this.txbTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txbTelefone.Click += new System.EventHandler(this.txbTelefone_Click);
+            this.txbTelefone.Validating += new System.ComponentModel.CancelEventHandler(this.txbTelefone_Validating);
             // 
             // btnLimpar
             // 
@@ -268,7 +278,7 @@ namespace Desktop.View
             this.lblCPF.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblCPF.AutoSize = true;
             this.lblCPF.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCPF.Location = new System.Drawing.Point(538, 143);
+            this.lblCPF.Location = new System.Drawing.Point(572, 143);
             this.lblCPF.Name = "lblCPF";
             this.lblCPF.Size = new System.Drawing.Size(48, 25);
             this.lblCPF.TabIndex = 22;
@@ -290,24 +300,26 @@ namespace Desktop.View
             // maskTxbCpf
             // 
             this.maskTxbCpf.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.maskTxbCpf.Location = new System.Drawing.Point(594, 143);
+            this.maskTxbCpf.Location = new System.Drawing.Point(628, 143);
             this.maskTxbCpf.Mask = "000,000,000-00";
             this.maskTxbCpf.Name = "maskTxbCpf";
             this.maskTxbCpf.Size = new System.Drawing.Size(200, 27);
             this.maskTxbCpf.TabIndex = 7;
             this.maskTxbCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskTxbCpf.Click += new System.EventHandler(this.maskTxbCpf_Click);
+            this.maskTxbCpf.Validating += new System.ComponentModel.CancelEventHandler(this.maskTxbCpf_Validating);
             // 
             // maskTxbRg
             // 
             this.maskTxbRg.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.maskTxbRg.Location = new System.Drawing.Point(594, 111);
+            this.maskTxbRg.Location = new System.Drawing.Point(628, 111);
             this.maskTxbRg.Mask = "00,000,000-0";
             this.maskTxbRg.Name = "maskTxbRg";
             this.maskTxbRg.Size = new System.Drawing.Size(200, 27);
             this.maskTxbRg.TabIndex = 6;
             this.maskTxbRg.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskTxbRg.Click += new System.EventHandler(this.maskTxbRg_Click);
+            this.maskTxbRg.Validating += new System.ComponentModel.CancelEventHandler(this.maskTxbRg_Validating);
             // 
             // btnProsseguirCheckIn
             // 
@@ -350,18 +362,24 @@ namespace Desktop.View
             this.txbCity.Name = "txbCity";
             this.txbCity.Size = new System.Drawing.Size(200, 27);
             this.txbCity.TabIndex = 4;
+            this.txbCity.Validating += new System.ComponentModel.CancelEventHandler(this.txbCity_Validating);
             // 
-            // txbCidade
+            // lblCidade
             // 
-            this.txbCidade.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txbCidade.AutoSize = true;
-            this.txbCidade.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txbCidade.Location = new System.Drawing.Point(72, 210);
-            this.txbCidade.Name = "txbCidade";
-            this.txbCidade.Size = new System.Drawing.Size(75, 25);
-            this.txbCidade.TabIndex = 26;
-            this.txbCidade.Text = "Cidade:";
-            this.txbCidade.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCidade.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblCidade.AutoSize = true;
+            this.lblCidade.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCidade.Location = new System.Drawing.Point(72, 210);
+            this.lblCidade.Name = "lblCidade";
+            this.lblCidade.Size = new System.Drawing.Size(75, 25);
+            this.lblCidade.TabIndex = 26;
+            this.lblCidade.Text = "Cidade:";
+            this.lblCidade.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // IdentificadorErro
+            // 
+            this.IdentificadorErro.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.IdentificadorErro.ContainerControl = this;
             // 
             // FRM_Hospede
             // 
@@ -369,7 +387,7 @@ namespace Desktop.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 493);
             this.Controls.Add(this.txbCity);
-            this.Controls.Add(this.txbCidade);
+            this.Controls.Add(this.lblCidade);
             this.Controls.Add(this.masktxbPesquisaID);
             this.Controls.Add(this.lblPesquisaID);
             this.Controls.Add(this.btnProsseguirCheckIn);
@@ -401,6 +419,7 @@ namespace Desktop.View
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciamento do Hóspede";
             this.Load += new System.EventHandler(this.Frm_Hospede_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.IdentificadorErro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,6 +454,7 @@ namespace Desktop.View
         private System.Windows.Forms.MaskedTextBox masktxbPesquisaID;
         private System.Windows.Forms.Label lblPesquisaID;
         private System.Windows.Forms.TextBox txbCity;
-        private System.Windows.Forms.Label txbCidade;
+        private System.Windows.Forms.Label lblCidade;
+        private System.Windows.Forms.ErrorProvider IdentificadorErro;
     }
 }

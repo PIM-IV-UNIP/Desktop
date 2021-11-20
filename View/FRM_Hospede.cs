@@ -16,6 +16,7 @@ namespace Desktop.View
         Hospede Hospede;
         CTR_Hospede CTR_Hospede;
         Mensagem Mensagem;
+        private bool teste;
         public FRM_Hospede()
         {
             InitializeComponent();
@@ -30,23 +31,36 @@ namespace Desktop.View
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            SetarAtributos();
+            if(VerificarTextbox().Equals(true))
+            {
+                MessageBox.Show("Por favor verifique os campos vazios.", "Erro: Campos Incoretos", MessageBoxButtons.OK);
+            }
+            else
+            {
+                SetarAtributos();
 
-            Mensagem = CTR_Hospede.AdicionarHospede(Hospede);
+                Mensagem = CTR_Hospede.AdicionarHospede(Hospede);
 
-            MessageBox.Show(Mensagem.TMensagem);
+                MessageBox.Show(Mensagem.TMensagem);
+            }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            Hospede.IDPessoa = masktxbPesquisaID.Text;
+            if (masktxbPesquisaID.Text.Equals(string.Empty))
+            {
+                MessageBox.Show("Campo de pesquisa vazio.", "Erro: Campo Vazio", MessageBoxButtons.OK);
+            }
+            else
+            {
+                Hospede.IDPessoa = masktxbPesquisaID.Text;
 
-            Mensagem = CTR_Hospede.ConsultarHospede(Hospede);
+                Mensagem = CTR_Hospede.ConsultarHospede(Hospede);
+                SetarTextbox();
 
-            SetarTextbox();
-
-            MessageBox.Show(Mensagem.TMensagem);
-
+                MessageBox.Show(Mensagem.TMensagem);
+                btnExcluir.Visible = true;
+            }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -59,15 +73,20 @@ namespace Desktop.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Hospede.IDPessoa = masktxbPesquisaID.Text;
+            if (masktxbPesquisaID.Text.Equals(string.Empty))
+            {
+                MessageBox.Show("Consulte o hóspede primeiro", "Erro: Campo Vazio", MessageBoxButtons.OK);
+            }
+            else
+            {
+                Hospede.IDPessoa = masktxbPesquisaID.Text;
 
-            Mensagem = CTR_Hospede.ExcluirHospede(Hospede);
+                Mensagem = CTR_Hospede.ExcluirHospede(Hospede);
+                Hospede.Limpar();
+                SetarTextbox();
 
-            Hospede.Limpar();
-
-            SetarTextbox();
-
-            MessageBox.Show(Mensagem.TMensagem);
+                MessageBox.Show(Mensagem.TMensagem);
+            }
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -77,11 +96,18 @@ namespace Desktop.View
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            SetarAtributos();
-            
-            Mensagem = CTR_Hospede.AtualizarHospede(Hospede);
+            if (VerificarTextbox().Equals(true))
+            {
+                MessageBox.Show("Por favor verifique os campos vazios.", "Erro: Campos Incoretos", MessageBoxButtons.OK);
+            }
+            else
+            {
+                SetarAtributos();
 
-            MessageBox.Show(Mensagem.TMensagem);
+                Mensagem = CTR_Hospede.AtualizarHospede(Hospede);
+
+                MessageBox.Show(Mensagem.TMensagem);
+            }
         }
 
         private void btnProsseguirCheckIn_Click(object sender, EventArgs e)
@@ -116,7 +142,7 @@ namespace Desktop.View
             masktxbPesquisaID.SelectionStart = 0;
         }
 
-        public void SetarTextbox()
+        private void SetarTextbox()
         {
             txbNome.Text = Hospede.NomePessoa;
             txbEmail.Text = Hospede.EmailPessoa;
@@ -130,7 +156,7 @@ namespace Desktop.View
             maskTxbCpf.Text = Convert.ToString(Hospede.CPFPessoa);
         }
 
-        public void SetarAtributos()
+        private void SetarAtributos()
         {
             Hospede.NomePessoa = txbNome.Text;
             Hospede.EmailPessoa = txbEmail.Text;
@@ -141,6 +167,84 @@ namespace Desktop.View
             Hospede.Nacionalidade = txbNacionalidade.Text;
             Hospede.CPFPessoa = Convert.ToDouble(maskTxbCpf.Text);
             Hospede.Cidade = txbCity.Text;
+        }
+
+        private bool VerificarTextbox()
+        {
+            teste = (txbNome.Text.Equals(string.Empty) || txbEmail.Text.Equals(string.Empty) || txbEndereco.Text.Equals(string.Empty) || txbCity.Text.Equals(string.Empty) || txbTelefone.Text.Equals(string.Empty) || maskTxbRg.Text.Equals(string.Empty) || maskTxbCpf.Text.Equals(string.Empty) || maskTxbNasc.Text.Equals(string.Empty) || txbNacionalidade.Text.Equals(string.Empty)).Equals(true);
+            return teste;
+        }
+
+        private void txbNome_Validating(object sender, CancelEventArgs e)
+        {
+            if (txbNome.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(txbNome, "Por favor, digite o nome do cliente");
+            else
+                IdentificadorErro.SetError(txbNome, "");
+        }
+
+        private void txbEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (txbEmail.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(txbEmail, "Por favor digite o e-Mail do cliente");
+            else
+                IdentificadorErro.SetError(txbEmail, "");
+        }
+
+        private void txbEndereco_Validating(object sender, CancelEventArgs e)
+        {
+            if (txbEndereco.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(txbEndereco, "Por favor digite o endereço do cliente");
+            else
+                IdentificadorErro.SetError(txbEndereco, "");
+        }
+
+        private void txbCity_Validating(object sender, CancelEventArgs e)
+        {
+            if (txbCity.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(txbCity, "Por favor digite a cidade do cliente");
+            else
+                IdentificadorErro.SetError(txbCity, "");
+        }
+
+        private void txbTelefone_Validating(object sender, CancelEventArgs e)
+        {
+            if (txbTelefone.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(txbTelefone, "Por favor digite o telefone do cliente");
+            else
+                IdentificadorErro.SetError(txbTelefone, "");
+        }
+
+        private void maskTxbRg_Validating(object sender, CancelEventArgs e)
+        {
+            if (maskTxbRg.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(maskTxbRg, "Por favor digite o Documento de Identificação do cliente");
+            else
+                IdentificadorErro.SetError(maskTxbRg, "");
+        }
+
+        private void maskTxbCpf_Validating(object sender, CancelEventArgs e)
+        {
+            if (maskTxbCpf.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(maskTxbCpf, "Por favor digite o CPF do cliente");
+            else
+                IdentificadorErro.SetError(maskTxbCpf, "");
+        }
+
+        private void maskTxbNasc_Validating(object sender, CancelEventArgs e)
+        {
+            if (maskTxbNasc.Text.Equals("  /  /"))
+                IdentificadorErro.SetError(maskTxbNasc, "Por favor digite a data de nascimento do cliente");
+            else
+                IdentificadorErro.SetError(maskTxbNasc, "");
+        }
+
+        private void txbNacionalidade_Validating(object sender, CancelEventArgs e)
+        {
+            if (txbNacionalidade.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(txbNacionalidade, "Por favor digite a nacionalidade do cliente");
+            else
+                IdentificadorErro.SetError(txbNacionalidade, "");
         }
     }
 }
