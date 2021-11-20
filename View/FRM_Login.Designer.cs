@@ -137,6 +137,7 @@ namespace Desktop.View
             this.Name = "FRM_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.FRM_Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

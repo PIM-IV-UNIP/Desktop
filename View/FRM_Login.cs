@@ -38,9 +38,9 @@ namespace Desktop.View
                 FRM_Inicio FRM_Inicio = new FRM_Inicio();
                 FRM_Inicio.ShowDialog();
             }
-            
-            txbUser.Text = Login.User;
-            txbSenha.Text = Login.Senha;
+
+            txbUser.Text = string.Empty;
+            txbSenha.Text = string.Empty;
 
             Show();
         }
@@ -72,10 +72,18 @@ namespace Desktop.View
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            txbUser.Text = string.Empty;
+            txbSenha.Text = string.Empty;
+
             FRM_Cadastrar FRM_Cadastrar = new FRM_Cadastrar();
             Hide();
             FRM_Cadastrar.ShowDialog();
             Show();
+        }
+
+        private void FRM_Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

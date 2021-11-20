@@ -16,5 +16,8 @@ namespace Desktop.Model
         public DateTime Saida { get; set; }
         public decimal Valor { get; set; }
         public DataTable Lista { get; set; }
+        public List<string> HospedadosList { get; set; }
+        public double PeriodoTotal { get; set; }
+        public decimal ValorFinal { get; set; }
     }
 }

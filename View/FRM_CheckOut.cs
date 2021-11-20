@@ -72,6 +72,8 @@ namespace Desktop.View
 
             lviewTotal.Items.Clear();
             txbProcurarQuarto.Text = " ";
+
+            DialogResult = DialogResult.OK;
         }
     }
 }

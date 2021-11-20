@@ -138,11 +138,15 @@ namespace Desktop.View
             // txbNome
             // 
             this.txbNome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbNome.Enabled = false;
+            this.txbNome.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txbNome.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txbNome.Location = new System.Drawing.Point(755, 65);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(200, 27);
             this.txbNome.TabIndex = 9;
             this.txbNome.Visible = false;
+            this.txbNome.TextChanged += new System.EventHandler(this.txbNome_TextChanged);
             // 
             // lblNome
             // 
@@ -164,9 +168,9 @@ namespace Desktop.View
             this.lblMaisHospedes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblMaisHospedes.Location = new System.Drawing.Point(693, 101);
             this.lblMaisHospedes.Name = "lblMaisHospedes";
-            this.lblMaisHospedes.Size = new System.Drawing.Size(260, 23);
+            this.lblMaisHospedes.Size = new System.Drawing.Size(259, 23);
             this.lblMaisHospedes.TabIndex = 0;
-            this.lblMaisHospedes.Text = "Cadastre hóspedes neste quarto:";
+            this.lblMaisHospedes.Text = "Adicione hóspedes neste quarto:";
             this.lblMaisHospedes.Visible = false;
             // 
             // lviewSubTotal
@@ -192,7 +196,7 @@ namespace Desktop.View
             // 
             // colunaSubTotalQuartos
             // 
-            this.colunaSubTotalQuartos.Text = "Quartos";
+            this.colunaSubTotalQuartos.Text = "Quarto";
             this.colunaSubTotalQuartos.Width = 100;
             // 
             // colunaSubTotalHospedes
@@ -237,7 +241,7 @@ namespace Desktop.View
             this.radBtnIndividual.TabStop = true;
             this.radBtnIndividual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radBtnIndividual.UseVisualStyleBackColor = true;
-            this.radBtnIndividual.CheckedChanged += new System.EventHandler(this.radBtnStand_CheckedChanged);
+            this.radBtnIndividual.CheckedChanged += new System.EventHandler(this.radBtnIndividual_CheckedChanged);
             // 
             // radBtnDuplo
             // 
@@ -250,7 +254,7 @@ namespace Desktop.View
             this.radBtnDuplo.TabStop = true;
             this.radBtnDuplo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radBtnDuplo.UseVisualStyleBackColor = true;
-            this.radBtnDuplo.CheckedChanged += new System.EventHandler(this.radBtnFam_CheckedChanged);
+            this.radBtnDuplo.CheckedChanged += new System.EventHandler(this.radBtnDuplo_CheckedChanged);
             // 
             // radBtnTriplo
             // 
@@ -263,7 +267,7 @@ namespace Desktop.View
             this.radBtnTriplo.TabStop = true;
             this.radBtnTriplo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radBtnTriplo.UseVisualStyleBackColor = true;
-            this.radBtnTriplo.CheckedChanged += new System.EventHandler(this.radBtnDelux_CheckedChanged);
+            this.radBtnTriplo.CheckedChanged += new System.EventHandler(this.radBtnTriplo_CheckedChanged);
             // 
             // radBtnQuadruplo
             // 
@@ -276,7 +280,7 @@ namespace Desktop.View
             this.radBtnQuadruplo.TabStop = true;
             this.radBtnQuadruplo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radBtnQuadruplo.UseVisualStyleBackColor = true;
-            this.radBtnQuadruplo.CheckedChanged += new System.EventHandler(this.radBtnDeuses_CheckedChanged);
+            this.radBtnQuadruplo.CheckedChanged += new System.EventHandler(this.radBtnQuadruplo_CheckedChanged);
             // 
             // lviewQuartos
             // 
@@ -288,6 +292,7 @@ namespace Desktop.View
             this.lviewQuartos.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lviewQuartos.GridLines = true;
             this.lviewQuartos.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lviewQuartos.HideSelection = false;
             listViewItem1.StateImageIndex = 0;
             this.lviewQuartos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
@@ -376,6 +381,7 @@ namespace Desktop.View
             this.dateTimeInicio.Size = new System.Drawing.Size(335, 30);
             this.dateTimeInicio.TabIndex = 11;
             this.dateTimeInicio.Visible = false;
+            this.dateTimeInicio.ValueChanged += new System.EventHandler(this.dateTimeInicio_ValueChanged);
             // 
             // lblDe
             // 
@@ -407,10 +413,11 @@ namespace Desktop.View
             this.dateTimeFinal.CalendarFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimeFinal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimeFinal.Location = new System.Drawing.Point(720, 280);
-            this.dateTimeFinal.MinDate = new System.DateTime(2021, 11, 19, 0, 0, 0, 0);
+            this.dateTimeFinal.MinDate = new System.DateTime(2021, 11, 20, 0, 0, 0, 0);
             this.dateTimeFinal.Name = "dateTimeFinal";
             this.dateTimeFinal.Size = new System.Drawing.Size(335, 30);
             this.dateTimeFinal.TabIndex = 12;
+            this.dateTimeFinal.Value = new System.DateTime(2021, 11, 20, 0, 0, 0, 0);
             this.dateTimeFinal.Visible = false;
             // 
             // btnConfirmarData

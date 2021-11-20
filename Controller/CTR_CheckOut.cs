@@ -22,15 +22,16 @@ namespace Desktop.Controller
             try
             {
                 con.Open();
-                Mensagem.sql = "SELECT HOSPEDES, ENTRADA, SAÍDA, VALOR FROM QUARTOS WHERE NUMEROQUARTO = @NumeroQuarto";
+                Mensagem.sql = "SELECT HOSPEDES, ENTRADA, SAÍDA, VALOR FROM QUARTOS WHERE NUMEROQUARTO = @NumeroQuarto AND STATUS = @Status";
                 cmd = new SqlCommand(Mensagem.sql, con);
                 cmd.Parameters.AddWithValue("@NumeroQuarto", CheckOut.NumeroQuarto);
+                cmd.Parameters.AddWithValue("@Status", "Indisponível");
 
                 reader = cmd.ExecuteReader();
 
                 if (reader.HasRows.Equals(false))
                 {
-                    Mensagem.TMensagem = "Erro: Não foi encontrado um quarto com este número.";
+                    Mensagem.TMensagem = "Erro: Não foi encontrado um ocupado com este número.";
                 }
                 else
                 {
