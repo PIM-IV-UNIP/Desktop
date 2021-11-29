@@ -13,13 +13,13 @@ namespace Desktop.View
 {
     public partial class FRM_ListaHospedes : Form
     {
-        ListaHospede ListaHospede;
+        ListaHospedes ListaHospede;
         CTR_ListaHospedes CTR_ListaHospedes;
 
         public FRM_ListaHospedes()
         {
             InitializeComponent();
-            ListaHospede = new ListaHospede();
+            ListaHospede = new ListaHospedes();
             CTR_ListaHospedes = new CTR_ListaHospedes();
         }
 

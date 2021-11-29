@@ -6,6 +6,6 @@ namespace Desktop.Model
 {
     class Hospede : Pessoa
     {
-        public int quartoHospede { get; set; }
+
     }
 }

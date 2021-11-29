@@ -6,8 +6,6 @@ using Desktop.Model;
 using Desktop.View;
 
 namespace Desktop.Controller
-
-
 {
     class CTR_Login
     {
@@ -16,7 +14,7 @@ namespace Desktop.Controller
         Mensagem Mensagem = new Mensagem();
         Credenciais cred = new Credenciais();
 
-        public Mensagem AutenticarUser(Login Login)
+        public Mensagem AutenticarLogin(Login Login)
         {
             con = new SqlConnection(cred.constring);
 

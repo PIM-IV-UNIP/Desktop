@@ -27,7 +27,7 @@ namespace Desktop.View
 
             Hide();
 
-            Mensagem = CTR_Login.AutenticarUser(Login);
+            Mensagem = CTR_Login.AutenticarLogin(Login);
 
             if (Mensagem.VerificaReturnFuncao.Equals(false))
             {
