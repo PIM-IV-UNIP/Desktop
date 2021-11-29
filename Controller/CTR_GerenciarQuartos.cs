@@ -15,7 +15,7 @@ namespace Desktop.Controller
         Credenciais cred = new Credenciais();
         SqlConnection con;
 
-        public Mensagem Adicionartriplo(GerenciarQuartos GerenciarQuartos)
+        public Mensagem AdicionarTriplo(GerenciarQuartos GerenciarQuartos)
         {
             con = new SqlConnection(cred.constring);
 

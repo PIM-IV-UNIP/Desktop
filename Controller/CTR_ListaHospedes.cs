@@ -17,7 +17,7 @@ namespace Desktop.Controller
         SqlConnection con;
         Mensagem Mensagem = new Mensagem();
 
-        public ListaHospede PesquisarID(ListaHospede ListaHospede)
+        public ListaHospedes PesquisarID(ListaHospedes ListaHospede)
         {
             con = new SqlConnection(cred.constring); //connection string do BD
             try
@@ -50,7 +50,7 @@ namespace Desktop.Controller
         }
 
 
-        public ListaHospede CarregarLista(ListaHospede ListaHospede)
+        public ListaHospedes CarregarLista(ListaHospedes ListaHospede)
         {
             con = new SqlConnection(cred.constring); //connection string do BD
             try

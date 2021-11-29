@@ -50,7 +50,7 @@ namespace Desktop.View
                     case "1":
                         GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
                         GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
-                        Mensagem = CTR_GerenciarQuartos.Adicionartriplo(GerenciarQuartos);
+                        Mensagem = CTR_GerenciarQuartos.AdicionarTriplo(GerenciarQuartos);
                         MessageBox.Show(Mensagem.TMensagem);
                         break;
 

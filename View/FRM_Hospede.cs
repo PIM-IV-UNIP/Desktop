@@ -16,7 +16,7 @@ namespace Desktop.View
         Hospede Hospede;
         CTR_Hospede CTR_Hospede;
         Mensagem Mensagem;
-        private bool teste;
+        private bool Verifica;
         public FRM_Hospede()
         {
             InitializeComponent();
@@ -171,8 +171,8 @@ namespace Desktop.View
 
         private bool VerificarTextbox()
         {
-            teste = (txbNome.Text.Equals(string.Empty) || txbEmail.Text.Equals(string.Empty) || txbEndereco.Text.Equals(string.Empty) || txbCity.Text.Equals(string.Empty) || txbTelefone.Text.Equals(string.Empty) || maskTxbRg.Text.Equals(string.Empty) || maskTxbCpf.Text.Equals(string.Empty) || maskTxbNasc.Text.Equals(string.Empty) || txbNacionalidade.Text.Equals(string.Empty)).Equals(true);
-            return teste;
+            Verifica = (txbNome.Text.Equals(string.Empty) || txbEmail.Text.Equals(string.Empty) || txbEndereco.Text.Equals(string.Empty) || txbCity.Text.Equals(string.Empty) || txbTelefone.Text.Equals(string.Empty) || maskTxbRg.Text.Equals(string.Empty) || maskTxbCpf.Text.Equals(string.Empty) || maskTxbNasc.Text.Equals(string.Empty) || txbNacionalidade.Text.Equals(string.Empty)).Equals(true);
+            return Verifica;
         }
 
         private void txbNome_Validating(object sender, CancelEventArgs e)

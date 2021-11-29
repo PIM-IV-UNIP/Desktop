@@ -103,7 +103,7 @@ namespace Desktop.View
             lviewSubTotal.Items[0].SubItems.Add(" ");
             lviewSubTotal.Items[0].SubItems.Add(" ");
             HabilitarDepoisQuartos();
-            DeshabilitarEsquerda();
+            DesabilitarEsquerda();
         }
 
         private void radBtnTriplo_CheckedChanged(object sender, EventArgs e)
@@ -216,7 +216,7 @@ namespace Desktop.View
             lblNome.Visible = true;
         }
 
-        private void DeshabilitarEsquerda()
+        private void DesabilitarEsquerda()
         {
             //deixando-os invisíveis
             btnCarregarLista.Visible = false;
