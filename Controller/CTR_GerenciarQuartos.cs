@@ -12,7 +12,7 @@ namespace Desktop.Controller
     {
         Mensagem Mensagem = new Mensagem();
         SqlCommand cmd;
-        Credenciais cred = new Credenciais();
+        Credenciais cred = new Credenciais(); //Classe que contém as credenciais de acesso ao servidor do Banco de Dados
         SqlConnection con;
 
         public Mensagem AdicionarTriplo(GerenciarQuartos GerenciarQuartos)
@@ -21,12 +21,13 @@ namespace Desktop.Controller
 
             try
             {
-                con.Open();
+                con.Open(); //Abrindo a conexão com o servidor
 
-                //insert na tabela quartos
-                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO, STATUS) VALUES (@NumeroQuarto, @TipoDoQuarto, @Status)";
+                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO, STATUS) VALUES (@NumeroQuarto, @TipoDoQuarto, @Status)"; //Setando o comando SQL
 
-                cmd = new SqlCommand(Mensagem.sql, con);
+                cmd = new SqlCommand(Mensagem.sql, con); //Executando o comando SQL
+
+                //Atribuindo os valores
                 cmd.Parameters.AddWithValue("@NumeroQuarto", GerenciarQuartos.NumeroQuarto);
                 cmd.Parameters.AddWithValue("@TipoDoQuarto", GerenciarQuartos.TipoQuarto);
                 cmd.Parameters.AddWithValue("@Status", "Livre");
@@ -35,7 +36,7 @@ namespace Desktop.Controller
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 
-                if (Mensagem.verifSQL > 0)
+                if (Mensagem.verifSQL > 0) //Verificando se houveram atualizações
                     Mensagem.TMensagem = "Quarto adicionado com sucesso à categoria Triplo.";
             }
             catch (Exception ex)
@@ -44,7 +45,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close(); //fechando a conexão com o BD
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return Mensagem;
@@ -55,12 +56,14 @@ namespace Desktop.Controller
             con = new SqlConnection(cred.constring);
             try
             {
-                con.Open();
+                con.Open(); //Abrindo a conexão com o servidor
 
-                //insert na tabela quartos
-                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO, STATUS) VALUES (@NumeroQuarto, @TipoDoQuarto, @Status)";
 
-                cmd = new SqlCommand(Mensagem.sql, con);
+                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO, STATUS) VALUES (@NumeroQuarto, @TipoDoQuarto, @Status)"; //Setando o comando SQL
+
+                cmd = new SqlCommand(Mensagem.sql, con); //Executando o comando SQL
+
+                //Atribuindo os valores
                 cmd.Parameters.AddWithValue("@NumeroQuarto", GerenciarQuartos.NumeroQuarto);
                 cmd.Parameters.AddWithValue("@TipoDoQuarto", GerenciarQuartos.TipoQuarto);
                 cmd.Parameters.AddWithValue("@Status", "Livre");
@@ -69,7 +72,7 @@ namespace Desktop.Controller
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 
-                if (Mensagem.verifSQL > 0)
+                if (Mensagem.verifSQL > 0) //Verificando se houveram atualizações
                     Mensagem.TMensagem = "Quarto adicionado com sucesso à categoria Individual.";
             }
             catch (Exception ex)
@@ -78,7 +81,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close(); //fechando a conexão com o BD
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return Mensagem;
@@ -88,12 +91,13 @@ namespace Desktop.Controller
             con = new SqlConnection(cred.constring);
             try
             {
-                con.Open();
+                con.Open(); //Abrindo a conexão com o servidor
 
-                //insert na tabela quartos
-                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO, STATUS) VALUES (@NumeroQuarto, @TipoDoQuarto, @Status)";
+                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO, STATUS) VALUES (@NumeroQuarto, @TipoDoQuarto, @Status)"; //Setando o comando SQL
 
-                cmd = new SqlCommand(Mensagem.sql, con);
+                cmd = new SqlCommand(Mensagem.sql, con); //Executando o comando SQL
+
+                //Atribuindo os valores
                 cmd.Parameters.AddWithValue("@NumeroQuarto", GerenciarQuartos.NumeroQuarto);
                 cmd.Parameters.AddWithValue("@TipoDoQuarto", GerenciarQuartos.TipoQuarto);
                 cmd.Parameters.AddWithValue("@Status", "Livre");
@@ -102,7 +106,7 @@ namespace Desktop.Controller
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 
-                if (Mensagem.verifSQL > 0)
+                if (Mensagem.verifSQL > 0) //Verificando se houveram atualizações
                     Mensagem.TMensagem = "Quarto adicionado com sucesso à categoria Duplo.";
             }
             catch (Exception ex)
@@ -111,7 +115,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close(); //fechando a conexão com o BD
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return Mensagem;
@@ -122,12 +126,13 @@ namespace Desktop.Controller
 
             try
             {
-                con.Open();
+                con.Open(); //Abrindo a conexão com o servidor
 
-                //insert na tabela QUARTOS na categoria deuses
-                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO, STATUS) VALUES (@NumeroQuarto, @TipoDoQuarto, @Status)";
+                Mensagem.sql = "INSERT INTO QUARTOS (NUMEROQUARTO, TIPODOQUARTO, STATUS) VALUES (@NumeroQuarto, @TipoDoQuarto, @Status)"; //Setando o comando SQL
 
-                cmd = new SqlCommand(Mensagem.sql, con);
+                cmd = new SqlCommand(Mensagem.sql, con);//Executando o comando SQL
+
+                //Atribuindo os valores
                 cmd.Parameters.AddWithValue("@NumeroQuarto", GerenciarQuartos.NumeroQuarto);
                 cmd.Parameters.AddWithValue("@TipoDoQuarto", GerenciarQuartos.TipoQuarto);
                 cmd.Parameters.AddWithValue("@Status", "Livre");
@@ -136,7 +141,7 @@ namespace Desktop.Controller
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 
-                if (Mensagem.verifSQL > 0)
+                if (Mensagem.verifSQL > 0) //Verificando se houveram atualizações
                     Mensagem.TMensagem = "Quarto adicionado com sucesso à categoria Quádruplo.";
             }
             catch (Exception ex)
@@ -145,7 +150,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close(); //fechando a conexão com o BD
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return Mensagem;
@@ -157,18 +162,21 @@ namespace Desktop.Controller
 
             try
             {
-                con.Open();
+                con.Open();//Abrindo a conexão com o servidor
 
-                Mensagem.sql = "UPDATE QUARTOS SET TIPODOQUARTO = @TipoDoQuarto WHERE NUMEROQUARTO = @NumeroQuarto";
+                Mensagem.sql = "UPDATE QUARTOS SET TIPODOQUARTO = @TipoDoQuarto WHERE NUMEROQUARTO = @NumeroQuarto"; //Setando o comando SQL
 
-                cmd = new SqlCommand(Mensagem.sql, con);
+                cmd = new SqlCommand(Mensagem.sql, con); //Executando o comando SQL
+
+                //Atribuindo os valores
                 cmd.Parameters.AddWithValue("@NumeroQuarto", GerenciarQuartos.NumeroQuarto);
                 cmd.Parameters.AddWithValue("@TipoDoQuarto", GerenciarQuartos.TipoQuarto);
 
                 cmd.CommandType = CommandType.Text;
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
-                if (Mensagem.verifSQL > 0)
+
+                if (Mensagem.verifSQL > 0) //Verificando se houveram atualizações
                     Mensagem.TMensagem = "Tipo do quarto atualizado com sucesso.";
             }
             catch (Exception ex)
@@ -177,7 +185,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close(); //fechando a conexão com o BD
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return Mensagem;
@@ -190,9 +198,11 @@ namespace Desktop.Controller
 
             try
             {
-                con.Open();
-                Mensagem.sql = "SELECT * FROM QUARTOS";
-                cmd = new SqlCommand(Mensagem.sql, con);
+                con.Open(); //Abrindo a conexão com o servidor
+
+                Mensagem.sql = "SELECT * FROM QUARTOS"; //Setando o comando SQL
+
+                cmd = new SqlCommand(Mensagem.sql, con); //Executando o comando SQL
 
                 cmd.CommandType = CommandType.Text;
 
@@ -200,7 +210,7 @@ namespace Desktop.Controller
 
                 GerenciarQuartos.Lista = new DataTable();
 
-                DA.Fill(GerenciarQuartos.Lista);
+                DA.Fill(GerenciarQuartos.Lista); //Preenchendo o DataAdapter com o DataTable GerenciaQuartos.Lista
             }
 
             catch (Exception ex)
@@ -209,7 +219,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close();
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return GerenciarQuartos;

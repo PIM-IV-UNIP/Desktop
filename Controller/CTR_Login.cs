@@ -12,7 +12,7 @@ namespace Desktop.Controller
         SqlConnection con;
         SqlCommand cmd;
         Mensagem Mensagem = new Mensagem();
-        Credenciais cred = new Credenciais();
+        Credenciais cred = new Credenciais(); //Classe que contém as credenciais de acesso ao servidor do Banco de Dados
 
         public Mensagem AutenticarLogin(Login Login)
         {
@@ -22,15 +22,19 @@ namespace Desktop.Controller
 
             try
             {
-                con.Open();
-                Mensagem.sql = "SELECT * FROM FUNCIONARIOS WHERE USUÁRIO = @User AND SENHA = @Senha";
-                cmd = new SqlCommand(Mensagem.sql, con);
+                con.Open();//Abrindo a conexão com o servidor
+
+                Mensagem.sql = "SELECT * FROM FUNCIONARIOS WHERE USUÁRIO = @User AND SENHA = @Senha"; //Setando o comando SQL
+
+                cmd = new SqlCommand(Mensagem.sql, con);//Executando o comando SQL
+
+                //Atribuindo os valores
                 cmd.Parameters.AddWithValue("@User", Login.User);
                 cmd.Parameters.AddWithValue("Senha", Login.Senha);
 
                 reader = cmd.ExecuteReader();
 
-                if (reader.Read())
+                if (reader.Read()) //Verificando se existe um registro
                 {
                     Mensagem.VerificaReturnFuncao = true;
 
@@ -51,7 +55,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close();
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return Mensagem;

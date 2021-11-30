@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿using Desktop.Controller;
 using Desktop.Model;
-using Desktop.Controller;
-using System.Data.SqlClient;
+using System;
+using System.Windows.Forms;
 
 namespace Desktop.View
 {
@@ -49,7 +43,7 @@ namespace Desktop.View
                 lviewTotal.Items[0].SubItems.Add(" ");
                 lviewTotal.Items[0].SubItems.Add(" ");
 
-                if(CheckOut.PeriodoTotal > 1)
+                if (CheckOut.PeriodoTotal > 1)
                     lviewTotal.Items[0].SubItems[2].Text = Convert.ToString(CheckOut.PeriodoTotal) + " Noites";
                 else
                     lviewTotal.Items[0].SubItems[2].Text = Convert.ToString(CheckOut.PeriodoTotal) + " Noite";

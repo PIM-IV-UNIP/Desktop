@@ -11,7 +11,7 @@ namespace Desktop.Controller
     class CTR_CheckIn
     {
         Mensagem Mensagem = new Mensagem();
-        Credenciais credenciais = new Credenciais();
+        Credenciais credenciais = new Credenciais(); //Classe que contém as credenciais de acesso ao servidor do Banco de Dados
         SqlConnection con;
         SqlCommand cmd;
 
@@ -21,21 +21,24 @@ namespace Desktop.Controller
 
             try
             {
-                con.Open();
-                Mensagem.sql = "SELECT * FROM HOSPEDES WHERE DOCID = @DocId";
-                cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@DocId", CheckIn.IdPesquisa);
+                con.Open(); //Abrindo a conexão com o servidor
+
+                Mensagem.sql = "SELECT * FROM HOSPEDES WHERE DOCID = @DocId"; //Setando o comando SQL
+
+                cmd = new SqlCommand(Mensagem.sql, con); //Executando o comando SQL
+
+                cmd.Parameters.AddWithValue("@DocId", CheckIn.IdPesquisa); //Atribuindo o valor
 
                 reader = cmd.ExecuteReader();
 
-                if (reader.HasRows.Equals(false))
+                if (reader.HasRows.Equals(false)) //Verificando se foi encontrado um registro dom o ID informado
                 {
                     Mensagem.VerificaReturnFuncao = false;
                     Mensagem.TMensagem = "Erro: Não foi encontrado um cliente com este ID.";
                 }
                 else
                 {
-                    while (reader.Read())
+                    while (reader.Read()) //Lendo os dados do registro
                     {
                         CheckIn.NomePesquisa = Convert.ToString(reader["NOME"]);
                         CheckIn.IdPesquisa = Convert.ToString(reader["DOCID"]);
@@ -63,10 +66,13 @@ namespace Desktop.Controller
             con = new SqlConnection(credenciais.constring);
             try
             {
-                con.Open();
-                Mensagem.sql = "SELECT NUMEROQUARTO FROM QUARTOS WHERE TIPODOQUARTO = @TipoDoQuarto AND STATUS = @Status";
-                cmd = new SqlCommand(Mensagem.sql, con);
+                con.Open(); //Abindo a conexão com o servidor 
+
+                Mensagem.sql = "SELECT NUMEROQUARTO FROM QUARTOS WHERE TIPODOQUARTO = @TipoDoQuarto AND STATUS = @Status"; //Setando o comando SQL 
+
+                cmd = new SqlCommand(Mensagem.sql, con); //Executando o comando SQL
                 
+                //Atribuindo os valores
                 cmd.Parameters.AddWithValue("@TipoDoQuarto", CheckIn.IdQuarto);
                 cmd.Parameters.AddWithValue("@Status", "Livre");
 
@@ -76,7 +82,7 @@ namespace Desktop.Controller
 
                 CheckIn.Lista = new DataTable();
 
-                DA.Fill(CheckIn.Lista);
+                DA.Fill(CheckIn.Lista); //Preenchento o DataAdapter com o DataTable ChecInk.Lista
             }
             catch
             {
@@ -94,9 +100,13 @@ namespace Desktop.Controller
         {
             try
             {
-                con.Open(); //conectando ao BD
-                Mensagem.sql = "UPDATE QUARTOS SET STATUS = @Status, HOSPEDES = @Hospedes , ENTRADA = @Entrada, SAÍDA = @Saída, VALOR = @Valor WHERE NUMEROQUARTO = @NumeroQuarto";
-                cmd = new SqlCommand(Mensagem.sql, con);
+                con.Open(); //Abrindo a conexão com o servido
+
+                Mensagem.sql = "UPDATE QUARTOS SET STATUS = @Status, HOSPEDES = @Hospedes , ENTRADA = @Entrada, SAÍDA = @Saída, VALOR = @Valor WHERE NUMEROQUARTO = @NumeroQuarto"; //Setando o comando SQL
+
+                cmd = new SqlCommand(Mensagem.sql, con); //Executando o comando SQL
+
+                //Atribuindo os valores
 
                 cmd.Parameters.AddWithValue("@Status", "Indisponível");
                 cmd.Parameters.AddWithValue("@Hospedes", CheckIn.NomePesquisa);
@@ -108,7 +118,7 @@ namespace Desktop.Controller
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 
-                if (Mensagem.verifSQL > 0)
+                if (Mensagem.verifSQL > 0) //Verificando se houveram atualizações
                     Mensagem.TMensagem = "CheckIn realizado com sucesso!";
             }
             catch (Exception ex)
@@ -117,7 +127,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close(); //fechando a conexão com o BD
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return Mensagem;

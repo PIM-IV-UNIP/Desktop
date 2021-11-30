@@ -10,7 +10,7 @@ namespace Desktop.Controller
     {
         Mensagem Mensagem = new Mensagem();
         SqlCommand cmd;
-        Credenciais cred = new Credenciais();
+        Credenciais cred = new Credenciais(); //Classe que contém as credenciais de acesso ao servidor do Banco de Dados
         SqlConnection con;
 
         public Mensagem AdicionarHospede(Hospede Hospede)
@@ -18,16 +18,18 @@ namespace Desktop.Controller
             con = new SqlConnection(cred.constring);
             try
             {
-                con.Open();
+                con.Open(); //Abrindo a conexão com o servidor
 
                 Mensagem.sql = "INSERT INTO HOSPEDES (DOCID,NOME,ENDERECO,TELEFONE,EMAIL,DATANASCIMENTO,NACIONALIDADE,CPF,CIDADE)" 
-                    + "VALUES (@DocId, @Nome, @Endereco, @Telefone, @Email, @Nascimento, @Nacionalidade, @Cpf, @Cidade)";
+                    + "VALUES (@DocId, @Nome, @Endereco, @Telefone, @Email, @Nascimento, @Nacionalidade, @Cpf, @Cidade)"; //Setando o comando SQL
 
-                cmd = new SqlCommand(Mensagem.sql, con);
+                cmd = new SqlCommand(Mensagem.sql, con);//Executando o comando SQL
+
+                //Atribuindo os valores
                 cmd.Parameters.AddWithValue("@DocId", Hospede.IDPessoa);
                 cmd.Parameters.AddWithValue("@Nome", Hospede.NomePessoa);
                 cmd.Parameters.AddWithValue("@Endereco", Hospede.EnderecoPessoa);
-                cmd.Parameters.AddWithValue("@Telefone", Hospede.TelefonePessoa); //Atribuindos os valores
+                cmd.Parameters.AddWithValue("@Telefone", Hospede.TelefonePessoa);
                 cmd.Parameters.AddWithValue("@Email", Hospede.EmailPessoa);
                 cmd.Parameters.AddWithValue("@Nascimento", Hospede.NascimentoPessoa);
                 cmd.Parameters.AddWithValue("@Nacionalidade", Hospede.Nacionalidade);
@@ -38,7 +40,7 @@ namespace Desktop.Controller
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
                
-                if (Mensagem.verifSQL > 0)
+                if (Mensagem.verifSQL > 0) //Verificando se houveram atualizações
                     Mensagem.TMensagem = "Hóspede adicionado com sucesso.";
             }
             catch (Exception ex)
@@ -47,7 +49,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close(); //fechando a conexão com o BD
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return Mensagem;
@@ -60,14 +62,18 @@ namespace Desktop.Controller
             {
                 SqlDataReader reader;
 
-                con.Open();
-                Mensagem.sql = "SELECT * FROM HOSPEDES WHERE DOCID = @DocId";
-                cmd = new SqlCommand(Mensagem.sql, con);
+                con.Open();//Abrindo a conexão com o servidor
+
+                Mensagem.sql = "SELECT * FROM HOSPEDES WHERE DOCID = @DocId"; //Setando o comando SQL
+
+                cmd = new SqlCommand(Mensagem.sql, con);//Executando o comando SQL
+
+                //Atribuindo os valores
                 cmd.Parameters.AddWithValue("@DocId", Hospede.IDPessoa);
 
                 reader = cmd.ExecuteReader();
 
-                if (reader.Read())
+                if (reader.Read()) //Verificando se existe um registro
                 {
                     Hospede.CPFPessoa = Convert.ToDouble(reader["CPF"]);
                     Hospede.IDPessoa = Convert.ToString(reader["DOCID"]);
@@ -100,14 +106,16 @@ namespace Desktop.Controller
             con = new SqlConnection(cred.constring);
             try
             {
-                con.Open(); //conectando ao BD
-                Mensagem.sql = "UPDATE HOSPEDES set NOME = @Nome, ENDERECO = @Endereco, TELEFONE = @Telefone, EMAIL = @Email, DATANASCIMENTO = @Nascimento, NACIONALIDADE = @Nacionalidade, CIDADE = @Cidade WHERE CPF = @Cpf";
-                cmd = new SqlCommand(Mensagem.sql, con);
+                con.Open(); //Abrindo a conexão com o servidor
+                Mensagem.sql = "UPDATE HOSPEDES set NOME = @Nome, ENDERECO = @Endereco, TELEFONE = @Telefone, EMAIL = @Email, DATANASCIMENTO = @Nascimento, NACIONALIDADE = @Nacionalidade, CIDADE = @Cidade WHERE CPF = @Cpf"; //Setando o comando SQL
+                
+                cmd = new SqlCommand(Mensagem.sql, con);//Executando o comando SQL
 
+                //Atribuindo os valores
                 cmd.Parameters.AddWithValue("@DocId", Hospede.IDPessoa);
                 cmd.Parameters.AddWithValue("@Nome", Hospede.NomePessoa);
                 cmd.Parameters.AddWithValue("@Endereco", Hospede.EnderecoPessoa);
-                cmd.Parameters.AddWithValue("@Telefone", Hospede.TelefonePessoa); //Atribuindos os parâmetros com os valores
+                cmd.Parameters.AddWithValue("@Telefone", Hospede.TelefonePessoa);
                 cmd.Parameters.AddWithValue("@Email", Hospede.EmailPessoa);
                 cmd.Parameters.AddWithValue("@Nascimento", Hospede.NascimentoPessoa);
                 cmd.Parameters.AddWithValue("@Nacionalidade", Hospede.Nacionalidade);
@@ -117,7 +125,8 @@ namespace Desktop.Controller
                 cmd.CommandType = CommandType.Text;
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
-                if (Mensagem.verifSQL > 0)
+
+                if (Mensagem.verifSQL > 0) //Verificando se houveram atualizações
                     Mensagem.TMensagem = "Dados atualizados com sucesso.";
             }
             catch (Exception ex)
@@ -126,7 +135,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close(); //fechando a conexão com o BD
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return Mensagem;
@@ -137,14 +146,15 @@ namespace Desktop.Controller
             con = new SqlConnection(cred.constring);
             try
             {
-                con.Open();
-                Mensagem.sql = "DELETE FROM HOSPEDES WHERE DOCID = @DocId";
-                cmd = new SqlCommand(Mensagem.sql, con);
+                con.Open();//Abrindo a conexão com o servidor
+                Mensagem.sql = "DELETE FROM HOSPEDES WHERE DOCID = @DocId"; //Setando o comando SQL
+                cmd = new SqlCommand(Mensagem.sql, con);//Executando o comando SQL
+                //Atribuindo os valores
                 cmd.Parameters.AddWithValue("@DocId", Hospede.IDPessoa);
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 
-                if (Mensagem.verifSQL > 0)
+                if (Mensagem.verifSQL > 0)//Verificando se houveram atualizações
                     Mensagem.TMensagem = "Registo de Hóspede excluído com sucesso.";
             }
             catch (Exception ex)
@@ -153,7 +163,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close(); //fechando a conexão com o BD
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return Mensagem;

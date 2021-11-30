@@ -13,19 +13,22 @@ namespace Desktop.Controller
     {
         SqlCommand cmd;
         SqlDataAdapter DA;
-        Credenciais cred = new Credenciais();
+        Credenciais cred = new Credenciais();  //Classe que contém as credenciais de acesso ao servidor do Banco de Dados
         SqlConnection con;
         Mensagem Mensagem = new Mensagem();
 
         public ListaHospedes PesquisarID(ListaHospedes ListaHospede)
         {
-            con = new SqlConnection(cred.constring); //connection string do BD
+            con = new SqlConnection(cred.constring);
             try
             {
-                con.Open();
+                con.Open(); //Abrindo a conexão com o servidor
 
-                Mensagem.sql = "SELECT * FROM HOSPEDES WHERE DOCID = @DocumentoID";
-                cmd = new SqlCommand(Mensagem.sql, con);
+                Mensagem.sql = "SELECT * FROM HOSPEDES WHERE DOCID = @DocumentoID"; //Setando o comando SQL
+
+                cmd = new SqlCommand(Mensagem.sql, con);//Executando o comando SQL
+
+                //Atribuindo os valores
                 cmd.Parameters.AddWithValue("@DocumentoID", ListaHospede.DocumentoID);
 
                 cmd.CommandType = CommandType.Text;
@@ -34,7 +37,7 @@ namespace Desktop.Controller
 
                 ListaHospede.Lista = new DataTable();
 
-                DA.Fill(ListaHospede.Lista);
+                DA.Fill(ListaHospede.Lista); //Preenchendo um DataAdapter com o DataTable ListaHospede.Lista
             }
 
             catch
@@ -43,7 +46,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close();
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return ListaHospede;
@@ -52,12 +55,14 @@ namespace Desktop.Controller
 
         public ListaHospedes CarregarLista(ListaHospedes ListaHospede)
         {
-            con = new SqlConnection(cred.constring); //connection string do BD
+            con = new SqlConnection(cred.constring);
             try
             {
-                con.Open();
-                Mensagem.sql = "SELECT * FROM HOSPEDES";
-                cmd = new SqlCommand(Mensagem.sql, con);
+                con.Open();//Abrindo a conexão com o servidor
+
+                Mensagem.sql = "SELECT * FROM HOSPEDES";//Setando o comando SQL
+
+                cmd = new SqlCommand(Mensagem.sql, con);//Executando o comando SQL
 
                 cmd.CommandType = CommandType.Text;
 
@@ -65,7 +70,7 @@ namespace Desktop.Controller
 
                 ListaHospede.Lista = new DataTable();
 
-                DA.Fill(ListaHospede.Lista);
+                DA.Fill(ListaHospede.Lista); //Preenchendo um DataAdapter com o DataTable ListaHospede.Lista
             }
 
             catch
@@ -74,7 +79,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close();
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return ListaHospede;
