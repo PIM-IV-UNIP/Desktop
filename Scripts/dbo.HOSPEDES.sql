@@ -1,0 +1,23 @@
+USE [BDHOTEL]
+GO
+
+/****** Object: Table [dbo].[HOSPEDES] Script Date: 02/12/2021 17:56:58 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[HOSPEDES] (
+    [DOCID]          NVARCHAR (50) NOT NULL,
+    [NOME]           NVARCHAR (50) NOT NULL,
+    [ENDERECO]       NVARCHAR (50) NOT NULL,
+    [TELEFONE]       NVARCHAR (15) NOT NULL,
+    [EMAIL]          NVARCHAR (50) NULL,
+    [DATANASCIMENTO] DATE          NOT NULL,
+    [NACIONALIDADE]  NVARCHAR (50) NOT NULL,
+    [CPF]            BIGINT        NOT NULL,
+    [CIDADE]         NVARCHAR (50) NOT NULL
+);
+
+

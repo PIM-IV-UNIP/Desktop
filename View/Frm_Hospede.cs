@@ -31,6 +31,7 @@ namespace Desktop.View
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            //Verificação de TextBoxs vazios
             if(VerificarTextbox().Equals(true))
             {
                 MessageBox.Show("Por favor verifique os campos vazios.", "Erro: Campos Incoretos", MessageBoxButtons.OK);
@@ -39,6 +40,7 @@ namespace Desktop.View
             {
                 SetarAtributos();
 
+                //Chamada da Função
                 Mensagem = CTR_Hospede.AdicionarHospede(Hospede);
 
                 MessageBox.Show(Mensagem.TMensagem);
@@ -47,14 +49,17 @@ namespace Desktop.View
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            //Verificação de TextBox vazio
             if (masktxbPesquisaID.Text.Equals(string.Empty))
             {
                 MessageBox.Show("Campo de pesquisa vazio.", "Erro: Campo Vazio", MessageBoxButtons.OK);
             }
             else
             {
+                //Atribuição do valor do TextBox ao atributo
                 Hospede.IDPessoa = masktxbPesquisaID.Text;
 
+                //Chamada da função
                 Mensagem = CTR_Hospede.ConsultarHospede(Hospede);
                 SetarTextbox();
 
@@ -73,14 +78,17 @@ namespace Desktop.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            //Verificação de TextBox vazio
             if (masktxbPesquisaID.Text.Equals(string.Empty))
             {
                 MessageBox.Show("Consulte o hóspede primeiro", "Erro: Campo Vazio", MessageBoxButtons.OK);
             }
             else
             {
+                //Atribuição do valor do TextBox ao atributo
                 Hospede.IDPessoa = masktxbPesquisaID.Text;
 
+                //Chamada da Função
                 Mensagem = CTR_Hospede.ExcluirHospede(Hospede);
                 Hospede.Limpar();
                 SetarTextbox();
@@ -96,6 +104,7 @@ namespace Desktop.View
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+            //Verificação de TextBoxs vazios
             if (VerificarTextbox().Equals(true))
             {
                 MessageBox.Show("Por favor verifique os campos vazios.", "Erro: Campos Incoretos", MessageBoxButtons.OK);
@@ -104,6 +113,7 @@ namespace Desktop.View
             {
                 SetarAtributos();
 
+                //Chamada da Função
                 Mensagem = CTR_Hospede.AtualizarHospede(Hospede);
 
                 MessageBox.Show(Mensagem.TMensagem);
@@ -112,11 +122,13 @@ namespace Desktop.View
 
         private void btnProsseguirCheckIn_Click(object sender, EventArgs e)
         {
+            //Mostra a tela de CheckIn e esconde a tela de Hóspedes
             Hide();
             FRM_CheckIn FRM_CheckIn = new FRM_CheckIn();
             FRM_CheckIn.ShowDialog();
         }
 
+        //Daqui até
         private void maskTxbRg_Click(object sender, EventArgs e)
         {
             maskTxbRg.SelectionStart = 0;
@@ -141,7 +153,10 @@ namespace Desktop.View
         {
             masktxbPesquisaID.SelectionStart = 0;
         }
+        //Aqui, código com a finalidade de posicionar a seleção dentro dos MaskedTextBox no início
 
+
+        //Função destinada a atribuir os valores dos atributos aos respectivos TextBox
         private void SetarTextbox()
         {
             txbNome.Text = Hospede.NomePessoa;
@@ -155,7 +170,8 @@ namespace Desktop.View
             txbCity.Text = Hospede.Cidade;
             maskTxbCpf.Text = Convert.ToString(Hospede.CPFPessoa);
         }
-
+        
+        //Função destinada a atribuir os valores dos TextBox aos respectivos atributos
         private void SetarAtributos()
         {
             Hospede.NomePessoa = txbNome.Text;
@@ -169,12 +185,14 @@ namespace Desktop.View
             Hospede.Cidade = txbCity.Text;
         }
 
+        //Função destinada a verificar se os TextBox estão vazios
         private bool VerificarTextbox()
         {
             Verifica = (txbNome.Text.Equals(string.Empty) || txbEmail.Text.Equals(string.Empty) || txbEndereco.Text.Equals(string.Empty) || txbCity.Text.Equals(string.Empty) || txbTelefone.Text.Equals(string.Empty) || maskTxbRg.Text.Equals(string.Empty) || maskTxbCpf.Text.Equals(string.Empty) || maskTxbNasc.Text.Equals(string.Empty) || txbNacionalidade.Text.Equals(string.Empty)).Equals(true);
             return Verifica;
         }
 
+        //Daqui até
         private void txbNome_Validating(object sender, CancelEventArgs e)
         {
             if (txbNome.Text.Equals(string.Empty))
@@ -246,5 +264,6 @@ namespace Desktop.View
             else
                 IdentificadorErro.SetError(txbNacionalidade, "");
         }
+        //Aqui, código com a finalidade de apontar erros relacionados ao preenchimento dos TextBox
     }
 }
