@@ -31,13 +31,17 @@ namespace Desktop.View
 
         private void btnAddQuarto_Click(object sender, EventArgs e)
         {
+            //Atribuindo o valor do TextBox para o atributo
             GerenciarQuartos.TipoQuarto = (cmbTiposQuartos.SelectedIndex.ToString());
 
+            //Verificação de TextBox vazio
             if (txbNumeroQuarto.Text.Equals(""))
             {
                 MessageBox.Show("Você não selecionou um quarto!", "Erro: Quarto não selecionado",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
-            else {
+            else 
+            {
+                //Switch-case para identificar o tipo do Quarto selecionado
                 switch (GerenciarQuartos.TipoQuarto)
                 {
                     case "0":
@@ -73,30 +77,36 @@ namespace Desktop.View
 
         private void btnCarregarLista_Click(object sender, EventArgs e)
         {
+            //Refresh do DataGridView
             dgvListaHospedes.DataSource = null;
             dgvListaHospedes.Columns.Clear();
             dgvListaHospedes.Rows.Clear();
             dgvListaHospedes.Refresh();
 
+            //Chamada da função
             CTR_GerenciarQuartos.CarregarLista(GerenciarQuartos);
 
+            //Atribuição do DataSource do DataGridView ao DataTable GerenciarQuartos.Lista
             dgvListaHospedes.DataSource = GerenciarQuartos.Lista;
 
-            AparecerLadoEsquerdo();
-
+            //Chamada da função 
+            AparecerLadoEsquerdo();        
         }
 
         private void btnAlterarQuarto_Click(object sender, EventArgs e)
         {
+            //Verificação de TextBox vazio
             if (txbNumeroQuarto.Text.Equals("")) 
             {
                 MessageBox.Show("Você não selecionou um quarto!", "Erro: Quarto não selecionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                //Atribuição dos valores dos TextBox para os atributos
                 GerenciarQuartos.NumeroQuarto = Convert.ToInt32(txbNumeroQuarto.Text);
                 GerenciarQuartos.TipoQuarto = cmbTiposQuartos.SelectedItem.ToString();
 
+                //Chamda da função
                 Mensagem = CTR_GerenciarQuartos.AlterarQuarto(GerenciarQuartos);
                 MessageBox.Show(Mensagem.TMensagem);
             }
@@ -104,6 +114,7 @@ namespace Desktop.View
 
         private void dgvListaHospedes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Verificação se o quarto selecionado está indisponível
             if (dgvListaHospedes.CurrentRow.Cells["Status"].Value.Equals("Indisponível"))
             {
                 MessageBox.Show("Este quarto está ocupado, selecione outro quarto para editar!", "Erro: Quarto Ocupado", MessageBoxButtons.OK, MessageBoxIcon.Warning);

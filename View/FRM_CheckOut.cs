@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿using Desktop.Controller;
 using Desktop.Model;
-using Desktop.Controller;
-using System.Data.SqlClient;
+using System;
+using System.Windows.Forms;
 
 namespace Desktop.View
 {
@@ -36,10 +30,13 @@ namespace Desktop.View
 
         private void btnProcurarQuarto_Click(object sender, EventArgs e)
         {
+            //Atribuindo o valor do TextBox para o atributo
             CheckOut.NumeroQuarto = txbProcurarQuarto.Text;
 
+            //Chamada da função
             Mensagem = CTR_CheckOut.ProcurarQuarto(CheckOut);
 
+            //Verificação de TextBox vazio
             if (Mensagem.TMensagem.Equals(string.Empty))
             {
                 lviewTotal.Items.Clear();
@@ -49,7 +46,8 @@ namespace Desktop.View
                 lviewTotal.Items[0].SubItems.Add(" ");
                 lviewTotal.Items[0].SubItems.Add(" ");
 
-                if(CheckOut.PeriodoTotal > 1)
+                //Verificação de quantidade de noites que o hóspede ficará hospedado
+                if (CheckOut.PeriodoTotal > 1)
                     lviewTotal.Items[0].SubItems[2].Text = Convert.ToString(CheckOut.PeriodoTotal) + " Noites";
                 else
                     lviewTotal.Items[0].SubItems[2].Text = Convert.ToString(CheckOut.PeriodoTotal) + " Noite";
@@ -64,14 +62,16 @@ namespace Desktop.View
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
+            //Atribuindo o valor do TextBox para o atributo
             CheckOut.NumeroQuarto = txbProcurarQuarto.Text;
 
+            //Chamada da função
             Mensagem = CTR_CheckOut.FinalizarCheckOut(CheckOut);
 
             MessageBox.Show(Mensagem.TMensagem, "Sucesso", MessageBoxButtons.OK);
 
-            lviewTotal.Items.Clear();
-            txbProcurarQuarto.Text = " ";
+            lviewTotal.Items.Clear(); //Limpeza do ListView
+            txbProcurarQuarto.Text = " "; //Limpeza do TextBox
 
             DialogResult = DialogResult.OK;
         }

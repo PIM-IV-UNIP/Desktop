@@ -22,27 +22,32 @@ namespace Desktop.View
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
+            //Atribuição dos valores dos TextBox aos atributos
             Login.User = txbUser.Text;
             Login.Senha = txbSenha.Text;
 
-            Hide();
+            Hide(); //Esconde a tela de Login
 
+            //Chamada de Função
             Mensagem = CTR_Login.AutenticarLogin(Login);
 
+            //Verificação do sucesso da função
             if (Mensagem.VerificaReturnFuncao.Equals(false))
             {
                 MessageBox.Show(Mensagem.TMensagem, "Erro: Falha no Login", MessageBoxButtons.OK);
             }
             else
             {
+                //Abre a tela de Início
                 FRM_Inicio FRM_Inicio = new FRM_Inicio();
                 FRM_Inicio.ShowDialog();
             }
 
+            //Limpa os TextBox
             txbUser.Text = string.Empty;
             txbSenha.Text = string.Empty;
 
-            Show();
+            Show(); //Mostra novamente a tela de login após o usuário clicar no botão Sair da tela Inicial
         }
 
         private void txbSenha_TextChanged(object sender, EventArgs e)
@@ -72,13 +77,15 @@ namespace Desktop.View
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            //Limpa os TextBox
             txbUser.Text = string.Empty;
             txbSenha.Text = string.Empty;
 
+            //Mostra a tela de Cadastro e esconde a tela de Login
             FRM_Cadastrar FRM_Cadastrar = new FRM_Cadastrar();
             Hide();
             FRM_Cadastrar.ShowDialog();
-            Show();
+            Show(); //Mostra novamente a tela de Login após o usuário clicar no botão Voltar
         }
 
         private void FRM_Login_Load(object sender, EventArgs e)

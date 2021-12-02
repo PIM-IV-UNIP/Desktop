@@ -29,6 +29,7 @@ namespace Desktop.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Cadastrar));
             this.btnVoltar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txbUser = new System.Windows.Forms.TextBox();
@@ -122,10 +123,11 @@ namespace Desktop.View
             this.Controls.Add(this.txbUser);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnVoltar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FRM_Cadastrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de Usuários";
+            this.Text = "Cadastro de Funcionários";
             this.Load += new System.EventHandler(this.FRM_Cadastrar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

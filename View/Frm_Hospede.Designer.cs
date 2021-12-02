@@ -30,6 +30,7 @@ namespace Desktop.View
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Hospede));
             this.lblNome = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txbNome = new System.Windows.Forms.TextBox();
@@ -414,6 +415,7 @@ namespace Desktop.View
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.lblTitulo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FRM_Hospede";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

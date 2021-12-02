@@ -27,13 +27,16 @@ namespace Desktop.View
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            //Atribuindo os valores dos TextBox para os devidos atributos
             Cadastrar.User = txbUser.Text;
             Cadastrar.Senha = txbSenha.Text;
 
+            //Verificaão se o campo está vazio
             if (!txbUser.Text.Equals(string.Empty) & !txbSenha.Text.Equals(string.Empty))
             {
                 Mensagem = CTR_Cadastrar.CadastrarLogin(Cadastrar);
 
+                //Verificação do sucesso da operação
                 if (Mensagem.VerificaReturnFuncao.Equals(true))
                 {
                     MessageBox.Show(Mensagem.TMensagem, "Sucesso", MessageBoxButtons.OK);

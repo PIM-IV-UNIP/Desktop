@@ -9,7 +9,7 @@ namespace Desktop.Controller
 {
     class CTR_Cadastrar
     {
-        Credenciais cred = new Credenciais();
+        Credenciais cred = new Credenciais(); // Classe que contém as credenciais de conexão do servidor do Banco de Dados
         SqlConnection con;
         SqlCommand cmd;
         Mensagem Mensagem = new Mensagem();
@@ -17,23 +17,24 @@ namespace Desktop.Controller
         public Mensagem CadastrarLogin(Cadastrar Cadastrar)
         {
             con = new SqlConnection(cred.constring);
-
+            
             try
             {
-                con.Open();
+                con.Open(); //Abrindo a conexão com o servidor
 
-                Mensagem.sql = "INSERT INTO FUNCIONARIOS (USUÁRIO, SENHA)"
-                    + "VALUES (@User, @Senha)";
+                Mensagem.sql = "INSERT INTO FUNCIONARIOS (USUÁRIO, SENHA) " + "VALUES (@User, @Senha)";
 
                 cmd = new SqlCommand(Mensagem.sql, con);
-                cmd.Parameters.AddWithValue("@User", Cadastrar.User); //Atribuindos os valores
+
+                //Atribuindos os valores
+                cmd.Parameters.AddWithValue("@User", Cadastrar.User); 
                 cmd.Parameters.AddWithValue("@Senha", Cadastrar.Senha);
 
                 cmd.CommandType = CommandType.Text;
 
                 Mensagem.verifSQL = cmd.ExecuteNonQuery();
 
-                if (Mensagem.verifSQL > 0)
+                if (Mensagem.verifSQL > 0) //verificando se houveram alterações 
                 {
                     Mensagem.VerificaReturnFuncao = true;
                     Mensagem.TMensagem = "Funcionário cadastrado com sucesso.";
@@ -47,7 +48,7 @@ namespace Desktop.Controller
             }
             finally
             {
-                con.Close(); //fechando a conexão com o BD
+                con.Close(); //fechando a conexão com o servidor
             }
 
             return Mensagem;

@@ -29,6 +29,7 @@ namespace Desktop.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_GerenciarQuartos));
             this.btnVoltar = new System.Windows.Forms.Button();
             this.lblGerenciar = new System.Windows.Forms.Label();
             this.cmbTiposQuartos = new System.Windows.Forms.ComboBox();
@@ -188,6 +189,7 @@ namespace Desktop.View
             this.Controls.Add(this.cmbTiposQuartos);
             this.Controls.Add(this.lblGerenciar);
             this.Controls.Add(this.btnVoltar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FRM_GerenciarQuartos";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;

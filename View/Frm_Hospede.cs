@@ -16,6 +16,7 @@ namespace Desktop.View
         Hospede Hospede;
         CTR_Hospede CTR_Hospede;
         Mensagem Mensagem;
+        private bool Verifica;
         public FRM_Hospede()
         {
             InitializeComponent();
@@ -30,23 +31,41 @@ namespace Desktop.View
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            SetarAtributos();
+            //Verificação de TextBoxs vazios
+            if(VerificarTextbox().Equals(true))
+            {
+                MessageBox.Show("Por favor verifique os campos vazios.", "Erro: Campos Incoretos", MessageBoxButtons.OK);
+            }
+            else
+            {
+                SetarAtributos();
 
-            Mensagem = CTR_Hospede.AdicionarHospede(Hospede);
+                //Chamada da Função
+                Mensagem = CTR_Hospede.AdicionarHospede(Hospede);
 
-            MessageBox.Show(Mensagem.TMensagem);
+                MessageBox.Show(Mensagem.TMensagem);
+            }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            Hospede.IDPessoa = masktxbPesquisaID.Text;
+            //Verificação de TextBox vazio
+            if (masktxbPesquisaID.Text.Equals(string.Empty))
+            {
+                MessageBox.Show("Campo de pesquisa vazio.", "Erro: Campo Vazio", MessageBoxButtons.OK);
+            }
+            else
+            {
+                //Atribuição do valor do TextBox ao atributo
+                Hospede.IDPessoa = masktxbPesquisaID.Text;
 
-            Mensagem = CTR_Hospede.ConsultarHospede(Hospede);
+                //Chamada da função
+                Mensagem = CTR_Hospede.ConsultarHospede(Hospede);
+                SetarTextbox();
 
-            SetarTextbox();
-
-            MessageBox.Show(Mensagem.TMensagem);
-
+                MessageBox.Show(Mensagem.TMensagem);
+                btnExcluir.Visible = true;
+            }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -59,15 +78,23 @@ namespace Desktop.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Hospede.IDPessoa = masktxbPesquisaID.Text;
+            //Verificação de TextBox vazio
+            if (masktxbPesquisaID.Text.Equals(string.Empty))
+            {
+                MessageBox.Show("Consulte o hóspede primeiro", "Erro: Campo Vazio", MessageBoxButtons.OK);
+            }
+            else
+            {
+                //Atribuição do valor do TextBox ao atributo
+                Hospede.IDPessoa = masktxbPesquisaID.Text;
 
-            Mensagem = CTR_Hospede.ExcluirHospede(Hospede);
+                //Chamada da Função
+                Mensagem = CTR_Hospede.ExcluirHospede(Hospede);
+                Hospede.Limpar();
+                SetarTextbox();
 
-            Hospede.Limpar();
-
-            SetarTextbox();
-
-            MessageBox.Show(Mensagem.TMensagem);
+                MessageBox.Show(Mensagem.TMensagem);
+            }
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -77,20 +104,31 @@ namespace Desktop.View
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            SetarAtributos();
-            
-            Mensagem = CTR_Hospede.AtualizarHospede(Hospede);
+            //Verificação de TextBoxs vazios
+            if (VerificarTextbox().Equals(true))
+            {
+                MessageBox.Show("Por favor verifique os campos vazios.", "Erro: Campos Incoretos", MessageBoxButtons.OK);
+            }
+            else
+            {
+                SetarAtributos();
 
-            MessageBox.Show(Mensagem.TMensagem);
+                //Chamada da Função
+                Mensagem = CTR_Hospede.AtualizarHospede(Hospede);
+
+                MessageBox.Show(Mensagem.TMensagem);
+            }
         }
 
         private void btnProsseguirCheckIn_Click(object sender, EventArgs e)
         {
+            //Mostra a tela de CheckIn e esconde a tela de Hóspedes
             Hide();
             FRM_CheckIn FRM_CheckIn = new FRM_CheckIn();
             FRM_CheckIn.ShowDialog();
         }
 
+        //Daqui até
         private void maskTxbRg_Click(object sender, EventArgs e)
         {
             maskTxbRg.SelectionStart = 0;
@@ -115,8 +153,11 @@ namespace Desktop.View
         {
             masktxbPesquisaID.SelectionStart = 0;
         }
+        //Aqui, código com a finalidade de posicionar a seleção dentro dos MaskedTextBox no início
 
-        public void SetarTextbox()
+
+        //Função destinada a atribuir os valores dos atributos aos respectivos TextBox
+        private void SetarTextbox()
         {
             txbNome.Text = Hospede.NomePessoa;
             txbEmail.Text = Hospede.EmailPessoa;
@@ -129,8 +170,9 @@ namespace Desktop.View
             txbCity.Text = Hospede.Cidade;
             maskTxbCpf.Text = Convert.ToString(Hospede.CPFPessoa);
         }
-
-        public void SetarAtributos()
+        
+        //Função destinada a atribuir os valores dos TextBox aos respectivos atributos
+        private void SetarAtributos()
         {
             Hospede.NomePessoa = txbNome.Text;
             Hospede.EmailPessoa = txbEmail.Text;
@@ -142,5 +184,86 @@ namespace Desktop.View
             Hospede.CPFPessoa = Convert.ToDouble(maskTxbCpf.Text);
             Hospede.Cidade = txbCity.Text;
         }
+
+        //Função destinada a verificar se os TextBox estão vazios
+        private bool VerificarTextbox()
+        {
+            Verifica = (txbNome.Text.Equals(string.Empty) || txbEmail.Text.Equals(string.Empty) || txbEndereco.Text.Equals(string.Empty) || txbCity.Text.Equals(string.Empty) || txbTelefone.Text.Equals(string.Empty) || maskTxbRg.Text.Equals(string.Empty) || maskTxbCpf.Text.Equals(string.Empty) || maskTxbNasc.Text.Equals(string.Empty) || txbNacionalidade.Text.Equals(string.Empty)).Equals(true);
+            return Verifica;
+        }
+
+        //Daqui até
+        private void txbNome_Validating(object sender, CancelEventArgs e)
+        {
+            if (txbNome.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(txbNome, "Por favor, digite o nome do cliente");
+            else
+                IdentificadorErro.SetError(txbNome, "");
+        }
+
+        private void txbEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (txbEmail.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(txbEmail, "Por favor digite o e-Mail do cliente");
+            else
+                IdentificadorErro.SetError(txbEmail, "");
+        }
+
+        private void txbEndereco_Validating(object sender, CancelEventArgs e)
+        {
+            if (txbEndereco.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(txbEndereco, "Por favor digite o endereço do cliente");
+            else
+                IdentificadorErro.SetError(txbEndereco, "");
+        }
+
+        private void txbCity_Validating(object sender, CancelEventArgs e)
+        {
+            if (txbCity.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(txbCity, "Por favor digite a cidade do cliente");
+            else
+                IdentificadorErro.SetError(txbCity, "");
+        }
+
+        private void txbTelefone_Validating(object sender, CancelEventArgs e)
+        {
+            if (txbTelefone.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(txbTelefone, "Por favor digite o telefone do cliente");
+            else
+                IdentificadorErro.SetError(txbTelefone, "");
+        }
+
+        private void maskTxbRg_Validating(object sender, CancelEventArgs e)
+        {
+            if (maskTxbRg.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(maskTxbRg, "Por favor digite o Documento de Identificação do cliente");
+            else
+                IdentificadorErro.SetError(maskTxbRg, "");
+        }
+
+        private void maskTxbCpf_Validating(object sender, CancelEventArgs e)
+        {
+            if (maskTxbCpf.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(maskTxbCpf, "Por favor digite o CPF do cliente");
+            else
+                IdentificadorErro.SetError(maskTxbCpf, "");
+        }
+
+        private void maskTxbNasc_Validating(object sender, CancelEventArgs e)
+        {
+            if (maskTxbNasc.Text.Equals("  /  /"))
+                IdentificadorErro.SetError(maskTxbNasc, "Por favor digite a data de nascimento do cliente");
+            else
+                IdentificadorErro.SetError(maskTxbNasc, "");
+        }
+
+        private void txbNacionalidade_Validating(object sender, CancelEventArgs e)
+        {
+            if (txbNacionalidade.Text.Equals(string.Empty))
+                IdentificadorErro.SetError(txbNacionalidade, "Por favor digite a nacionalidade do cliente");
+            else
+                IdentificadorErro.SetError(txbNacionalidade, "");
+        }
+        //Aqui, código com a finalidade de apontar erros relacionados ao preenchimento dos TextBox
     }
 }

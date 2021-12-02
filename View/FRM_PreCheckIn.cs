@@ -17,6 +17,7 @@ namespace Desktop.View
 
         private void btnSim_Click(object sender, EventArgs e)
         {
+            //Esconte a tela de PreCheckIn e abre a tela de Hóspede
             Hide();
             FRM_Hospede FRM_Hospede = new FRM_Hospede();
             FRM_Hospede.ShowDialog();
@@ -24,6 +25,7 @@ namespace Desktop.View
 
         private void btnNao_Click(object sender, EventArgs e)
         {
+            //Esconte a tela de PreCheckIn e abre a tela de CheckIn
             Hide();
             FRM_CheckIn FRM_CheckIn = new FRM_CheckIn();
             FRM_CheckIn.ShowDialog();
