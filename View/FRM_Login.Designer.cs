@@ -29,6 +29,7 @@ namespace Desktop.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Login));
             this.btnEntrar = new System.Windows.Forms.Button();
             this.txbSenha = new System.Windows.Forms.TextBox();
             this.txbUser = new System.Windows.Forms.TextBox();
@@ -133,6 +134,7 @@ namespace Desktop.View
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblLogin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FRM_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

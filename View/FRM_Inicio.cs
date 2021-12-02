@@ -34,6 +34,7 @@ namespace Desktop.View
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
+            //Abre a tela de PreCheckIn e esconde a tela Inicial
             FRM_PreCheckIn FRM_PreCheckIn = new FRM_PreCheckIn();
             Hide();
             FRM_PreCheckIn.ShowDialog();
@@ -42,6 +43,7 @@ namespace Desktop.View
 
         private void btnListaHospede_Click(object sender, EventArgs e)
         {
+            //Abre a tela de ListaHospedes e esconde a tela Inicial
             FRM_ListaHospedes FRM_ListaHospedes = new FRM_ListaHospedes();
             Hide();
             FRM_ListaHospedes.ShowDialog();
@@ -50,6 +52,7 @@ namespace Desktop.View
 
         private void btnGerenciarQuartos_Click(object sender, EventArgs e)
         {
+            //Abre a tela de GerenciarQuartos e esconde a tela Inicial
             FRM_GerenciarQuartos FRM_GerenciarQuartos = new FRM_GerenciarQuartos();
             Hide();
             FRM_GerenciarQuartos.ShowDialog();
@@ -58,6 +61,7 @@ namespace Desktop.View
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
+            //Abre a tela de CheckOut e esconde a tela Inicial
             FRM_CheckOut FRM_CheckOut = new FRM_CheckOut();
             Hide();
             FRM_CheckOut.ShowDialog();

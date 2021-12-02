@@ -29,6 +29,7 @@ namespace Desktop.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_ListaHospedes));
             this.dgvListaHospedes = new System.Windows.Forms.DataGridView();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnPesquise = new System.Windows.Forms.Button();
@@ -122,6 +123,7 @@ namespace Desktop.View
             this.Controls.Add(this.btnPesquise);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.dgvListaHospedes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FRM_ListaHospedes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -145,6 +145,7 @@ namespace Desktop.View
             this.Controls.Add(this.btnCheckOut);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FRM_Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

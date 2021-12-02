@@ -29,6 +29,7 @@ namespace Desktop.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_PreCheckIn));
             this.lblPergunta = new System.Windows.Forms.Label();
             this.btnSim = new System.Windows.Forms.Button();
             this.btnNao = new System.Windows.Forms.Button();
@@ -79,6 +80,7 @@ namespace Desktop.View
             this.Controls.Add(this.btnSim);
             this.Controls.Add(this.lblPergunta);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FRM_PreCheckIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
